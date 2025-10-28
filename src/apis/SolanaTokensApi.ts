@@ -15,38 +15,38 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetTokenOverviewRequest,
-  GetTokenOverviewsByCreatorRequest,
-  GetTokenOverviewsRequest,
-  GetTokenPricesRequest,
+  GetSolanaTokenPricesRequest,
+  GetSolanaTokenProfileRequest,
+  GetSolanaTokenProfilesByCreatorRequest,
+  GetSolanaTokenProfilesRequest,
   InlineObject,
   InlineObject1,
   InlineObject2,
   InlineObject3,
   InlineObject4,
-  SearchTokenOverviewsRequest,
-  TokenOverview,
-  TokenPrice,
+  SearchSolanaTokenProfilesRequest,
+  SolanaTokenPrice,
+  SolanaTokenProfile,
 } from '../models/index';
 
-export interface GetTokenOverviewOperationRequest {
-    getTokenOverviewRequest?: GetTokenOverviewRequest;
+export interface GetSolanaTokenPricesOperationRequest {
+    getSolanaTokenPricesRequest?: GetSolanaTokenPricesRequest;
 }
 
-export interface GetTokenOverviewsOperationRequest {
-    getTokenOverviewsRequest?: GetTokenOverviewsRequest;
+export interface GetSolanaTokenProfileOperationRequest {
+    getSolanaTokenProfileRequest?: GetSolanaTokenProfileRequest;
 }
 
-export interface GetTokenOverviewsByCreatorOperationRequest {
-    getTokenOverviewsByCreatorRequest?: GetTokenOverviewsByCreatorRequest;
+export interface GetSolanaTokenProfilesOperationRequest {
+    getSolanaTokenProfilesRequest?: GetSolanaTokenProfilesRequest;
 }
 
-export interface GetTokenPricesOperationRequest {
-    getTokenPricesRequest?: GetTokenPricesRequest;
+export interface GetSolanaTokenProfilesByCreatorOperationRequest {
+    getSolanaTokenProfilesByCreatorRequest?: GetSolanaTokenProfilesByCreatorRequest;
 }
 
-export interface SearchTokenOverviewsOperationRequest {
-    searchTokenOverviewsRequest?: SearchTokenOverviewsRequest;
+export interface SearchSolanaTokenProfilesOperationRequest {
+    searchSolanaTokenProfilesRequest?: SearchSolanaTokenProfilesRequest;
 }
 
 /**
@@ -57,84 +57,84 @@ export interface SearchTokenOverviewsOperationRequest {
  */
 export interface SolanaTokensApiInterface {
     /**
-     * Returns the overview for a specific token.
-     * @summary Get Overview
-     * @param {GetTokenOverviewRequest} [getTokenOverviewRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaTokensApiInterface
-     */
-    getTokenOverviewRaw(requestParameters: GetTokenOverviewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenOverview>>;
-
-    /**
-     * Returns the overview for a specific token.
-     * Get Overview
-     */
-    getTokenOverview(requestParameters: GetTokenOverviewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenOverview>;
-
-    /**
-     * Returns overviews for one or more tokens.
-     * @summary Get Multiple Overviews
-     * @param {GetTokenOverviewsRequest} [getTokenOverviewsRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaTokensApiInterface
-     */
-    getTokenOverviewsRaw(requestParameters: GetTokenOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenOverview>>>;
-
-    /**
-     * Returns overviews for one or more tokens.
-     * Get Multiple Overviews
-     */
-    getTokenOverviews(requestParameters: GetTokenOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenOverview>>;
-
-    /**
-     * Returns token overviews for a specific creator.
-     * @summary Get Overviews by Creator
-     * @param {GetTokenOverviewsByCreatorRequest} [getTokenOverviewsByCreatorRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaTokensApiInterface
-     */
-    getTokenOverviewsByCreatorRaw(requestParameters: GetTokenOverviewsByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenOverview>>>;
-
-    /**
-     * Returns token overviews for a specific creator.
-     * Get Overviews by Creator
-     */
-    getTokenOverviewsByCreator(requestParameters: GetTokenOverviewsByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenOverview>>;
-
-    /**
      * Returns prices for one or more tokens.
      * @summary Get Prices
-     * @param {GetTokenPricesRequest} [getTokenPricesRequest] 
+     * @param {GetSolanaTokenPricesRequest} [getSolanaTokenPricesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaTokensApiInterface
      */
-    getTokenPricesRaw(requestParameters: GetTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenPrice>>>;
+    getSolanaTokenPricesRaw(requestParameters: GetSolanaTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenPrice>>>;
 
     /**
      * Returns prices for one or more tokens.
      * Get Prices
      */
-    getTokenPrices(requestParameters: GetTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenPrice>>;
+    getSolanaTokenPrices(requestParameters: GetSolanaTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenPrice>>;
 
     /**
-     * Search and filter token overviews based on specified metrics and conditions.
-     * @summary Search Overviews
-     * @param {SearchTokenOverviewsRequest} [searchTokenOverviewsRequest] 
+     * Returns the profile for a specific token.
+     * @summary Get Profile
+     * @param {GetSolanaTokenProfileRequest} [getSolanaTokenProfileRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaTokensApiInterface
      */
-    searchTokenOverviewsRaw(requestParameters: SearchTokenOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenOverview>>>;
+    getSolanaTokenProfileRaw(requestParameters: GetSolanaTokenProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaTokenProfile>>;
 
     /**
-     * Search and filter token overviews based on specified metrics and conditions.
-     * Search Overviews
+     * Returns the profile for a specific token.
+     * Get Profile
      */
-    searchTokenOverviews(requestParameters: SearchTokenOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenOverview>>;
+    getSolanaTokenProfile(requestParameters: GetSolanaTokenProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaTokenProfile>;
+
+    /**
+     * Returns profiles for one or more tokens.
+     * @summary Get Multiple Profiles
+     * @param {GetSolanaTokenProfilesRequest} [getSolanaTokenProfilesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SolanaTokensApiInterface
+     */
+    getSolanaTokenProfilesRaw(requestParameters: GetSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>>;
+
+    /**
+     * Returns profiles for one or more tokens.
+     * Get Multiple Profiles
+     */
+    getSolanaTokenProfiles(requestParameters: GetSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>>;
+
+    /**
+     * Returns token profiles for a specific creator.
+     * @summary Get Profiles by Creator
+     * @param {GetSolanaTokenProfilesByCreatorRequest} [getSolanaTokenProfilesByCreatorRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SolanaTokensApiInterface
+     */
+    getSolanaTokenProfilesByCreatorRaw(requestParameters: GetSolanaTokenProfilesByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>>;
+
+    /**
+     * Returns token profiles for a specific creator.
+     * Get Profiles by Creator
+     */
+    getSolanaTokenProfilesByCreator(requestParameters: GetSolanaTokenProfilesByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>>;
+
+    /**
+     * Search and filter token profiles based on specified metrics and conditions.
+     * @summary Search Profiles
+     * @param {SearchSolanaTokenProfilesRequest} [searchSolanaTokenProfilesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SolanaTokensApiInterface
+     */
+    searchSolanaTokenProfilesRaw(requestParameters: SearchSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>>;
+
+    /**
+     * Search and filter token profiles based on specified metrics and conditions.
+     * Search Profiles
+     */
+    searchSolanaTokenProfiles(requestParameters: SearchSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>>;
 
 }
 
@@ -144,116 +144,10 @@ export interface SolanaTokensApiInterface {
 export class SolanaTokensApi extends runtime.BaseAPI implements SolanaTokensApiInterface {
 
     /**
-     * Returns the overview for a specific token.
-     * Get Overview
-     */
-    async getTokenOverviewRaw(requestParameters: GetTokenOverviewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenOverview>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/solana/tokens/get-overview`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenOverviewRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns the overview for a specific token.
-     * Get Overview
-     */
-    async getTokenOverview(requestParameters: GetTokenOverviewOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenOverview> {
-        const response = await this.getTokenOverviewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns overviews for one or more tokens.
-     * Get Multiple Overviews
-     */
-    async getTokenOverviewsRaw(requestParameters: GetTokenOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenOverview>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/solana/tokens/get-overviews`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenOverviewsRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns overviews for one or more tokens.
-     * Get Multiple Overviews
-     */
-    async getTokenOverviews(requestParameters: GetTokenOverviewsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenOverview>> {
-        const response = await this.getTokenOverviewsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns token overviews for a specific creator.
-     * Get Overviews by Creator
-     */
-    async getTokenOverviewsByCreatorRaw(requestParameters: GetTokenOverviewsByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenOverview>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/solana/tokens/get-overviews-by-creator`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenOverviewsByCreatorRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns token overviews for a specific creator.
-     * Get Overviews by Creator
-     */
-    async getTokenOverviewsByCreator(requestParameters: GetTokenOverviewsByCreatorOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenOverview>> {
-        const response = await this.getTokenOverviewsByCreatorRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Returns prices for one or more tokens.
      * Get Prices
      */
-    async getTokenPricesRaw(requestParameters: GetTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenPrice>>> {
+    async getSolanaTokenPricesRaw(requestParameters: GetSolanaTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenPrice>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -272,7 +166,7 @@ export class SolanaTokensApi extends runtime.BaseAPI implements SolanaTokensApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getTokenPricesRequest'],
+            body: requestParameters['getSolanaTokenPricesRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
@@ -282,16 +176,84 @@ export class SolanaTokensApi extends runtime.BaseAPI implements SolanaTokensApiI
      * Returns prices for one or more tokens.
      * Get Prices
      */
-    async getTokenPrices(requestParameters: GetTokenPricesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenPrice>> {
-        const response = await this.getTokenPricesRaw(requestParameters, initOverrides);
+    async getSolanaTokenPrices(requestParameters: GetSolanaTokenPricesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenPrice>> {
+        const response = await this.getSolanaTokenPricesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Search and filter token overviews based on specified metrics and conditions.
-     * Search Overviews
+     * Returns the profile for a specific token.
+     * Get Profile
      */
-    async searchTokenOverviewsRaw(requestParameters: SearchTokenOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<TokenOverview>>> {
+    async getSolanaTokenProfileRaw(requestParameters: GetSolanaTokenProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaTokenProfile>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/solana/tokens/get-profile`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['getSolanaTokenProfileRequest'],
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response);
+    }
+
+    /**
+     * Returns the profile for a specific token.
+     * Get Profile
+     */
+    async getSolanaTokenProfile(requestParameters: GetSolanaTokenProfileOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaTokenProfile> {
+        const response = await this.getSolanaTokenProfileRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Returns profiles for one or more tokens.
+     * Get Multiple Profiles
+     */
+    async getSolanaTokenProfilesRaw(requestParameters: GetSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/solana/tokens/get-profiles`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['getSolanaTokenProfilesRequest'],
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response);
+    }
+
+    /**
+     * Returns profiles for one or more tokens.
+     * Get Multiple Profiles
+     */
+    async getSolanaTokenProfiles(requestParameters: GetSolanaTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>> {
+        const response = await this.getSolanaTokenProfilesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Returns token profiles for a specific creator.
+     * Get Profiles by Creator
+     */
+    async getSolanaTokenProfilesByCreatorRaw(requestParameters: GetSolanaTokenProfilesByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -303,25 +265,63 @@ export class SolanaTokensApi extends runtime.BaseAPI implements SolanaTokensApiI
         }
 
 
-        let urlPath = `/solana/tokens/search-overviews`;
+        let urlPath = `/solana/tokens/get-profiles-by-creator`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['searchTokenOverviewsRequest'],
+            body: requestParameters['getSolanaTokenProfilesByCreatorRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Search and filter token overviews based on specified metrics and conditions.
-     * Search Overviews
+     * Returns token profiles for a specific creator.
+     * Get Profiles by Creator
      */
-    async searchTokenOverviews(requestParameters: SearchTokenOverviewsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<TokenOverview>> {
-        const response = await this.searchTokenOverviewsRaw(requestParameters, initOverrides);
+    async getSolanaTokenProfilesByCreator(requestParameters: GetSolanaTokenProfilesByCreatorOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>> {
+        const response = await this.getSolanaTokenProfilesByCreatorRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Search and filter token profiles based on specified metrics and conditions.
+     * Search Profiles
+     */
+    async searchSolanaTokenProfilesRaw(requestParameters: SearchSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
+
+
+        let urlPath = `/solana/tokens/search-profiles`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['searchSolanaTokenProfilesRequest'],
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response);
+    }
+
+    /**
+     * Search and filter token profiles based on specified metrics and conditions.
+     * Search Profiles
+     */
+    async searchSolanaTokenProfiles(requestParameters: SearchSolanaTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>> {
+        const response = await this.searchSolanaTokenProfilesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

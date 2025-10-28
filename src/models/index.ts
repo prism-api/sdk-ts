@@ -3,128 +3,104 @@
 /**
  * 
  * @export
- * @interface FilterWalletPositionOverviewsRequest
+ * @interface GetSolanaTokenPricesRequest
  */
-export interface FilterWalletPositionOverviewsRequest {
+export interface GetSolanaTokenPricesRequest {
     /**
-     * Wallet address to filter position overviews for.
-     * @type {string}
-     * @memberof FilterWalletPositionOverviewsRequest
+     * List of token addresses to retrieve prices for.
+     * @type {Array<string>}
+     * @memberof GetSolanaTokenPricesRequest
      */
-    wallet: string;
-    /**
-     * List of filter rules to apply.
-     * @type {Array<PayloadFilterFieldInner>}
-     * @memberof FilterWalletPositionOverviewsRequest
-     */
-    filter?: Array<PayloadFilterFieldInner>;
-    /**
-     * 
-     * @type {PayloadSortField}
-     * @memberof FilterWalletPositionOverviewsRequest
-     */
-    sort?: PayloadSortField;
-    /**
-     * Maximum number of results to return.
-     * @type {number}
-     * @memberof FilterWalletPositionOverviewsRequest
-     */
-    limit?: number;
-    /**
-     * List of time windows to include in the overview.
-     * @type {Array<WalletOverviewTimeWindowEnum>}
-     * @memberof FilterWalletPositionOverviewsRequest
-     */
-    time_windows?: Array<WalletOverviewTimeWindowEnum>;
+    tokens: Array<string>;
 }
 /**
  * 
  * @export
- * @interface GetTokenOverviewRequest
+ * @interface GetSolanaTokenProfileRequest
  */
-export interface GetTokenOverviewRequest {
+export interface GetSolanaTokenProfileRequest {
     /**
-     * Token address to retrieve overview for.
+     * Token address to retrieve profile for.
      * @type {string}
-     * @memberof GetTokenOverviewRequest
+     * @memberof GetSolanaTokenProfileRequest
      */
     token: string;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<TokenOverviewTimeWindowEnum>}
-     * @memberof GetTokenOverviewRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaTokenProfileTimeWindowEnum>}
+     * @memberof GetSolanaTokenProfileRequest
      */
-    time_windows?: Array<TokenOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface GetTokenOverviewsByCreatorRequest
+ * @interface GetSolanaTokenProfilesByCreatorRequest
  */
-export interface GetTokenOverviewsByCreatorRequest {
+export interface GetSolanaTokenProfilesByCreatorRequest {
     /**
-     * Creator address to retrieve token overviews for.
+     * Creator address to retrieve token profiles for.
      * @type {string}
-     * @memberof GetTokenOverviewsByCreatorRequest
+     * @memberof GetSolanaTokenProfilesByCreatorRequest
      */
     creator?: string;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<TokenOverviewTimeWindowEnum>}
-     * @memberof GetTokenOverviewsByCreatorRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaTokenProfileTimeWindowEnum>}
+     * @memberof GetSolanaTokenProfilesByCreatorRequest
      */
-    time_windows?: Array<TokenOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface GetTokenOverviewsRequest
+ * @interface GetSolanaTokenProfilesRequest
  */
-export interface GetTokenOverviewsRequest {
+export interface GetSolanaTokenProfilesRequest {
     /**
-     * List of token addresses to retrieve overview for.
+     * List of token addresses to retrieve profile for.
      * @type {Array<string>}
-     * @memberof GetTokenOverviewsRequest
+     * @memberof GetSolanaTokenProfilesRequest
      */
     tokens: Array<string>;
     /**
      * 
-     * @type {GetTokenOverviewsRequestSort}
-     * @memberof GetTokenOverviewsRequest
+     * @type {GetSolanaTokenProfilesRequestSort}
+     * @memberof GetSolanaTokenProfilesRequest
      */
-    sort?: GetTokenOverviewsRequestSort;
+    sort?: GetSolanaTokenProfilesRequestSort;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<TokenOverviewTimeWindowEnum>}
-     * @memberof GetTokenOverviewsRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaTokenProfileTimeWindowEnum>}
+     * @memberof GetSolanaTokenProfilesRequest
      */
-    time_windows?: Array<TokenOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
 }
 /**
  * Sorting rule.
  * @export
- * @interface GetTokenOverviewsRequestSort
+ * @interface GetSolanaTokenProfilesRequestSort
  */
-export interface GetTokenOverviewsRequestSort {
+export interface GetSolanaTokenProfilesRequestSort {
     /**
      * 
      * @type {any}
-     * @memberof GetTokenOverviewsRequestSort
+     * @memberof GetSolanaTokenProfilesRequestSort
      */
     field: any | null;
     /**
      * Sorting direction.
      * @type {string}
-     * @memberof GetTokenOverviewsRequestSort
+     * @memberof GetSolanaTokenProfilesRequestSort
      */
-    direction: GetTokenOverviewsRequestSortDirectionEnum;
+    direction: GetSolanaTokenProfilesRequestSortDirectionEnum;
 }
 
 /**
 * @export
 * @enum {string}
 */
-export enum GetTokenOverviewsRequestSortDirectionEnum {
+export enum GetSolanaTokenProfilesRequestSortDirectionEnum {
     ASC = 'asc',
     DESC = 'desc'
 }
@@ -132,59 +108,59 @@ export enum GetTokenOverviewsRequestSortDirectionEnum {
 /**
  * 
  * @export
- * @interface GetTokenPricesRequest
+ * @interface GetSolanaWalletPortfolioRequest
  */
-export interface GetTokenPricesRequest {
+export interface GetSolanaWalletPortfolioRequest {
     /**
-     * List of token addresses to retrieve prices for.
-     * @type {Array<string>}
-     * @memberof GetTokenPricesRequest
+     * Wallet address to retrieve portfolio for.
+     * @type {string}
+     * @memberof GetSolanaWalletPortfolioRequest
      */
-    tokens: Array<string>;
+    wallet: string;
 }
 /**
  * 
  * @export
- * @interface GetWalletOverviewHistoryRequest
+ * @interface GetSolanaWalletProfileHistoryRequest
  */
-export interface GetWalletOverviewHistoryRequest {
+export interface GetSolanaWalletProfileHistoryRequest {
     /**
-     * Wallet address to retrieve overview history for.
+     * Wallet address to retrieve profile history for.
      * @type {string}
-     * @memberof GetWalletOverviewHistoryRequest
+     * @memberof GetSolanaWalletProfileHistoryRequest
      */
     wallet: string;
     /**
-     * Optional token address to filter overview history by.
+     * Optional token address to filter profile history by.
      * @type {string}
-     * @memberof GetWalletOverviewHistoryRequest
+     * @memberof GetSolanaWalletProfileHistoryRequest
      */
     token?: string;
     /**
      * Start time for the history range, as a Unix timestamp.
      * @type {number}
-     * @memberof GetWalletOverviewHistoryRequest
+     * @memberof GetSolanaWalletProfileHistoryRequest
      */
     from?: number;
     /**
      * End time for the history range, as a Unix timestamp.
      * @type {number}
-     * @memberof GetWalletOverviewHistoryRequest
+     * @memberof GetSolanaWalletProfileHistoryRequest
      */
     to?: number;
     /**
      * Time interval to aggregate metrics by.
      * @type {string}
-     * @memberof GetWalletOverviewHistoryRequest
+     * @memberof GetSolanaWalletProfileHistoryRequest
      */
-    time_interval?: GetWalletOverviewHistoryRequestTimeIntervalEnum;
+    time_interval?: GetSolanaWalletProfileHistoryRequestTimeIntervalEnum;
 }
 
 /**
 * @export
 * @enum {string}
 */
-export enum GetWalletOverviewHistoryRequestTimeIntervalEnum {
+export enum GetSolanaWalletProfileHistoryRequestTimeIntervalEnum {
     _1H = '1h',
     _4H = '4h',
     _12H = '12h',
@@ -194,109 +170,46 @@ export enum GetWalletOverviewHistoryRequestTimeIntervalEnum {
 /**
  * 
  * @export
- * @interface GetWalletOverviewRequest
+ * @interface GetSolanaWalletProfileRequest
  */
-export interface GetWalletOverviewRequest {
+export interface GetSolanaWalletProfileRequest {
     /**
-     * Wallet address to retrieve overview for.
+     * Wallet address to retrieve profile for.
      * @type {string}
-     * @memberof GetWalletOverviewRequest
+     * @memberof GetSolanaWalletProfileRequest
      */
     wallet: string;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<WalletOverviewTimeWindowEnum>}
-     * @memberof GetWalletOverviewRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaWalletProfileTimeWindowEnum>}
+     * @memberof GetSolanaWalletProfileRequest
      */
-    time_windows?: Array<WalletOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaWalletProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface GetWalletOverviewsRequest
+ * @interface GetSolanaWalletProfilesRequest
  */
-export interface GetWalletOverviewsRequest {
+export interface GetSolanaWalletProfilesRequest {
     /**
-     * List of wallet addresses to retrieve overview for.
+     * List of wallet addresses to retrieve profile for.
      * @type {Array<string>}
-     * @memberof GetWalletOverviewsRequest
+     * @memberof GetSolanaWalletProfilesRequest
      */
     wallets?: Array<string>;
     /**
      * 
      * @type {PayloadSortField}
-     * @memberof GetWalletOverviewsRequest
+     * @memberof GetSolanaWalletProfilesRequest
      */
     sort?: PayloadSortField;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<WalletOverviewTimeWindowEnum>}
-     * @memberof GetWalletOverviewsRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaWalletProfileTimeWindowEnum>}
+     * @memberof GetSolanaWalletProfilesRequest
      */
-    time_windows?: Array<WalletOverviewTimeWindowEnum>;
-}
-/**
- * 
- * @export
- * @interface GetWalletPortfolioRequest
- */
-export interface GetWalletPortfolioRequest {
-    /**
-     * Wallet address to retrieve portfolio for.
-     * @type {string}
-     * @memberof GetWalletPortfolioRequest
-     */
-    wallet: string;
-}
-/**
- * 
- * @export
- * @interface GetWalletPositionOverviewsByTokensRequest
- */
-export interface GetWalletPositionOverviewsByTokensRequest {
-    /**
-     * Wallet address to retrieve overview for.
-     * @type {string}
-     * @memberof GetWalletPositionOverviewsByTokensRequest
-     */
-    wallet: string;
-    /**
-     * List of token addresses to include in the overview breakdown.
-     * @type {Array<string>}
-     * @memberof GetWalletPositionOverviewsByTokensRequest
-     */
-    tokens: Array<string>;
-    /**
-     * List of time windows to include in the overview.
-     * @type {Array<WalletOverviewTimeWindowEnum>}
-     * @memberof GetWalletPositionOverviewsByTokensRequest
-     */
-    time_windows?: Array<WalletOverviewTimeWindowEnum>;
-}
-/**
- * 
- * @export
- * @interface GetWalletPositionOverviewsByWalletsRequest
- */
-export interface GetWalletPositionOverviewsByWalletsRequest {
-    /**
-     * Token address to retrieve overview for.
-     * @type {string}
-     * @memberof GetWalletPositionOverviewsByWalletsRequest
-     */
-    token: string;
-    /**
-     * List of wallet addresses to include in the overview breakdown.
-     * @type {Array<string>}
-     * @memberof GetWalletPositionOverviewsByWalletsRequest
-     */
-    wallets: Array<string>;
-    /**
-     * List of time windows to include in the overview.
-     * @type {Array<WalletOverviewTimeWindowEnum>}
-     * @memberof GetWalletPositionOverviewsByWalletsRequest
-     */
-    time_windows?: Array<WalletOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaWalletProfileTimeWindowEnum>;
 }
 /**
  * 
@@ -465,256 +378,318 @@ export enum PayloadSortFieldDirectionEnum {
 /**
  * 
  * @export
- * @interface SearchTokenOverviewsRequest
+ * @interface SearchSolanaTokenProfilesRequest
  */
-export interface SearchTokenOverviewsRequest {
+export interface SearchSolanaTokenProfilesRequest {
     /**
      * 
-     * @type {PayloadQueryField}
-     * @memberof SearchTokenOverviewsRequest
+     * @type {SolanaTokenPayloadQueryField}
+     * @memberof SearchSolanaTokenProfilesRequest
      */
-    query?: PayloadQueryField;
+    query?: SolanaTokenPayloadQueryField;
     /**
      * List of filter rules to apply.
      * @type {Array<PayloadFilterFieldInner>}
-     * @memberof SearchTokenOverviewsRequest
+     * @memberof SearchSolanaTokenProfilesRequest
      */
     filter?: Array<PayloadFilterFieldInner>;
     /**
      * 
      * @type {PayloadSortField}
-     * @memberof SearchTokenOverviewsRequest
+     * @memberof SearchSolanaTokenProfilesRequest
      */
     sort?: PayloadSortField;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<TokenOverviewTimeWindowEnum>}
-     * @memberof SearchTokenOverviewsRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaTokenProfileTimeWindowEnum>}
+     * @memberof SearchSolanaTokenProfilesRequest
      */
-    time_windows?: Array<TokenOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
     /**
      * Maximum number of results to return.
      * @type {number}
-     * @memberof SearchTokenOverviewsRequest
+     * @memberof SearchSolanaTokenProfilesRequest
      */
     limit?: number;
     /**
      * Cursor to return the next page of results.
      * @type {string}
-     * @memberof SearchTokenOverviewsRequest
+     * @memberof SearchSolanaTokenProfilesRequest
      */
     cursor?: string;
 }
 /**
  * 
  * @export
- * @interface SearchWalletOverviews200Response
+ * @interface SearchSolanaWalletProfiles200Response
  */
-export interface SearchWalletOverviews200Response {
+export interface SearchSolanaWalletProfiles200Response {
     /**
      * 
      * @type {number}
-     * @memberof SearchWalletOverviews200Response
+     * @memberof SearchSolanaWalletProfiles200Response
      */
     page?: number;
     /**
      * 
      * @type {string}
-     * @memberof SearchWalletOverviews200Response
+     * @memberof SearchSolanaWalletProfiles200Response
      */
     cursor?: string;
     /**
      * 
-     * @type {Array<WalletOverview>}
-     * @memberof SearchWalletOverviews200Response
+     * @type {Array<SolanaWalletProfile>}
+     * @memberof SearchSolanaWalletProfiles200Response
      */
-    results?: Array<WalletOverview>;
+    results?: Array<SolanaWalletProfile>;
 }
 /**
  * 
  * @export
- * @interface SearchWalletOverviewsRequest
+ * @interface SearchSolanaWalletProfilesRequest
  */
-export interface SearchWalletOverviewsRequest {
+export interface SearchSolanaWalletProfilesRequest {
     /**
      * List of filter rules to apply.
      * @type {Array<PayloadFilterFieldInner>}
-     * @memberof SearchWalletOverviewsRequest
+     * @memberof SearchSolanaWalletProfilesRequest
      */
     filter?: Array<PayloadFilterFieldInner>;
     /**
      * 
      * @type {PayloadSortField}
-     * @memberof SearchWalletOverviewsRequest
+     * @memberof SearchSolanaWalletProfilesRequest
      */
     sort?: PayloadSortField;
     /**
-     * List of time windows to include in the overview.
-     * @type {Array<WalletOverviewTimeWindowEnum>}
-     * @memberof SearchWalletOverviewsRequest
+     * List of time windows to include in the profile.
+     * @type {Array<SolanaWalletProfileTimeWindowEnum>}
+     * @memberof SearchSolanaWalletProfilesRequest
      */
-    time_windows?: Array<WalletOverviewTimeWindowEnum>;
+    time_windows?: Array<SolanaWalletProfileTimeWindowEnum>;
     /**
      * Maximum number of results to return.
      * @type {number}
-     * @memberof SearchWalletOverviewsRequest
+     * @memberof SearchSolanaWalletProfilesRequest
      */
     limit?: number;
     /**
      * Cursor to return the next page of results.
      * @type {string}
-     * @memberof SearchWalletOverviewsRequest
+     * @memberof SearchSolanaWalletProfilesRequest
      */
     cursor?: string;
 }
 /**
  * 
  * @export
- * @interface TokenOverview
+ * @interface SolanaTokenPayloadQueryField
  */
-export interface TokenOverview {
+export interface SolanaTokenPayloadQueryField {
+    /**
+     * Text to search for.
+     * @type {string}
+     * @memberof SolanaTokenPayloadQueryField
+     */
+    text: string;
+    /**
+     * 
+     * @type {Array<SolanaTokenPayloadQueryFieldFieldsEnum>}
+     * @memberof SolanaTokenPayloadQueryField
+     */
+    fields: Array<SolanaTokenPayloadQueryFieldFieldsEnum>;
+    /**
+     * Whether to use fuzzy search.
+     * @type {boolean}
+     * @memberof SolanaTokenPayloadQueryField
+     */
+    fuzzy?: boolean;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SolanaTokenPayloadQueryFieldFieldsEnum {
+    TOKEN_ADDRESS = 'token_address',
+    NAME = 'name',
+    SYMBOL = 'symbol',
+    CREATOR = 'creator'
+}
+
+/**
+ * 
+ * @export
+ * @interface SolanaTokenPrice
+ */
+export interface SolanaTokenPrice {
     /**
      * 
      * @type {string}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenPrice
      */
-    token_address?: string;
+    token?: string;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
-     */
-    last_trade_at?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TokenOverview
-     */
-    created_at?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TokenOverview
-     */
-    symbol?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TokenOverview
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TokenOverview
-     */
-    dev_address?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TokenOverview
-     */
-    dev_migrations?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TokenOverview
-     */
-    image?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TokenOverview
-     */
-    fdv?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TokenOverview
-     */
-    market_cap?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenPrice
      */
     price?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenPrice
+     */
+    updated_at?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaTokenProfile
+ */
+export interface SolanaTokenProfile {
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaTokenProfile
+     */
+    token_address?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
+     */
+    last_trade_at?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
+     */
+    created_at?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaTokenProfile
+     */
+    symbol?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaTokenProfile
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaTokenProfile
+     */
+    dev_address?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
+     */
+    dev_migrations?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaTokenProfile
+     */
+    image?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
+     */
+    fdv?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
+     */
+    market_cap?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
+     */
+    price?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaTokenProfile
      */
     liquidity?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     holders?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     total_supply?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     circulating_supply?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     top_holdings?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     dev_holdings?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     bonding_curve_progress?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     migrated_at?: number;
     /**
      * 
      * @type {boolean}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     verified?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     twitter?: string;
     /**
      * 
      * @type {string}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     telegram?: string;
     /**
      * 
      * @type {string}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     website?: string;
     /**
      * 
      * @type {string}
-     * @memberof TokenOverview
+     * @memberof SolanaTokenProfile
      */
     discord?: string;
 }
@@ -723,7 +698,7 @@ export interface TokenOverview {
  * @export
  * @enum {string}
  */
-export enum TokenOverviewTimeWindowEnum {
+export enum SolanaTokenProfileTimeWindowEnum {
     _30D = '30d',
     _14D = '14d',
     _7D = '7d',
@@ -734,27 +709,819 @@ export enum TokenOverviewTimeWindowEnum {
 /**
  * 
  * @export
- * @interface TokenPrice
+ * @interface SolanaWalletPortfolio
  */
-export interface TokenPrice {
+export interface SolanaWalletPortfolio {
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletPortfolio
+     */
+    value?: number;
+    /**
+     * 
+     * @type {Array<SolanaWalletPortfolioTokensInner>}
+     * @memberof SolanaWalletPortfolio
+     */
+    tokens?: Array<SolanaWalletPortfolioTokensInner>;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaWalletPortfolioTokensInner
+ */
+export interface SolanaWalletPortfolioTokensInner {
     /**
      * 
      * @type {string}
-     * @memberof TokenPrice
+     * @memberof SolanaWalletPortfolioTokensInner
      */
     token?: string;
     /**
      * 
      * @type {number}
-     * @memberof TokenPrice
+     * @memberof SolanaWalletPortfolioTokensInner
+     */
+    balance?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletPortfolioTokensInner
      */
     price?: number;
     /**
      * 
      * @type {number}
-     * @memberof TokenPrice
+     * @memberof SolanaWalletPortfolioTokensInner
      */
-    updated_at?: number;
+    value?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaWalletProfile
+ */
+export interface SolanaWalletProfile {
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaWalletProfile
+     */
+    wallet_address?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfile
+     */
+    last_trade_at?: number;
+    /**
+     * 
+     * @type {SolanaWalletProfileTimeWindows}
+     * @memberof SolanaWalletProfile
+     */
+    time_windows?: SolanaWalletProfileTimeWindows;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaWalletProfileHistoryInner
+ */
+export interface SolanaWalletProfileHistoryInner {
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    risk_score?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    consistency_score?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    largest_win?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    largest_loss?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    max_consecutive_wins?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    max_consecutive_losses?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_buy_size?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_sell_size?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_buy_mcap?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_sell_mcap?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_daily_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_daily_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_daily_trade_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_daily_traded_tokens?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_daily_volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_holding_duration?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_trade_delta?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_token_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    avg_token_roi?: number;
+    /**
+     * 
+     * @type {TokenRoiDistribution}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    token_roi_distribution?: TokenRoiDistribution;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    trade_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    buy_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    sell_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    position_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    win_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    loss_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    win_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    loss_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    buy_volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    sell_volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    winrate?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    volume_weighted_winrate?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    volume_weighted_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    time_weighted_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    pnl_volume_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    token_hit_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    win_loss_size_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    profit_factor?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    profit_expectancy?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    recovery_factor?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    winrate_stability?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    winrate_volatility?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    pnl_stability?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    pnl_volatility?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    roi_stability?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    roi_volatility?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    sharpe_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    sortino_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    max_drawdown?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    risk_of_ruin?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    turnover?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileHistoryInner
+     */
+    time?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaWalletProfileMetrics
+ */
+export interface SolanaWalletProfileMetrics {
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    risk_score?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    consistency_score?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    largest_win?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    largest_loss?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    max_consecutive_wins?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    max_consecutive_losses?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_buy_size?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_sell_size?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_buy_mcap?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_sell_mcap?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_daily_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_daily_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_daily_trade_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_daily_traded_tokens?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_daily_volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_holding_duration?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_trade_delta?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_token_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    avg_token_roi?: number;
+    /**
+     * 
+     * @type {TokenRoiDistribution}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    token_roi_distribution?: TokenRoiDistribution;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    trade_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    buy_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    sell_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    position_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    win_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    loss_count?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    win_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    loss_pnl?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    buy_volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    sell_volume?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    winrate?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    volume_weighted_winrate?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    volume_weighted_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    time_weighted_roi?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    pnl_volume_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    token_hit_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    win_loss_size_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    profit_factor?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    profit_expectancy?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    recovery_factor?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    winrate_stability?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    winrate_volatility?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    pnl_stability?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    pnl_volatility?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    roi_stability?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    roi_volatility?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    sharpe_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    sortino_ratio?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    max_drawdown?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    risk_of_ruin?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaWalletProfileMetrics
+     */
+    turnover?: number;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SolanaWalletProfileTimeWindowEnum {
+    _30D = '30d',
+    _14D = '14d',
+    _7D = '7d',
+    _3D = '3d',
+    _1D = '1d'
+}
+
+/**
+ * 
+ * @export
+ * @interface SolanaWalletProfileTimeWindows
+ */
+export interface SolanaWalletProfileTimeWindows {
+    /**
+     * 
+     * @type {SolanaWalletProfileMetrics}
+     * @memberof SolanaWalletProfileTimeWindows
+     */
+    _30d?: SolanaWalletProfileMetrics;
+    /**
+     * 
+     * @type {SolanaWalletProfileMetrics}
+     * @memberof SolanaWalletProfileTimeWindows
+     */
+    _14d?: SolanaWalletProfileMetrics;
+    /**
+     * 
+     * @type {SolanaWalletProfileMetrics}
+     * @memberof SolanaWalletProfileTimeWindows
+     */
+    _7d?: SolanaWalletProfileMetrics;
+    /**
+     * 
+     * @type {SolanaWalletProfileMetrics}
+     * @memberof SolanaWalletProfileTimeWindows
+     */
+    _3d?: SolanaWalletProfileMetrics;
+    /**
+     * 
+     * @type {SolanaWalletProfileMetrics}
+     * @memberof SolanaWalletProfileTimeWindows
+     */
+    _1d?: SolanaWalletProfileMetrics;
 }
 /**
  * 
@@ -792,852 +1559,4 @@ export interface TokenRoiDistribution {
      * @memberof TokenRoiDistribution
      */
     lt_neg50_0?: number;
-}
-/**
- * 
- * @export
- * @interface WalletOverview
- */
-export interface WalletOverview {
-    /**
-     * 
-     * @type {string}
-     * @memberof WalletOverview
-     */
-    wallet_address?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverview
-     */
-    last_trade_at?: number;
-    /**
-     * 
-     * @type {WalletOverviewTimeWindows}
-     * @memberof WalletOverview
-     */
-    time_windows?: WalletOverviewTimeWindows;
-}
-/**
- * 
- * @export
- * @interface WalletOverviewHistoryInner
- */
-export interface WalletOverviewHistoryInner {
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    risk_score?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    consistency_score?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    largest_win?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    largest_loss?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    max_consecutive_wins?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    max_consecutive_losses?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_buy_size?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_sell_size?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_buy_mcap?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_sell_mcap?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_daily_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_daily_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_daily_trade_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_daily_traded_tokens?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_daily_volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_holding_duration?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_trade_delta?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_token_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    avg_token_roi?: number;
-    /**
-     * 
-     * @type {TokenRoiDistribution}
-     * @memberof WalletOverviewHistoryInner
-     */
-    token_roi_distribution?: TokenRoiDistribution;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    trade_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    buy_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    sell_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    position_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    win_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    loss_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    win_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    loss_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    buy_volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    sell_volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    winrate?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    volume_weighted_winrate?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    volume_weighted_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    time_weighted_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    pnl_volume_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    token_hit_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    win_loss_size_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    profit_factor?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    profit_expectancy?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    recovery_factor?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    winrate_stability?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    winrate_volatility?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    pnl_stability?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    pnl_volatility?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    roi_stability?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    roi_volatility?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    sharpe_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    sortino_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    max_drawdown?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    risk_of_ruin?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    turnover?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewHistoryInner
-     */
-    time?: number;
-}
-/**
- * 
- * @export
- * @interface WalletOverviewMetrics
- */
-export interface WalletOverviewMetrics {
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    risk_score?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    consistency_score?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    largest_win?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    largest_loss?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    max_consecutive_wins?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    max_consecutive_losses?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_buy_size?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_sell_size?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_buy_mcap?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_sell_mcap?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_daily_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_daily_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_daily_trade_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_daily_traded_tokens?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_daily_volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_holding_duration?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_trade_delta?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_token_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    avg_token_roi?: number;
-    /**
-     * 
-     * @type {TokenRoiDistribution}
-     * @memberof WalletOverviewMetrics
-     */
-    token_roi_distribution?: TokenRoiDistribution;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    trade_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    buy_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    sell_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    position_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    win_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    loss_count?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    win_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    loss_pnl?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    buy_volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    sell_volume?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    winrate?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    volume_weighted_winrate?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    volume_weighted_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    time_weighted_roi?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    pnl_volume_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    token_hit_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    win_loss_size_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    profit_factor?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    profit_expectancy?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    recovery_factor?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    winrate_stability?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    winrate_volatility?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    pnl_stability?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    pnl_volatility?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    roi_stability?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    roi_volatility?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    sharpe_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    sortino_ratio?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    max_drawdown?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    risk_of_ruin?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletOverviewMetrics
-     */
-    turnover?: number;
-}
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum WalletOverviewTimeWindowEnum {
-    _30D = '30d',
-    _14D = '14d',
-    _7D = '7d',
-    _3D = '3d',
-    _1D = '1d'
-}
-
-/**
- * 
- * @export
- * @interface WalletOverviewTimeWindows
- */
-export interface WalletOverviewTimeWindows {
-    /**
-     * 
-     * @type {WalletOverviewMetrics}
-     * @memberof WalletOverviewTimeWindows
-     */
-    _30d?: WalletOverviewMetrics;
-    /**
-     * 
-     * @type {WalletOverviewMetrics}
-     * @memberof WalletOverviewTimeWindows
-     */
-    _14d?: WalletOverviewMetrics;
-    /**
-     * 
-     * @type {WalletOverviewMetrics}
-     * @memberof WalletOverviewTimeWindows
-     */
-    _7d?: WalletOverviewMetrics;
-    /**
-     * 
-     * @type {WalletOverviewMetrics}
-     * @memberof WalletOverviewTimeWindows
-     */
-    _3d?: WalletOverviewMetrics;
-    /**
-     * 
-     * @type {WalletOverviewMetrics}
-     * @memberof WalletOverviewTimeWindows
-     */
-    _1d?: WalletOverviewMetrics;
-}
-/**
- * 
- * @export
- * @interface WalletPortfolio
- */
-export interface WalletPortfolio {
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletPortfolio
-     */
-    value?: number;
-    /**
-     * 
-     * @type {Array<WalletPortfolioTokensInner>}
-     * @memberof WalletPortfolio
-     */
-    tokens?: Array<WalletPortfolioTokensInner>;
-}
-/**
- * 
- * @export
- * @interface WalletPortfolioTokensInner
- */
-export interface WalletPortfolioTokensInner {
-    /**
-     * 
-     * @type {string}
-     * @memberof WalletPortfolioTokensInner
-     */
-    token?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletPortfolioTokensInner
-     */
-    balance?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletPortfolioTokensInner
-     */
-    price?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletPortfolioTokensInner
-     */
-    value?: number;
-}
-/**
- * 
- * @export
- * @interface WalletTokenOverview
- */
-export interface WalletTokenOverview {
-    /**
-     * 
-     * @type {string}
-     * @memberof WalletTokenOverview
-     */
-    wallet_address?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WalletTokenOverview
-     */
-    token_address?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof WalletTokenOverview
-     */
-    last_trade_at?: number;
-    /**
-     * 
-     * @type {WalletOverviewTimeWindows}
-     * @memberof WalletTokenOverview
-     */
-    time_windows?: WalletOverviewTimeWindows;
 }

@@ -15,56 +15,40 @@
 
 import * as runtime from '../runtime';
 import type {
-  FilterWalletPositionOverviewsRequest,
-  GetWalletOverviewHistoryRequest,
-  GetWalletOverviewRequest,
-  GetWalletOverviewsRequest,
-  GetWalletPortfolioRequest,
-  GetWalletPositionOverviewsByTokensRequest,
-  GetWalletPositionOverviewsByWalletsRequest,
+  GetSolanaWalletPortfolioRequest,
+  GetSolanaWalletProfileHistoryRequest,
+  GetSolanaWalletProfileRequest,
+  GetSolanaWalletProfilesRequest,
   InlineObject,
   InlineObject1,
   InlineObject2,
   InlineObject3,
   InlineObject4,
-  SearchWalletOverviews200Response,
-  SearchWalletOverviewsRequest,
-  WalletOverview,
-  WalletOverviewHistoryInner,
-  WalletPortfolio,
-  WalletTokenOverview,
+  SearchSolanaWalletProfiles200Response,
+  SearchSolanaWalletProfilesRequest,
+  SolanaWalletPortfolio,
+  SolanaWalletProfile,
+  SolanaWalletProfileHistoryInner,
 } from '../models/index';
 
-export interface FilterWalletPositionOverviewsOperationRequest {
-    filterWalletPositionOverviewsRequest?: FilterWalletPositionOverviewsRequest;
+export interface GetSolanaWalletPortfolioOperationRequest {
+    getSolanaWalletPortfolioRequest?: GetSolanaWalletPortfolioRequest;
 }
 
-export interface GetWalletOverviewOperationRequest {
-    getWalletOverviewRequest?: GetWalletOverviewRequest;
+export interface GetSolanaWalletProfileOperationRequest {
+    getSolanaWalletProfileRequest?: GetSolanaWalletProfileRequest;
 }
 
-export interface GetWalletOverviewHistoryOperationRequest {
-    getWalletOverviewHistoryRequest?: GetWalletOverviewHistoryRequest;
+export interface GetSolanaWalletProfileHistoryOperationRequest {
+    getSolanaWalletProfileHistoryRequest?: GetSolanaWalletProfileHistoryRequest;
 }
 
-export interface GetWalletOverviewsOperationRequest {
-    getWalletOverviewsRequest?: GetWalletOverviewsRequest;
+export interface GetSolanaWalletProfilesOperationRequest {
+    getSolanaWalletProfilesRequest?: GetSolanaWalletProfilesRequest;
 }
 
-export interface GetWalletPortfolioOperationRequest {
-    getWalletPortfolioRequest?: GetWalletPortfolioRequest;
-}
-
-export interface GetWalletPositionOverviewsByTokensOperationRequest {
-    getWalletPositionOverviewsByTokensRequest?: GetWalletPositionOverviewsByTokensRequest;
-}
-
-export interface GetWalletPositionOverviewsByWalletsOperationRequest {
-    getWalletPositionOverviewsByWalletsRequest?: GetWalletPositionOverviewsByWalletsRequest;
-}
-
-export interface SearchWalletOverviewsOperationRequest {
-    searchWalletOverviewsRequest?: SearchWalletOverviewsRequest;
+export interface SearchSolanaWalletProfilesOperationRequest {
+    searchSolanaWalletProfilesRequest?: SearchSolanaWalletProfilesRequest;
 }
 
 /**
@@ -75,132 +59,84 @@ export interface SearchWalletOverviewsOperationRequest {
  */
 export interface SolanaWalletsApiInterface {
     /**
-     * Filter and sort position overviews for a specific wallet based on specified metrics and conditions.  Enables flexible aggregation of position overviews by scope, such as recently traded, most profitable, highest risk, and more. 
-     * @summary Filter Position Overviews
-     * @param {FilterWalletPositionOverviewsRequest} [filterWalletPositionOverviewsRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaWalletsApiInterface
-     */
-    filterWalletPositionOverviewsRaw(requestParameters: FilterWalletPositionOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletTokenOverview>>>;
-
-    /**
-     * Filter and sort position overviews for a specific wallet based on specified metrics and conditions.  Enables flexible aggregation of position overviews by scope, such as recently traded, most profitable, highest risk, and more. 
-     * Filter Position Overviews
-     */
-    filterWalletPositionOverviews(requestParameters: FilterWalletPositionOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletTokenOverview>>;
-
-    /**
-     * Returns a wallet overview for a specific wallet.
-     * @summary Get Overview
-     * @param {GetWalletOverviewRequest} [getWalletOverviewRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaWalletsApiInterface
-     */
-    getWalletOverviewRaw(requestParameters: GetWalletOverviewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WalletOverview>>;
-
-    /**
-     * Returns a wallet overview for a specific wallet.
-     * Get Overview
-     */
-    getWalletOverview(requestParameters: GetWalletOverviewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WalletOverview>;
-
-    /**
-     * Returns historical overview for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * @summary Get Overview History
-     * @param {GetWalletOverviewHistoryRequest} [getWalletOverviewHistoryRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaWalletsApiInterface
-     */
-    getWalletOverviewHistoryRaw(requestParameters: GetWalletOverviewHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletOverviewHistoryInner>>>;
-
-    /**
-     * Returns historical overview for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * Get Overview History
-     */
-    getWalletOverviewHistory(requestParameters: GetWalletOverviewHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletOverviewHistoryInner>>;
-
-    /**
-     * Returns overviews for one or more wallets.
-     * @summary Get Multiple Overviews
-     * @param {GetWalletOverviewsRequest} [getWalletOverviewsRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaWalletsApiInterface
-     */
-    getWalletOverviewsRaw(requestParameters: GetWalletOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletOverview>>>;
-
-    /**
-     * Returns overviews for one or more wallets.
-     * Get Multiple Overviews
-     */
-    getWalletOverviews(requestParameters: GetWalletOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletOverview>>;
-
-    /**
      * Returns the portfolio for a specific wallet.
      * @summary Get Portfolio
-     * @param {GetWalletPortfolioRequest} [getWalletPortfolioRequest] 
+     * @param {GetSolanaWalletPortfolioRequest} [getSolanaWalletPortfolioRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaWalletsApiInterface
      */
-    getWalletPortfolioRaw(requestParameters: GetWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WalletPortfolio>>;
+    getSolanaWalletPortfolioRaw(requestParameters: GetSolanaWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletPortfolio>>;
 
     /**
      * Returns the portfolio for a specific wallet.
      * Get Portfolio
      */
-    getWalletPortfolio(requestParameters: GetWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WalletPortfolio>;
+    getSolanaWalletPortfolio(requestParameters: GetSolanaWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletPortfolio>;
 
     /**
-     * Returns wallet position overviews for a specific wallet, broken down by selected tokens. Useful for analyzing how a wallet performs across different tokens.
-     * @summary Get Position Overviews by Tokens
-     * @param {GetWalletPositionOverviewsByTokensRequest} [getWalletPositionOverviewsByTokensRequest] 
+     * Returns a wallet profile for a specific wallet.
+     * @summary Get Profile
+     * @param {GetSolanaWalletProfileRequest} [getSolanaWalletProfileRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaWalletsApiInterface
      */
-    getWalletPositionOverviewsByTokensRaw(requestParameters: GetWalletPositionOverviewsByTokensOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletTokenOverview>>>;
+    getSolanaWalletProfileRaw(requestParameters: GetSolanaWalletProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletProfile>>;
 
     /**
-     * Returns wallet position overviews for a specific wallet, broken down by selected tokens. Useful for analyzing how a wallet performs across different tokens.
-     * Get Position Overviews by Tokens
+     * Returns a wallet profile for a specific wallet.
+     * Get Profile
      */
-    getWalletPositionOverviewsByTokens(requestParameters: GetWalletPositionOverviewsByTokensOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletTokenOverview>>;
+    getSolanaWalletProfile(requestParameters: GetSolanaWalletProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletProfile>;
 
     /**
-     * Returns wallet position overviews for a specific token, broken down by selected wallets. Useful for analyzing how different wallets perform across the same token.
-     * @summary Get Position Overviews by Wallets
-     * @param {GetWalletPositionOverviewsByWalletsRequest} [getWalletPositionOverviewsByWalletsRequest] 
+     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
+     * @summary Get Profile History
+     * @param {GetSolanaWalletProfileHistoryRequest} [getSolanaWalletProfileHistoryRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaWalletsApiInterface
      */
-    getWalletPositionOverviewsByWalletsRaw(requestParameters: GetWalletPositionOverviewsByWalletsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletTokenOverview>>>;
+    getSolanaWalletProfileHistoryRaw(requestParameters: GetSolanaWalletProfileHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfileHistoryInner>>>;
 
     /**
-     * Returns wallet position overviews for a specific token, broken down by selected wallets. Useful for analyzing how different wallets perform across the same token.
-     * Get Position Overviews by Wallets
+     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
+     * Get Profile History
      */
-    getWalletPositionOverviewsByWallets(requestParameters: GetWalletPositionOverviewsByWalletsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletTokenOverview>>;
+    getSolanaWalletProfileHistory(requestParameters: GetSolanaWalletProfileHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfileHistoryInner>>;
 
     /**
-     * Search and filter wallet overviews based on specified metrics and conditions.
-     * @summary Search Overviews
-     * @param {SearchWalletOverviewsRequest} [searchWalletOverviewsRequest] 
+     * Returns profiles for one or more wallets.
+     * @summary Get Multiple Profiles
+     * @param {GetSolanaWalletProfilesRequest} [getSolanaWalletProfilesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaWalletsApiInterface
      */
-    searchWalletOverviewsRaw(requestParameters: SearchWalletOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchWalletOverviews200Response>>;
+    getSolanaWalletProfilesRaw(requestParameters: GetSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfile>>>;
 
     /**
-     * Search and filter wallet overviews based on specified metrics and conditions.
-     * Search Overviews
+     * Returns profiles for one or more wallets.
+     * Get Multiple Profiles
      */
-    searchWalletOverviews(requestParameters: SearchWalletOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchWalletOverviews200Response>;
+    getSolanaWalletProfiles(requestParameters: GetSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfile>>;
+
+    /**
+     * Search and filter wallet profiles based on specified metrics and conditions.
+     * @summary Search Profiles
+     * @param {SearchSolanaWalletProfilesRequest} [searchSolanaWalletProfilesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SolanaWalletsApiInterface
+     */
+    searchSolanaWalletProfilesRaw(requestParameters: SearchSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaWalletProfiles200Response>>;
+
+    /**
+     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Search Profiles
+     */
+    searchSolanaWalletProfiles(requestParameters: SearchSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaWalletProfiles200Response>;
 
 }
 
@@ -210,162 +146,10 @@ export interface SolanaWalletsApiInterface {
 export class SolanaWalletsApi extends runtime.BaseAPI implements SolanaWalletsApiInterface {
 
     /**
-     * Filter and sort position overviews for a specific wallet based on specified metrics and conditions.  Enables flexible aggregation of position overviews by scope, such as recently traded, most profitable, highest risk, and more. 
-     * Filter Position Overviews
-     */
-    async filterWalletPositionOverviewsRaw(requestParameters: FilterWalletPositionOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletTokenOverview>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/solana/wallets/filter-position-overviews`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['filterWalletPositionOverviewsRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Filter and sort position overviews for a specific wallet based on specified metrics and conditions.  Enables flexible aggregation of position overviews by scope, such as recently traded, most profitable, highest risk, and more. 
-     * Filter Position Overviews
-     */
-    async filterWalletPositionOverviews(requestParameters: FilterWalletPositionOverviewsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletTokenOverview>> {
-        const response = await this.filterWalletPositionOverviewsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns a wallet overview for a specific wallet.
-     * Get Overview
-     */
-    async getWalletOverviewRaw(requestParameters: GetWalletOverviewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WalletOverview>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/solana/wallets/get-overview`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getWalletOverviewRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns a wallet overview for a specific wallet.
-     * Get Overview
-     */
-    async getWalletOverview(requestParameters: GetWalletOverviewOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WalletOverview> {
-        const response = await this.getWalletOverviewRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns historical overview for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * Get Overview History
-     */
-    async getWalletOverviewHistoryRaw(requestParameters: GetWalletOverviewHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletOverviewHistoryInner>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/solana/wallets/get-overview-history`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getWalletOverviewHistoryRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns historical overview for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * Get Overview History
-     */
-    async getWalletOverviewHistory(requestParameters: GetWalletOverviewHistoryOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletOverviewHistoryInner>> {
-        const response = await this.getWalletOverviewHistoryRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns overviews for one or more wallets.
-     * Get Multiple Overviews
-     */
-    async getWalletOverviewsRaw(requestParameters: GetWalletOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletOverview>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/solana/wallets/get-overviews`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getWalletOverviewsRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns overviews for one or more wallets.
-     * Get Multiple Overviews
-     */
-    async getWalletOverviews(requestParameters: GetWalletOverviewsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletOverview>> {
-        const response = await this.getWalletOverviewsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Returns the portfolio for a specific wallet.
      * Get Portfolio
      */
-    async getWalletPortfolioRaw(requestParameters: GetWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WalletPortfolio>> {
+    async getSolanaWalletPortfolioRaw(requestParameters: GetSolanaWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletPortfolio>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -384,7 +168,7 @@ export class SolanaWalletsApi extends runtime.BaseAPI implements SolanaWalletsAp
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletPortfolioRequest'],
+            body: requestParameters['getSolanaWalletPortfolioRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
@@ -394,16 +178,16 @@ export class SolanaWalletsApi extends runtime.BaseAPI implements SolanaWalletsAp
      * Returns the portfolio for a specific wallet.
      * Get Portfolio
      */
-    async getWalletPortfolio(requestParameters: GetWalletPortfolioOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WalletPortfolio> {
-        const response = await this.getWalletPortfolioRaw(requestParameters, initOverrides);
+    async getSolanaWalletPortfolio(requestParameters: GetSolanaWalletPortfolioOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletPortfolio> {
+        const response = await this.getSolanaWalletPortfolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns wallet position overviews for a specific wallet, broken down by selected tokens. Useful for analyzing how a wallet performs across different tokens.
-     * Get Position Overviews by Tokens
+     * Returns a wallet profile for a specific wallet.
+     * Get Profile
      */
-    async getWalletPositionOverviewsByTokensRaw(requestParameters: GetWalletPositionOverviewsByTokensOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletTokenOverview>>> {
+    async getSolanaWalletProfileRaw(requestParameters: GetSolanaWalletProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletProfile>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -415,33 +199,33 @@ export class SolanaWalletsApi extends runtime.BaseAPI implements SolanaWalletsAp
         }
 
 
-        let urlPath = `/solana/wallets/get-position-overviews-by-tokens`;
+        let urlPath = `/solana/wallets/get-profile`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletPositionOverviewsByTokensRequest'],
+            body: requestParameters['getSolanaWalletProfileRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Returns wallet position overviews for a specific wallet, broken down by selected tokens. Useful for analyzing how a wallet performs across different tokens.
-     * Get Position Overviews by Tokens
+     * Returns a wallet profile for a specific wallet.
+     * Get Profile
      */
-    async getWalletPositionOverviewsByTokens(requestParameters: GetWalletPositionOverviewsByTokensOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletTokenOverview>> {
-        const response = await this.getWalletPositionOverviewsByTokensRaw(requestParameters, initOverrides);
+    async getSolanaWalletProfile(requestParameters: GetSolanaWalletProfileOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletProfile> {
+        const response = await this.getSolanaWalletProfileRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns wallet position overviews for a specific token, broken down by selected wallets. Useful for analyzing how different wallets perform across the same token.
-     * Get Position Overviews by Wallets
+     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
+     * Get Profile History
      */
-    async getWalletPositionOverviewsByWalletsRaw(requestParameters: GetWalletPositionOverviewsByWalletsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<WalletTokenOverview>>> {
+    async getSolanaWalletProfileHistoryRaw(requestParameters: GetSolanaWalletProfileHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfileHistoryInner>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -453,33 +237,33 @@ export class SolanaWalletsApi extends runtime.BaseAPI implements SolanaWalletsAp
         }
 
 
-        let urlPath = `/solana/wallets/get-position-overviews-by-wallets`;
+        let urlPath = `/solana/wallets/get-profile-history`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletPositionOverviewsByWalletsRequest'],
+            body: requestParameters['getSolanaWalletProfileHistoryRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Returns wallet position overviews for a specific token, broken down by selected wallets. Useful for analyzing how different wallets perform across the same token.
-     * Get Position Overviews by Wallets
+     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
+     * Get Profile History
      */
-    async getWalletPositionOverviewsByWallets(requestParameters: GetWalletPositionOverviewsByWalletsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<WalletTokenOverview>> {
-        const response = await this.getWalletPositionOverviewsByWalletsRaw(requestParameters, initOverrides);
+    async getSolanaWalletProfileHistory(requestParameters: GetSolanaWalletProfileHistoryOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfileHistoryInner>> {
+        const response = await this.getSolanaWalletProfileHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Search and filter wallet overviews based on specified metrics and conditions.
-     * Search Overviews
+     * Returns profiles for one or more wallets.
+     * Get Multiple Profiles
      */
-    async searchWalletOverviewsRaw(requestParameters: SearchWalletOverviewsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchWalletOverviews200Response>> {
+    async getSolanaWalletProfilesRaw(requestParameters: GetSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfile>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -491,25 +275,63 @@ export class SolanaWalletsApi extends runtime.BaseAPI implements SolanaWalletsAp
         }
 
 
-        let urlPath = `/solana/wallets/search-overviews`;
+        let urlPath = `/solana/wallets/get-profiles`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['searchWalletOverviewsRequest'],
+            body: requestParameters['getSolanaWalletProfilesRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Search and filter wallet overviews based on specified metrics and conditions.
-     * Search Overviews
+     * Returns profiles for one or more wallets.
+     * Get Multiple Profiles
      */
-    async searchWalletOverviews(requestParameters: SearchWalletOverviewsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchWalletOverviews200Response> {
-        const response = await this.searchWalletOverviewsRaw(requestParameters, initOverrides);
+    async getSolanaWalletProfiles(requestParameters: GetSolanaWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfile>> {
+        const response = await this.getSolanaWalletProfilesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Search Profiles
+     */
+    async searchSolanaWalletProfilesRaw(requestParameters: SearchSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaWalletProfiles200Response>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
+
+
+        let urlPath = `/solana/wallets/search-profiles`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['searchSolanaWalletProfilesRequest'],
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response);
+    }
+
+    /**
+     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Search Profiles
+     */
+    async searchSolanaWalletProfiles(requestParameters: SearchSolanaWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaWalletProfiles200Response> {
+        const response = await this.searchSolanaWalletProfilesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

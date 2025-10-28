@@ -21,13 +21,13 @@ const walletsApi = new SolanaWalletsApi(config);
 
 async function main() {
     try {
-        const response = await walletsApi.getWalletOverview({
-            getWalletOverviewRequest: {
+        const response = await walletsApi.getWalletProfile({
+            getWalletProfileRequest: {
                 wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
             },
         });
 
-        console.log("Wallet Overview:", response);
+        console.log("Wallet Profile:", response);
     } catch (err) {
         console.error("Error calling API:", err);
     }
