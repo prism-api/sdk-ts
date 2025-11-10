@@ -3,104 +3,104 @@
 /**
  * 
  * @export
- * @interface GetSolanaTokenPricesRequest
+ * @interface GetTokenPricesRequest
  */
-export interface GetSolanaTokenPricesRequest {
+export interface GetTokenPricesRequest {
     /**
      * List of token addresses to retrieve prices for.
      * @type {Array<string>}
-     * @memberof GetSolanaTokenPricesRequest
+     * @memberof GetTokenPricesRequest
      */
     tokens: Array<string>;
 }
 /**
  * 
  * @export
- * @interface GetSolanaTokenProfileRequest
+ * @interface GetTokenProfileRequest
  */
-export interface GetSolanaTokenProfileRequest {
+export interface GetTokenProfileRequest {
     /**
      * Token address to retrieve profile for.
      * @type {string}
-     * @memberof GetSolanaTokenProfileRequest
+     * @memberof GetTokenProfileRequest
      */
     token: string;
     /**
      * List of time windows to include in the profile.
      * @type {Array<SolanaTokenProfileTimeWindowEnum>}
-     * @memberof GetSolanaTokenProfileRequest
+     * @memberof GetTokenProfileRequest
      */
     time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface GetSolanaTokenProfilesByCreatorRequest
+ * @interface GetTokenProfilesByCreatorRequest
  */
-export interface GetSolanaTokenProfilesByCreatorRequest {
+export interface GetTokenProfilesByCreatorRequest {
     /**
      * Creator address to retrieve token profiles for.
      * @type {string}
-     * @memberof GetSolanaTokenProfilesByCreatorRequest
+     * @memberof GetTokenProfilesByCreatorRequest
      */
     creator?: string;
     /**
      * List of time windows to include in the profile.
      * @type {Array<SolanaTokenProfileTimeWindowEnum>}
-     * @memberof GetSolanaTokenProfilesByCreatorRequest
+     * @memberof GetTokenProfilesByCreatorRequest
      */
     time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface GetSolanaTokenProfilesRequest
+ * @interface GetTokenProfilesRequest
  */
-export interface GetSolanaTokenProfilesRequest {
+export interface GetTokenProfilesRequest {
     /**
      * List of token addresses to retrieve profile for.
      * @type {Array<string>}
-     * @memberof GetSolanaTokenProfilesRequest
+     * @memberof GetTokenProfilesRequest
      */
     tokens: Array<string>;
     /**
      * 
-     * @type {GetSolanaTokenProfilesRequestSort}
-     * @memberof GetSolanaTokenProfilesRequest
+     * @type {GetTokenProfilesRequestSort}
+     * @memberof GetTokenProfilesRequest
      */
-    sort?: GetSolanaTokenProfilesRequestSort;
+    sort?: GetTokenProfilesRequestSort;
     /**
      * List of time windows to include in the profile.
      * @type {Array<SolanaTokenProfileTimeWindowEnum>}
-     * @memberof GetSolanaTokenProfilesRequest
+     * @memberof GetTokenProfilesRequest
      */
     time_windows?: Array<SolanaTokenProfileTimeWindowEnum>;
 }
 /**
  * Sorting rule.
  * @export
- * @interface GetSolanaTokenProfilesRequestSort
+ * @interface GetTokenProfilesRequestSort
  */
-export interface GetSolanaTokenProfilesRequestSort {
+export interface GetTokenProfilesRequestSort {
     /**
      * 
      * @type {any}
-     * @memberof GetSolanaTokenProfilesRequestSort
+     * @memberof GetTokenProfilesRequestSort
      */
     field: any | null;
     /**
      * Sorting direction.
      * @type {string}
-     * @memberof GetSolanaTokenProfilesRequestSort
+     * @memberof GetTokenProfilesRequestSort
      */
-    direction: GetSolanaTokenProfilesRequestSortDirectionEnum;
+    direction: GetTokenProfilesRequestSortDirectionEnum;
 }
 
 /**
 * @export
 * @enum {string}
 */
-export enum GetSolanaTokenProfilesRequestSortDirectionEnum {
+export enum GetTokenProfilesRequestSortDirectionEnum {
     ASC = 'asc',
     DESC = 'desc'
 }
@@ -108,59 +108,59 @@ export enum GetSolanaTokenProfilesRequestSortDirectionEnum {
 /**
  * 
  * @export
- * @interface GetSolanaWalletPortfolioRequest
+ * @interface GetWalletPortfolioRequest
  */
-export interface GetSolanaWalletPortfolioRequest {
+export interface GetWalletPortfolioRequest {
     /**
      * Wallet address to retrieve portfolio for.
      * @type {string}
-     * @memberof GetSolanaWalletPortfolioRequest
+     * @memberof GetWalletPortfolioRequest
      */
     wallet: string;
 }
 /**
  * 
  * @export
- * @interface GetSolanaWalletProfileHistoryRequest
+ * @interface GetWalletProfileHistoryRequest
  */
-export interface GetSolanaWalletProfileHistoryRequest {
+export interface GetWalletProfileHistoryRequest {
     /**
      * Wallet address to retrieve profile history for.
      * @type {string}
-     * @memberof GetSolanaWalletProfileHistoryRequest
+     * @memberof GetWalletProfileHistoryRequest
      */
     wallet: string;
     /**
      * Optional token address to filter profile history by.
      * @type {string}
-     * @memberof GetSolanaWalletProfileHistoryRequest
+     * @memberof GetWalletProfileHistoryRequest
      */
     token?: string;
     /**
      * Start time for the history range, as a Unix timestamp.
      * @type {number}
-     * @memberof GetSolanaWalletProfileHistoryRequest
+     * @memberof GetWalletProfileHistoryRequest
      */
     from?: number;
     /**
      * End time for the history range, as a Unix timestamp.
      * @type {number}
-     * @memberof GetSolanaWalletProfileHistoryRequest
+     * @memberof GetWalletProfileHistoryRequest
      */
     to?: number;
     /**
      * Time interval to aggregate metrics by.
      * @type {string}
-     * @memberof GetSolanaWalletProfileHistoryRequest
+     * @memberof GetWalletProfileHistoryRequest
      */
-    time_interval?: GetSolanaWalletProfileHistoryRequestTimeIntervalEnum;
+    time_interval?: GetWalletProfileHistoryRequestTimeIntervalEnum;
 }
 
 /**
 * @export
 * @enum {string}
 */
-export enum GetSolanaWalletProfileHistoryRequestTimeIntervalEnum {
+export enum GetWalletProfileHistoryRequestTimeIntervalEnum {
     _1H = '1h',
     _4H = '4h',
     _12H = '12h',
@@ -170,44 +170,44 @@ export enum GetSolanaWalletProfileHistoryRequestTimeIntervalEnum {
 /**
  * 
  * @export
- * @interface GetSolanaWalletProfileRequest
+ * @interface GetWalletProfileRequest
  */
-export interface GetSolanaWalletProfileRequest {
+export interface GetWalletProfileRequest {
     /**
      * Wallet address to retrieve profile for.
      * @type {string}
-     * @memberof GetSolanaWalletProfileRequest
+     * @memberof GetWalletProfileRequest
      */
     wallet: string;
     /**
      * List of time windows to include in the profile.
      * @type {Array<SolanaWalletProfileTimeWindowEnum>}
-     * @memberof GetSolanaWalletProfileRequest
+     * @memberof GetWalletProfileRequest
      */
     time_windows?: Array<SolanaWalletProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface GetSolanaWalletProfilesRequest
+ * @interface GetWalletProfilesRequest
  */
-export interface GetSolanaWalletProfilesRequest {
+export interface GetWalletProfilesRequest {
     /**
      * List of wallet addresses to retrieve profile for.
      * @type {Array<string>}
-     * @memberof GetSolanaWalletProfilesRequest
+     * @memberof GetWalletProfilesRequest
      */
     wallets?: Array<string>;
     /**
      * 
      * @type {PayloadSortField}
-     * @memberof GetSolanaWalletProfilesRequest
+     * @memberof GetWalletProfilesRequest
      */
     sort?: PayloadSortField;
     /**
      * List of time windows to include in the profile.
      * @type {Array<SolanaWalletProfileTimeWindowEnum>}
-     * @memberof GetSolanaWalletProfilesRequest
+     * @memberof GetWalletProfilesRequest
      */
     time_windows?: Array<SolanaWalletProfileTimeWindowEnum>;
 }
@@ -301,12 +301,18 @@ export interface PayloadFilterFieldInner {
      */
     max?: number;
     /**
-     * Exact value to filter by.
-     * @type {string}
+     * 
+     * @type {PayloadFilterFieldInnerEq}
      * @memberof PayloadFilterFieldInner
      */
-    eq?: string;
+    eq?: PayloadFilterFieldInnerEq;
 }
+/**
+ * @type PayloadFilterFieldInnerEq
+ * Exact value to filter by.
+ * @export
+ */
+export type PayloadFilterFieldInnerEq = number | string;
 /**
  * Query rule to apply.
  * @export
