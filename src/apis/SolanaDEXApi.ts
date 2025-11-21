@@ -268,7 +268,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/tokens/get-prices`;
+        let urlPath = `/v1/solana/dex/tokens/get-prices`;
 
         const response = await this.request({
             path: urlPath,
@@ -302,7 +302,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/solana/dex/tokens/get-profile`;
+        let urlPath = `/v1/solana/dex/tokens/get-profile`;
 
         const response = await this.request({
             path: urlPath,
@@ -336,7 +336,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/solana/dex/tokens/get-profiles`;
+        let urlPath = `/v1/solana/dex/tokens/get-profiles`;
 
         const response = await this.request({
             path: urlPath,
@@ -374,7 +374,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/tokens/get-profiles-by-creator`;
+        let urlPath = `/v1/solana/dex/tokens/get-profiles-by-creator`;
 
         const response = await this.request({
             path: urlPath,
@@ -412,7 +412,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/wallets/get-portfolio`;
+        let urlPath = `/v1/solana/dex/wallets/get-portfolio`;
 
         const response = await this.request({
             path: urlPath,
@@ -450,7 +450,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/wallets/get-profile`;
+        let urlPath = `/v1/solana/dex/wallets/get-profile`;
 
         const response = await this.request({
             path: urlPath,
@@ -488,7 +488,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/wallets/get-profile-history`;
+        let urlPath = `/v1/solana/dex/wallets/get-profile-history`;
 
         const response = await this.request({
             path: urlPath,
@@ -526,7 +526,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/wallets/get-profiles`;
+        let urlPath = `/v1/solana/dex/wallets/get-profiles`;
 
         const response = await this.request({
             path: urlPath,
@@ -564,7 +564,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/tokens/search-profiles`;
+        let urlPath = `/v1/solana/dex/tokens/search-profiles`;
 
         const response = await this.request({
             path: urlPath,
@@ -602,7 +602,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/solana/dex/wallets/search-profiles`;
+        let urlPath = `/v1/solana/dex/wallets/search-profiles`;
 
         const response = await this.request({
             path: urlPath,
