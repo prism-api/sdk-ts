@@ -1,6 +1,7 @@
 .gitignore
 .npmignore
 src/apis/SolanaDEXApi.ts
+src/apis/SolanaDexDEXApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/index.ts

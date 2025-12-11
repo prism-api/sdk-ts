@@ -15,67 +15,53 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetTokenPricesRequest,
-  GetTokenProfileRequest,
-  GetTokenProfilesByCreatorRequest,
-  GetTokenProfilesRequest,
-  GetWalletPortfolioRequest,
-  GetWalletProfileHistoryRequest,
-  GetWalletProfileRequest,
-  GetWalletProfilesRequest,
+  GetPortfolioRequest,
+  GetPriceCandlesRequest,
+  GetPriceHistoryRequest,
+  GetPriceRequest,
+  GetPriceStatsRequest,
+  GetSwapsRequest,
+  GetTradesRequest,
   InlineObject,
   InlineObject1,
   InlineObject2,
   InlineObject3,
   InlineObject4,
-  SearchSolanaTokenProfilesRequest,
-  SearchSolanaWalletProfiles200Response,
-  SearchSolanaWalletProfilesRequest,
-  SolanaTokenPrice,
-  SolanaTokenProfile,
-  SolanaWalletPortfolio,
-  SolanaWalletProfile,
-  SolanaWalletProfileHistoryInner,
+  SolanaDexPortfolio,
+  SolanaDexPrice,
+  SolanaDexPriceCandle,
+  SolanaDexPriceHistory,
+  SolanaDexPriceStats,
+  SolanaDexSwap,
+  SolanaDexTrade,
 } from '../models/index';
 
-export interface GetTokenPricesOperationRequest {
-    getTokenPricesRequest?: GetTokenPricesRequest;
+export interface GetPortfolioOperationRequest {
+    getPortfolioRequest?: GetPortfolioRequest;
 }
 
-export interface GetTokenProfileOperationRequest {
-    getTokenProfileRequest?: GetTokenProfileRequest;
+export interface GetPriceOperationRequest {
+    getPriceRequest?: GetPriceRequest;
 }
 
-export interface GetTokenProfilesOperationRequest {
-    getTokenProfilesRequest?: GetTokenProfilesRequest;
+export interface GetPriceCandlesOperationRequest {
+    getPriceCandlesRequest?: GetPriceCandlesRequest;
 }
 
-export interface GetTokenProfilesByCreatorOperationRequest {
-    getTokenProfilesByCreatorRequest?: GetTokenProfilesByCreatorRequest;
+export interface GetPriceHistoryOperationRequest {
+    getPriceHistoryRequest?: GetPriceHistoryRequest;
 }
 
-export interface GetWalletPortfolioOperationRequest {
-    getWalletPortfolioRequest?: GetWalletPortfolioRequest;
+export interface GetPriceStatsOperationRequest {
+    getPriceStatsRequest?: GetPriceStatsRequest;
 }
 
-export interface GetWalletProfileOperationRequest {
-    getWalletProfileRequest?: GetWalletProfileRequest;
+export interface GetSwapsOperationRequest {
+    getSwapsRequest?: GetSwapsRequest;
 }
 
-export interface GetWalletProfileHistoryOperationRequest {
-    getWalletProfileHistoryRequest?: GetWalletProfileHistoryRequest;
-}
-
-export interface GetWalletProfilesOperationRequest {
-    getWalletProfilesRequest?: GetWalletProfilesRequest;
-}
-
-export interface SearchSolanaTokenProfilesOperationRequest {
-    searchSolanaTokenProfilesRequest?: SearchSolanaTokenProfilesRequest;
-}
-
-export interface SearchSolanaWalletProfilesOperationRequest {
-    searchSolanaWalletProfilesRequest?: SearchSolanaWalletProfilesRequest;
+export interface GetTradesOperationRequest {
+    getTradesRequest?: GetTradesRequest;
 }
 
 /**
@@ -86,164 +72,116 @@ export interface SearchSolanaWalletProfilesOperationRequest {
  */
 export interface SolanaDEXApiInterface {
     /**
-     * Returns prices for one or more tokens.
-     * @summary Get Prices
-     * @param {GetTokenPricesRequest} [getTokenPricesRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaDEXApiInterface
-     */
-    getTokenPricesRaw(requestParameters: GetTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenPrice>>>;
-
-    /**
-     * Returns prices for one or more tokens.
-     * Get Prices
-     */
-    getTokenPrices(requestParameters: GetTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenPrice>>;
-
-    /**
-     * Returns the profile for a specific token.
-     * @summary Get Profile
-     * @param {GetTokenProfileRequest} [getTokenProfileRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaDEXApiInterface
-     */
-    getTokenProfileRaw(requestParameters: GetTokenProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaTokenProfile>>;
-
-    /**
-     * Returns the profile for a specific token.
-     * Get Profile
-     */
-    getTokenProfile(requestParameters: GetTokenProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaTokenProfile>;
-
-    /**
-     * Returns profiles for one or more tokens.
-     * @summary Get Multiple Profiles
-     * @param {GetTokenProfilesRequest} [getTokenProfilesRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaDEXApiInterface
-     */
-    getTokenProfilesRaw(requestParameters: GetTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>>;
-
-    /**
-     * Returns profiles for one or more tokens.
-     * Get Multiple Profiles
-     */
-    getTokenProfiles(requestParameters: GetTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>>;
-
-    /**
-     * Returns token profiles for a specific creator.
-     * @summary Get Profiles by Creator
-     * @param {GetTokenProfilesByCreatorRequest} [getTokenProfilesByCreatorRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SolanaDEXApiInterface
-     */
-    getTokenProfilesByCreatorRaw(requestParameters: GetTokenProfilesByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>>;
-
-    /**
-     * Returns token profiles for a specific creator.
-     * Get Profiles by Creator
-     */
-    getTokenProfilesByCreator(requestParameters: GetTokenProfilesByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>>;
-
-    /**
      * Returns the portfolio for a specific wallet.
      * @summary Get Portfolio
-     * @param {GetWalletPortfolioRequest} [getWalletPortfolioRequest] 
+     * @param {GetPortfolioRequest} [getPortfolioRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    getWalletPortfolioRaw(requestParameters: GetWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletPortfolio>>;
+    getPortfolioRaw(requestParameters: GetPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaDexPortfolio>>;
 
     /**
      * Returns the portfolio for a specific wallet.
      * Get Portfolio
      */
-    getWalletPortfolio(requestParameters: GetWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletPortfolio>;
+    getPortfolio(requestParameters: GetPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaDexPortfolio>;
 
     /**
-     * Returns a wallet profile for a specific wallet.
-     * @summary Get Profile
-     * @param {GetWalletProfileRequest} [getWalletProfileRequest] 
+     * Returns prices for one or more tokens.
+     * @summary Get Price
+     * @param {GetPriceRequest} [getPriceRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    getWalletProfileRaw(requestParameters: GetWalletProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletProfile>>;
+    getPriceRaw(requestParameters: GetPriceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPrice>>>;
 
     /**
-     * Returns a wallet profile for a specific wallet.
-     * Get Profile
+     * Returns prices for one or more tokens.
+     * Get Price
      */
-    getWalletProfile(requestParameters: GetWalletProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletProfile>;
+    getPrice(requestParameters: GetPriceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPrice>>;
 
     /**
-     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * @summary Get Profile History
-     * @param {GetWalletProfileHistoryRequest} [getWalletProfileHistoryRequest] 
+     * Returns price candles for a specific token.
+     * @summary Get Price Candles
+     * @param {GetPriceCandlesRequest} [getPriceCandlesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    getWalletProfileHistoryRaw(requestParameters: GetWalletProfileHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfileHistoryInner>>>;
+    getPriceCandlesRaw(requestParameters: GetPriceCandlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPriceCandle>>>;
 
     /**
-     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * Get Profile History
+     * Returns price candles for a specific token.
+     * Get Price Candles
      */
-    getWalletProfileHistory(requestParameters: GetWalletProfileHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfileHistoryInner>>;
+    getPriceCandles(requestParameters: GetPriceCandlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPriceCandle>>;
 
     /**
-     * Returns profiles for one or more wallets.
-     * @summary Get Multiple Profiles
-     * @param {GetWalletProfilesRequest} [getWalletProfilesRequest] 
+     * Returns price history for one or more tokens.
+     * @summary Get Price History
+     * @param {GetPriceHistoryRequest} [getPriceHistoryRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    getWalletProfilesRaw(requestParameters: GetWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfile>>>;
+    getPriceHistoryRaw(requestParameters: GetPriceHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPriceHistory>>>;
 
     /**
-     * Returns profiles for one or more wallets.
-     * Get Multiple Profiles
+     * Returns price history for one or more tokens.
+     * Get Price History
      */
-    getWalletProfiles(requestParameters: GetWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfile>>;
+    getPriceHistory(requestParameters: GetPriceHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPriceHistory>>;
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
-     * @summary Search Profiles
-     * @param {SearchSolanaTokenProfilesRequest} [searchSolanaTokenProfilesRequest] 
+     * Returns price stats for one or more tokens.
+     * @summary Get Price Stats
+     * @param {GetPriceStatsRequest} [getPriceStatsRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    searchSolanaTokenProfilesRaw(requestParameters: SearchSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>>;
+    getPriceStatsRaw(requestParameters: GetPriceStatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPriceStats>>>;
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
-     * Search Profiles
+     * Returns price stats for one or more tokens.
+     * Get Price Stats
      */
-    searchSolanaTokenProfiles(requestParameters: SearchSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>>;
+    getPriceStats(requestParameters: GetPriceStatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPriceStats>>;
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
-     * @summary Search Profiles
-     * @param {SearchSolanaWalletProfilesRequest} [searchSolanaWalletProfilesRequest] 
+     * Returns swaps for a wallet, token or both.
+     * @summary Get Swaps
+     * @param {GetSwapsRequest} [getSwapsRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    searchSolanaWalletProfilesRaw(requestParameters: SearchSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaWalletProfiles200Response>>;
+    getSwapsRaw(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexSwap>>>;
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
-     * Search Profiles
+     * Returns swaps for a wallet, token or both.
+     * Get Swaps
      */
-    searchSolanaWalletProfiles(requestParameters: SearchSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaWalletProfiles200Response>;
+    getSwaps(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexSwap>>;
+
+    /**
+     * Returns trades for a wallet, token or both.
+     * @summary Get Trades
+     * @param {GetTradesRequest} [getTradesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SolanaDEXApiInterface
+     */
+    getTradesRaw(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexTrade>>>;
+
+    /**
+     * Returns trades for a wallet, token or both.
+     * Get Trades
+     */
+    getTrades(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexTrade>>;
 
 }
 
@@ -253,154 +191,10 @@ export interface SolanaDEXApiInterface {
 export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterface {
 
     /**
-     * Returns prices for one or more tokens.
-     * Get Prices
-     */
-    async getTokenPricesRaw(requestParameters: GetTokenPricesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenPrice>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/v1/solana/dex/tokens/get-prices`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenPricesRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns prices for one or more tokens.
-     * Get Prices
-     */
-    async getTokenPrices(requestParameters: GetTokenPricesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenPrice>> {
-        const response = await this.getTokenPricesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns the profile for a specific token.
-     * Get Profile
-     */
-    async getTokenProfileRaw(requestParameters: GetTokenProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaTokenProfile>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/v1/solana/dex/tokens/get-profile`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenProfileRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns the profile for a specific token.
-     * Get Profile
-     */
-    async getTokenProfile(requestParameters: GetTokenProfileOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaTokenProfile> {
-        const response = await this.getTokenProfileRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns profiles for one or more tokens.
-     * Get Multiple Profiles
-     */
-    async getTokenProfilesRaw(requestParameters: GetTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/v1/solana/dex/tokens/get-profiles`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenProfilesRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns profiles for one or more tokens.
-     * Get Multiple Profiles
-     */
-    async getTokenProfiles(requestParameters: GetTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>> {
-        const response = await this.getTokenProfilesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Returns token profiles for a specific creator.
-     * Get Profiles by Creator
-     */
-    async getTokenProfilesByCreatorRaw(requestParameters: GetTokenProfilesByCreatorOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
-
-
-        let urlPath = `/v1/solana/dex/tokens/get-profiles-by-creator`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['getTokenProfilesByCreatorRequest'],
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response);
-    }
-
-    /**
-     * Returns token profiles for a specific creator.
-     * Get Profiles by Creator
-     */
-    async getTokenProfilesByCreator(requestParameters: GetTokenProfilesByCreatorOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>> {
-        const response = await this.getTokenProfilesByCreatorRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Returns the portfolio for a specific wallet.
      * Get Portfolio
      */
-    async getWalletPortfolioRaw(requestParameters: GetWalletPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletPortfolio>> {
+    async getPortfolioRaw(requestParameters: GetPortfolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaDexPortfolio>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -412,14 +206,14 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/v1/solana/dex/wallets/get-portfolio`;
+        let urlPath = `/v1/solana/dex/portfolios/get-portfolio`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletPortfolioRequest'],
+            body: requestParameters['getPortfolioRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
@@ -429,16 +223,16 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Returns the portfolio for a specific wallet.
      * Get Portfolio
      */
-    async getWalletPortfolio(requestParameters: GetWalletPortfolioOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletPortfolio> {
-        const response = await this.getWalletPortfolioRaw(requestParameters, initOverrides);
+    async getPortfolio(requestParameters: GetPortfolioOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaDexPortfolio> {
+        const response = await this.getPortfolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns a wallet profile for a specific wallet.
-     * Get Profile
+     * Returns prices for one or more tokens.
+     * Get Price
      */
-    async getWalletProfileRaw(requestParameters: GetWalletProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SolanaWalletProfile>> {
+    async getPriceRaw(requestParameters: GetPriceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPrice>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -450,177 +244,195 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         }
 
 
-        let urlPath = `/v1/solana/dex/wallets/get-profile`;
+        let urlPath = `/v1/solana/dex/prices/get-price`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletProfileRequest'],
+            body: requestParameters['getPriceRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Returns a wallet profile for a specific wallet.
-     * Get Profile
+     * Returns prices for one or more tokens.
+     * Get Price
      */
-    async getWalletProfile(requestParameters: GetWalletProfileOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SolanaWalletProfile> {
-        const response = await this.getWalletProfileRaw(requestParameters, initOverrides);
+    async getPrice(requestParameters: GetPriceOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPrice>> {
+        const response = await this.getPriceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * Get Profile History
+     * Returns price candles for a specific token.
+     * Get Price Candles
      */
-    async getWalletProfileHistoryRaw(requestParameters: GetWalletProfileHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfileHistoryInner>>> {
+    async getPriceCandlesRaw(requestParameters: GetPriceCandlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPriceCandle>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
 
-
-        let urlPath = `/v1/solana/dex/wallets/get-profile-history`;
+        let urlPath = `/v1/solana/dex/prices/get-price-candles`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletProfileHistoryRequest'],
+            body: requestParameters['getPriceCandlesRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Returns historical profile for a specific wallet, aggregated by the selected time frame. Useful for trend analysis and performance tracking over time.
-     * Get Profile History
+     * Returns price candles for a specific token.
+     * Get Price Candles
      */
-    async getWalletProfileHistory(requestParameters: GetWalletProfileHistoryOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfileHistoryInner>> {
-        const response = await this.getWalletProfileHistoryRaw(requestParameters, initOverrides);
+    async getPriceCandles(requestParameters: GetPriceCandlesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPriceCandle>> {
+        const response = await this.getPriceCandlesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns profiles for one or more wallets.
-     * Get Multiple Profiles
+     * Returns price history for one or more tokens.
+     * Get Price History
      */
-    async getWalletProfilesRaw(requestParameters: GetWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaWalletProfile>>> {
+    async getPriceHistoryRaw(requestParameters: GetPriceHistoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPriceHistory>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
 
-
-        let urlPath = `/v1/solana/dex/wallets/get-profiles`;
+        let urlPath = `/v1/solana/dex/prices/get-price-history`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['getWalletProfilesRequest'],
+            body: requestParameters['getPriceHistoryRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Returns profiles for one or more wallets.
-     * Get Multiple Profiles
+     * Returns price history for one or more tokens.
+     * Get Price History
      */
-    async getWalletProfiles(requestParameters: GetWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaWalletProfile>> {
-        const response = await this.getWalletProfilesRaw(requestParameters, initOverrides);
+    async getPriceHistory(requestParameters: GetPriceHistoryOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPriceHistory>> {
+        const response = await this.getPriceHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
-     * Search Profiles
+     * Returns price stats for one or more tokens.
+     * Get Price Stats
      */
-    async searchSolanaTokenProfilesRaw(requestParameters: SearchSolanaTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaTokenProfile>>> {
+    async getPriceStatsRaw(requestParameters: GetPriceStatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexPriceStats>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
 
-
-        let urlPath = `/v1/solana/dex/tokens/search-profiles`;
+        let urlPath = `/v1/solana/dex/prices/get-price-stats`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['searchSolanaTokenProfilesRequest'],
+            body: requestParameters['getPriceStatsRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
-     * Search Profiles
+     * Returns price stats for one or more tokens.
+     * Get Price Stats
      */
-    async searchSolanaTokenProfiles(requestParameters: SearchSolanaTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaTokenProfile>> {
-        const response = await this.searchSolanaTokenProfilesRaw(requestParameters, initOverrides);
+    async getPriceStats(requestParameters: GetPriceStatsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexPriceStats>> {
+        const response = await this.getPriceStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
-     * Search Profiles
+     * Returns swaps for a wallet, token or both.
+     * Get Swaps
      */
-    async searchSolanaWalletProfilesRaw(requestParameters: SearchSolanaWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaWalletProfiles200Response>> {
+    async getSwapsRaw(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexSwap>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
-        }
 
-
-        let urlPath = `/v1/solana/dex/wallets/search-profiles`;
+        let urlPath = `/v1/solana/dex/swaps/get-swaps`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['searchSolanaWalletProfilesRequest'],
+            body: requestParameters['getSwapsRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
     }
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
-     * Search Profiles
+     * Returns swaps for a wallet, token or both.
+     * Get Swaps
      */
-    async searchSolanaWalletProfiles(requestParameters: SearchSolanaWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaWalletProfiles200Response> {
-        const response = await this.searchSolanaWalletProfilesRaw(requestParameters, initOverrides);
+    async getSwaps(requestParameters: GetSwapsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexSwap>> {
+        const response = await this.getSwapsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Returns trades for a wallet, token or both.
+     * Get Trades
+     */
+    async getTradesRaw(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexTrade>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/v1/solana/dex/trades/get-trades`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['getTradesRequest'],
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response);
+    }
+
+    /**
+     * Returns trades for a wallet, token or both.
+     * Get Trades
+     */
+    async getTrades(requestParameters: GetTradesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexTrade>> {
+        const response = await this.getTradesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
