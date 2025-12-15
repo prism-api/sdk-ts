@@ -997,7 +997,13 @@ export interface SolanaDexSwap {
      * @type {number}
      * @memberof SolanaDexSwap
      */
-    usd_amount?: number;
+    usd_amount_in?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaDexSwap
+     */
+    usd_amount_out?: number;
     /**
      * 
      * @type {number}
