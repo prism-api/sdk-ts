@@ -392,11 +392,13 @@ export interface SearchSolanaDexTokenProfilesRequest {
      */
     query?: SolanaDexTokenProfileSearchPayloadQueryField;
     /**
-     * List of filter rules to apply.
-     * @type {Array<SolanaDexProfileSearchPayloadFilterFieldInner>}
+     * Filter rules to apply.
+     * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
+     * 
+     * @type {object}
      * @memberof SearchSolanaDexTokenProfilesRequest
      */
-    filter?: Array<SolanaDexProfileSearchPayloadFilterFieldInner>;
+    filter?: object;
     /**
      * 
      * @type {SolanaDexProfileSearchPayloadSortField}
@@ -454,11 +456,13 @@ export interface SearchSolanaDexWalletProfiles200Response {
  */
 export interface SearchSolanaDexWalletProfilesRequest {
     /**
-     * List of filter rules to apply.
-     * @type {Array<SolanaDexProfileSearchPayloadFilterFieldInner>}
+     * Filter rules to apply.
+     * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
+     * 
+     * @type {object}
      * @memberof SearchSolanaDexWalletProfilesRequest
      */
-    filter?: Array<SolanaDexProfileSearchPayloadFilterFieldInner>;
+    filter?: object;
     /**
      * 
      * @type {SolanaDexProfileSearchPayloadSortField}
@@ -815,43 +819,6 @@ export interface SolanaDexPriceStats {
      */
     block_time?: number;
 }
-/**
- * 
- * @export
- * @interface SolanaDexProfileSearchPayloadFilterFieldInner
- */
-export interface SolanaDexProfileSearchPayloadFilterFieldInner {
-    /**
-     * Field to filter by.
-     * @type {string}
-     * @memberof SolanaDexProfileSearchPayloadFilterFieldInner
-     */
-    field: string;
-    /**
-     * Minimum value to filter by.
-     * @type {number}
-     * @memberof SolanaDexProfileSearchPayloadFilterFieldInner
-     */
-    min?: number;
-    /**
-     * Maximum value to filter by.
-     * @type {number}
-     * @memberof SolanaDexProfileSearchPayloadFilterFieldInner
-     */
-    max?: number;
-    /**
-     * 
-     * @type {SolanaDexProfileSearchPayloadFilterFieldInnerEq}
-     * @memberof SolanaDexProfileSearchPayloadFilterFieldInner
-     */
-    eq?: SolanaDexProfileSearchPayloadFilterFieldInnerEq;
-}
-/**
- * @type SolanaDexProfileSearchPayloadFilterFieldInnerEq
- * Exact value to filter by.
- * @export
- */
-export type SolanaDexProfileSearchPayloadFilterFieldInnerEq = number | string;
 /**
  * Query rule to apply.
  * @export
