@@ -119,9 +119,46 @@ export interface GetPriceStatsRequest {
 /**
  * 
  * @export
+ * @interface GetSwaps200Response
+ */
+export interface GetSwaps200Response {
+    /**
+     * Total number of matching items
+     * @type {number}
+     * @memberof GetSwaps200Response
+     */
+    count?: number;
+    /**
+     * Cursor for pagination
+     * @type {string}
+     * @memberof GetSwaps200Response
+     */
+    cursor?: string;
+    /**
+     * 
+     * @type {Array<SolanaDexSwap>}
+     * @memberof GetSwaps200Response
+     */
+    data?: Array<SolanaDexSwap>;
+}
+/**
+ * 
+ * @export
  * @interface GetSwapsRequest
  */
 export interface GetSwapsRequest {
+    /**
+     * Maximum number of results to return.
+     * @type {number}
+     * @memberof GetSwapsRequest
+     */
+    limit?: number;
+    /**
+     * Cursor to return the next page of results.
+     * @type {string}
+     * @memberof GetSwapsRequest
+     */
+    cursor?: string;
     /**
      * Wallet address to retrieve swaps for.
      * @type {string}
@@ -134,18 +171,6 @@ export interface GetSwapsRequest {
      * @memberof GetSwapsRequest
      */
     token?: string;
-    /**
-     * Maximum number of results to return.
-     * @type {number}
-     * @memberof GetSwapsRequest
-     */
-    limit?: number;
-    /**
-     * Cursor to return the next page of results.
-     * @type {number}
-     * @memberof GetSwapsRequest
-     */
-    cursor?: number;
 }
 /**
  * 
@@ -242,9 +267,46 @@ export enum GetTokenProfilesRequestSortDirectionEnum {
 /**
  * 
  * @export
+ * @interface GetTrades200Response
+ */
+export interface GetTrades200Response {
+    /**
+     * Total number of matching items
+     * @type {number}
+     * @memberof GetTrades200Response
+     */
+    count?: number;
+    /**
+     * Cursor for pagination
+     * @type {string}
+     * @memberof GetTrades200Response
+     */
+    cursor?: string;
+    /**
+     * 
+     * @type {Array<SolanaDexTrade>}
+     * @memberof GetTrades200Response
+     */
+    data?: Array<SolanaDexTrade>;
+}
+/**
+ * 
+ * @export
  * @interface GetTradesRequest
  */
 export interface GetTradesRequest {
+    /**
+     * Maximum number of results to return.
+     * @type {number}
+     * @memberof GetTradesRequest
+     */
+    limit?: number;
+    /**
+     * Cursor to return the next page of results.
+     * @type {string}
+     * @memberof GetTradesRequest
+     */
+    cursor?: string;
     /**
      * Wallet address to retrieve trades for.
      * @type {string}
@@ -257,18 +319,6 @@ export interface GetTradesRequest {
      * @memberof GetTradesRequest
      */
     token?: string;
-    /**
-     * Maximum number of results to return.
-     * @type {number}
-     * @memberof GetTradesRequest
-     */
-    limit?: number;
-    /**
-     * Cursor to return the next page of results.
-     * @type {number}
-     * @memberof GetTradesRequest
-     */
-    cursor?: number;
 }
 /**
  * 
@@ -382,9 +432,84 @@ export interface InlineObject4 {
 /**
  * 
  * @export
+ * @interface PaginatedResponse
+ */
+export interface PaginatedResponse {
+    /**
+     * Total number of matching items
+     * @type {number}
+     * @memberof PaginatedResponse
+     */
+    count?: number;
+    /**
+     * Cursor for pagination
+     * @type {string}
+     * @memberof PaginatedResponse
+     */
+    cursor?: string;
+}
+/**
+ * 
+ * @export
+ * @interface PayloadPagination
+ */
+export interface PayloadPagination {
+    /**
+     * Maximum number of results to return.
+     * @type {number}
+     * @memberof PayloadPagination
+     */
+    limit?: number;
+    /**
+     * Cursor to return the next page of results.
+     * @type {string}
+     * @memberof PayloadPagination
+     */
+    cursor?: string;
+}
+/**
+ * 
+ * @export
+ * @interface SearchSolanaDexTokenProfiles200Response
+ */
+export interface SearchSolanaDexTokenProfiles200Response {
+    /**
+     * Total number of matching items
+     * @type {number}
+     * @memberof SearchSolanaDexTokenProfiles200Response
+     */
+    count?: number;
+    /**
+     * Cursor for pagination
+     * @type {string}
+     * @memberof SearchSolanaDexTokenProfiles200Response
+     */
+    cursor?: string;
+    /**
+     * 
+     * @type {Array<SolanaDexTokenProfile>}
+     * @memberof SearchSolanaDexTokenProfiles200Response
+     */
+    data?: Array<SolanaDexTokenProfile>;
+}
+/**
+ * 
+ * @export
  * @interface SearchSolanaDexTokenProfilesRequest
  */
 export interface SearchSolanaDexTokenProfilesRequest {
+    /**
+     * Maximum number of results to return.
+     * @type {number}
+     * @memberof SearchSolanaDexTokenProfilesRequest
+     */
+    limit?: number;
+    /**
+     * Cursor to return the next page of results.
+     * @type {string}
+     * @memberof SearchSolanaDexTokenProfilesRequest
+     */
+    cursor?: string;
     /**
      * 
      * @type {SolanaDexTokenProfileSearchPayloadQueryField}
@@ -411,18 +536,6 @@ export interface SearchSolanaDexTokenProfilesRequest {
      * @memberof SearchSolanaDexTokenProfilesRequest
      */
     time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
-    /**
-     * Maximum number of results to return.
-     * @type {number}
-     * @memberof SearchSolanaDexTokenProfilesRequest
-     */
-    limit?: number;
-    /**
-     * Cursor to return the next page of results.
-     * @type {string}
-     * @memberof SearchSolanaDexTokenProfilesRequest
-     */
-    cursor?: string;
 }
 /**
  * 
@@ -431,13 +544,13 @@ export interface SearchSolanaDexTokenProfilesRequest {
  */
 export interface SearchSolanaDexWalletProfiles200Response {
     /**
-     * 
+     * Total number of matching items
      * @type {number}
      * @memberof SearchSolanaDexWalletProfiles200Response
      */
-    page?: number;
+    count?: number;
     /**
-     * 
+     * Cursor for pagination
      * @type {string}
      * @memberof SearchSolanaDexWalletProfiles200Response
      */
@@ -447,7 +560,7 @@ export interface SearchSolanaDexWalletProfiles200Response {
      * @type {Array<SolanaDexWalletProfile>}
      * @memberof SearchSolanaDexWalletProfiles200Response
      */
-    results?: Array<SolanaDexWalletProfile>;
+    data?: Array<SolanaDexWalletProfile>;
 }
 /**
  * 
@@ -455,6 +568,18 @@ export interface SearchSolanaDexWalletProfiles200Response {
  * @interface SearchSolanaDexWalletProfilesRequest
  */
 export interface SearchSolanaDexWalletProfilesRequest {
+    /**
+     * Maximum number of results to return.
+     * @type {number}
+     * @memberof SearchSolanaDexWalletProfilesRequest
+     */
+    limit?: number;
+    /**
+     * Cursor to return the next page of results.
+     * @type {string}
+     * @memberof SearchSolanaDexWalletProfilesRequest
+     */
+    cursor?: string;
     /**
      * Filter rules to apply.
      * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
@@ -475,18 +600,6 @@ export interface SearchSolanaDexWalletProfilesRequest {
      * @memberof SearchSolanaDexWalletProfilesRequest
      */
     time_windows?: Array<SolanaDexWalletProfileTimeWindowEnum>;
-    /**
-     * Maximum number of results to return.
-     * @type {number}
-     * @memberof SearchSolanaDexWalletProfilesRequest
-     */
-    limit?: number;
-    /**
-     * Cursor to return the next page of results.
-     * @type {string}
-     * @memberof SearchSolanaDexWalletProfilesRequest
-     */
-    cursor?: string;
 }
 /**
  * 

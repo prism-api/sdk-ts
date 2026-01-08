@@ -20,10 +20,12 @@ import type {
   GetPriceHistoryRequest,
   GetPriceRequest,
   GetPriceStatsRequest,
+  GetSwaps200Response,
   GetSwapsRequest,
   GetTokenProfileRequest,
   GetTokenProfilesByCreatorRequest,
   GetTokenProfilesRequest,
+  GetTrades200Response,
   GetTradesRequest,
   GetWalletProfileRequest,
   GetWalletProfilesRequest,
@@ -32,6 +34,7 @@ import type {
   InlineObject2,
   InlineObject3,
   InlineObject4,
+  SearchSolanaDexTokenProfiles200Response,
   SearchSolanaDexTokenProfilesRequest,
   SearchSolanaDexWalletProfiles200Response,
   SearchSolanaDexWalletProfilesRequest,
@@ -40,9 +43,7 @@ import type {
   SolanaDexPriceCandle,
   SolanaDexPriceHistory,
   SolanaDexPriceStats,
-  SolanaDexSwap,
   SolanaDexTokenProfile,
-  SolanaDexTrade,
   SolanaDexWalletProfile,
 } from '../models/index';
 
@@ -197,13 +198,13 @@ export interface SolanaDEXApiInterface {
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    getSwapsRaw(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexSwap>>>;
+    getSwapsRaw(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSwaps200Response>>;
 
     /**
      * Returns swaps for a wallet, token or both.
      * Get Swaps
      */
-    getSwaps(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexSwap>>;
+    getSwaps(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSwaps200Response>;
 
     /**
      * Returns the profile for a specific token.
@@ -261,13 +262,13 @@ export interface SolanaDEXApiInterface {
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    getTradesRaw(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexTrade>>>;
+    getTradesRaw(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTrades200Response>>;
 
     /**
      * Returns trades for a wallet, token or both.
      * Get Trades
      */
-    getTrades(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexTrade>>;
+    getTrades(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTrades200Response>;
 
     /**
      * Returns a wallet profile for a specific wallet.
@@ -309,13 +310,13 @@ export interface SolanaDEXApiInterface {
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexTokenProfile>>>;
+    searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexTokenProfiles200Response>>;
 
     /**
      * Search and filter token profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexTokenProfile>>;
+    searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexTokenProfiles200Response>;
 
     /**
      * Search and filter wallet profiles based on specified metrics and conditions.
@@ -522,7 +523,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Returns swaps for a wallet, token or both.
      * Get Swaps
      */
-    async getSwapsRaw(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexSwap>>> {
+    async getSwapsRaw(requestParameters: GetSwapsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSwaps200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -547,7 +548,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Returns swaps for a wallet, token or both.
      * Get Swaps
      */
-    async getSwaps(requestParameters: GetSwapsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexSwap>> {
+    async getSwaps(requestParameters: GetSwapsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSwaps200Response> {
         const response = await this.getSwapsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -662,7 +663,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Returns trades for a wallet, token or both.
      * Get Trades
      */
-    async getTradesRaw(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexTrade>>> {
+    async getTradesRaw(requestParameters: GetTradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTrades200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -687,7 +688,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Returns trades for a wallet, token or both.
      * Get Trades
      */
-    async getTrades(requestParameters: GetTradesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexTrade>> {
+    async getTrades(requestParameters: GetTradesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTrades200Response> {
         const response = await this.getTradesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -772,7 +773,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Search and filter token profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    async searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SolanaDexTokenProfile>>> {
+    async searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexTokenProfiles200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -801,7 +802,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Search and filter token profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    async searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexTokenProfile>> {
+    async searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexTokenProfiles200Response> {
         const response = await this.searchSolanaDexTokenProfilesRaw(requestParameters, initOverrides);
         return await response.value();
     }
