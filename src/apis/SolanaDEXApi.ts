@@ -428,6 +428,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
 
         headerParameters['Content-Type'] = 'application/json';
 
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
+
 
         let urlPath = `/v1/solana/dex/prices/get-price-candles`;
 
@@ -461,6 +465,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
 
 
         let urlPath = `/v1/solana/dex/prices/get-price-history`;
@@ -496,6 +504,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
 
         headerParameters['Content-Type'] = 'application/json';
 
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
+
 
         let urlPath = `/v1/solana/dex/prices/get-price-stats`;
 
@@ -529,6 +541,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
 
 
         let urlPath = `/v1/solana/dex/swaps/get-swaps`;
@@ -669,6 +685,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
 
 
         let urlPath = `/v1/solana/dex/trades/get-trades`;
