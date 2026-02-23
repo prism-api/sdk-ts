@@ -1292,9 +1292,8 @@ export interface SolanaDexTokenProfileSearchPayloadQueryField {
  */
 export enum SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum {
     TOKEN_ADDRESS = 'token_address',
-    NAME = 'name',
-    SYMBOL = 'symbol',
-    CREATOR = 'creator'
+    METADATA_NAME = 'metadata.name',
+    METADATA_SYMBOL = 'metadata.symbol'
 }
 
 /**
