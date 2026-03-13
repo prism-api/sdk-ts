@@ -989,6 +989,12 @@ export enum SolanaDexProfileSearchPayloadSortFieldDirectionEnum {
  */
 export interface SolanaDexSwap {
     /**
+     * 
+     * @type {SolanaDexSwapTypeEnum}
+     * @memberof SolanaDexSwap
+     */
+    swap_type?: SolanaDexSwapTypeEnum;
+    /**
      * Refer to [Data Sources](/documentation/solana/dex/data-coverage#data-sources) for the list of supported protocols.
      * @type {string}
      * @memberof SolanaDexSwap
@@ -1109,6 +1115,20 @@ export interface SolanaDexSwap {
      */
     swap_index?: number;
 }
+
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SolanaDexSwapTypeEnum {
+    QUOTE_TOKEN = 'quote_token',
+    TOKEN_QUOTE = 'token_quote',
+    TOKEN_TOKEN = 'token_token',
+    QUOTE_QUOTE = 'quote_quote'
+}
+
 /**
  * 
  * @export
@@ -1418,6 +1438,12 @@ export interface SolanaDexTrade {
     protocol?: string;
     /**
      * 
+     * @type {SolanaDexSwapTypeEnum}
+     * @memberof SolanaDexTrade
+     */
+    swap_type?: SolanaDexSwapTypeEnum;
+    /**
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
@@ -1428,6 +1454,18 @@ export interface SolanaDexTrade {
      * @memberof SolanaDexTrade
      */
     token?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaDexTrade
+     */
+    quote?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaDexTrade
+     */
+    position?: string;
     /**
      * 
      * @type {SolanaDexTradeDirectionEnum}
@@ -1446,6 +1484,18 @@ export interface SolanaDexTrade {
      * @memberof SolanaDexTrade
      */
     token_amount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaDexTrade
+     */
+    quote_amount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaDexTrade
+     */
+    native_amount?: number;
     /**
      * 
      * @type {number}
@@ -1472,10 +1522,22 @@ export interface SolanaDexTrade {
     token_symbol?: string;
     /**
      * 
+     * @type {string}
+     * @memberof SolanaDexTrade
+     */
+    quote_symbol?: string;
+    /**
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     token_price?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SolanaDexTrade
+     */
+    quote_price?: number;
     /**
      * 
      * @type {number}
