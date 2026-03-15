@@ -1124,19 +1124,19 @@ export interface SolanaDexSwap {
  */
 export enum SolanaDexSwapTypeEnum {
     /**
-    * The input token is a quote token and the output token is a token.
+    * Quote (sell) to token (buy) swap
     */
     QUOTE_TOKEN = 'quote_token',
     /**
-    * The input token is a token and the output token is a quote token.
+    * Token (sell) to quote (buy) swap
     */
     TOKEN_QUOTE = 'token_quote',
     /**
-    * The input token and output token are both tokens.
+    * Token (sell) to token (buy) swap
     */
     TOKEN_TOKEN = 'token_token',
     /**
-    * The input token and output token are both quote tokens.
+    * Quote (sell) to quote (buy) swap
     */
     QUOTE_QUOTE = 'quote_quote'
 }
