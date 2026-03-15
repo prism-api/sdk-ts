@@ -26,7 +26,7 @@ export interface GetPriceCandlesRequest {
      */
     token: string;
     /**
-     * Start time for the candles range, as a Unix timestamp.
+     * Start time for the candles range.
      * Must be used in conjunction with `to`.
      * 
      * @type {number}
@@ -34,7 +34,7 @@ export interface GetPriceCandlesRequest {
      */
     from?: number;
     /**
-     * End time for the candles range, as a Unix timestamp.
+     * End time for the candles range.
      * Must be used in conjunction with `from` or `count`.
      * Defaults to the current time.
      * 
@@ -51,7 +51,7 @@ export interface GetPriceCandlesRequest {
      */
     count?: number;
     /**
-     * Time interval to aggregate candles by, in seconds.
+     * Time interval to aggregate candles by.
      * @type {number}
      * @memberof GetPriceCandlesRequest
      */
@@ -70,13 +70,13 @@ export interface GetPriceHistoryRequest {
      */
     tokens: Array<string>;
     /**
-     * Start time for the history range, as a Unix timestamp.
+     * Start time for the history range.
      * @type {number}
      * @memberof GetPriceHistoryRequest
      */
     from: number;
     /**
-     * End time for the history range, as a Unix timestamp.
+     * End time for the history range.
      * Defaults to the current time.
      * 
      * @type {number}
@@ -84,7 +84,7 @@ export interface GetPriceHistoryRequest {
      */
     to?: number;
     /**
-     * Time interval to aggregate metrics by, in seconds.
+     * Time interval to aggregate metrics by.
      * @type {number}
      * @memberof GetPriceHistoryRequest
      */
@@ -608,7 +608,7 @@ export interface SearchSolanaDexWalletProfilesRequest {
  */
 export interface SolanaDexPortfolio {
     /**
-     * Total portfolio value in USD.
+     * Total portfolio value.
      * @type {number}
      * @memberof SolanaDexPortfolio
      */
@@ -639,13 +639,13 @@ export interface SolanaDexPortfolioTokensInner {
      */
     balance?: number;
     /**
-     * Current token price in USD.
+     * Current token price.
      * @type {number}
      * @memberof SolanaDexPortfolioTokensInner
      */
     price?: number;
     /**
-     * Total value of the holding in USD.
+     * Total value of the holding.
      * @type {number}
      * @memberof SolanaDexPortfolioTokensInner
      */
@@ -664,7 +664,7 @@ export interface SolanaDexPrice {
      */
     token?: string;
     /**
-     * Current token price in USD.
+     * Current token price.
      * @type {number}
      * @memberof SolanaDexPrice
      */
@@ -676,7 +676,7 @@ export interface SolanaDexPrice {
      */
     block_slot?: number;
     /**
-     * Unix timestamp of the block.
+     * Timestamp of the block.
      * @type {number}
      * @memberof SolanaDexPrice
      */
@@ -689,37 +689,37 @@ export interface SolanaDexPrice {
  */
 export interface SolanaDexPriceCandle {
     /**
-     * Unix timestamp of candle start.
+     * Timestamp of candle start.
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     timestamp?: number;
     /**
-     * Opening price in USD.
+     * Opening price.
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     open?: number;
     /**
-     * Highest price in USD.
+     * Highest price.
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     high?: number;
     /**
-     * Lowest price in USD.
+     * Lowest price.
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     low?: number;
     /**
-     * Closing price in USD.
+     * Closing price.
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     close?: number;
     /**
-     * Trading volume in USD.
+     * Trading volume.
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
@@ -757,19 +757,19 @@ export interface SolanaDexPriceHistory {
  */
 export interface SolanaDexPriceSnapshot {
     /**
-     * Unix timestamp of the snapshot.
+     * Timestamp of the snapshot.
      * @type {number}
      * @memberof SolanaDexPriceSnapshot
      */
     timestamp?: number;
     /**
-     * Token price in USD at snapshot time.
+     * Token price at snapshot time.
      * @type {number}
      * @memberof SolanaDexPriceSnapshot
      */
     usd_price?: number;
     /**
-     * Trading volume in USD at snapshot time.
+     * Trading volume at snapshot time.
      * @type {number}
      * @memberof SolanaDexPriceSnapshot
      */
@@ -788,133 +788,133 @@ export interface SolanaDexPriceStats {
      */
     token?: string;
     /**
-     * Current token price in USD.
+     * Current token price.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price?: number;
     /**
-     * Price change over 5 minutes as a decimal.
+     * Price change over 5 minutes.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_5m?: number;
     /**
-     * Price change over 1 hour as a decimal.
+     * Price change over 1 hour.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_1h?: number;
     /**
-     * Price change over 6 hours as a decimal.
+     * Price change over 6 hours.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_6h?: number;
     /**
-     * Price change over 12 hours as a decimal.
+     * Price change over 12 hours.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_12h?: number;
     /**
-     * Price change over 1 day as a decimal.
+     * Price change over 1 day.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_1d?: number;
     /**
-     * Price change over 7 days as a decimal.
+     * Price change over 7 days.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_7d?: number;
     /**
-     * Price change over 30 days as a decimal.
+     * Price change over 30 days.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_30d?: number;
     /**
-     * Trading volume in USD over 5 minutes.
+     * Trading volume over 5 minutes.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_5m?: number;
     /**
-     * Trading volume in USD over 1 hour.
+     * Trading volume over 1 hour.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_1h?: number;
     /**
-     * Trading volume in USD over 6 hours.
+     * Trading volume over 6 hours.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_6h?: number;
     /**
-     * Trading volume in USD over 12 hours.
+     * Trading volume over 12 hours.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_12h?: number;
     /**
-     * Trading volume in USD over 1 day.
+     * Trading volume over 1 day.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_1d?: number;
     /**
-     * Trading volume in USD over 7 days.
+     * Trading volume over 7 days.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_7d?: number;
     /**
-     * Trading volume in USD over 30 days.
+     * Trading volume over 30 days.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_30d?: number;
     /**
-     * Volume change over 5 minutes as a decimal.
+     * Volume change over 5 minutes.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_5m?: number;
     /**
-     * Volume change over 1 hour as a decimal.
+     * Volume change over 1 hour.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_1h?: number;
     /**
-     * Volume change over 6 hours as a decimal.
+     * Volume change over 6 hours.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_6h?: number;
     /**
-     * Volume change over 12 hours as a decimal.
+     * Volume change over 12 hours.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_12h?: number;
     /**
-     * Volume change over 1 day as a decimal.
+     * Volume change over 1 day.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_1d?: number;
     /**
-     * Volume change over 7 days as a decimal.
+     * Volume change over 7 days.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_7d?: number;
     /**
-     * Volume change over 30 days as a decimal.
+     * Volume change over 30 days.
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
@@ -1043,49 +1043,49 @@ export interface SolanaDexSwap {
      */
     token_amount_out?: number;
     /**
-     * USD price of input token at swap time.
+     * Price of input token at swap time.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     token_price_in?: number;
     /**
-     * USD price of output token at swap time.
+     * Price of output token at swap time.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     token_price_out?: number;
     /**
-     * Wallet's input token balance before swap.
+     * Wallet's input token balance before the swap.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     pre_token_balance_in?: number;
     /**
-     * Wallet's output token balance before swap.
+     * Wallet's output token balance before the swap.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     pre_token_balance_out?: number;
     /**
-     * Wallet's input token balance after swap.
+     * Wallet's input token balance after the swap.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     post_token_balance_in?: number;
     /**
-     * Wallet's output token balance after swap.
+     * Wallet's output token balance after the swap.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     post_token_balance_out?: number;
     /**
-     * USD value of input tokens.
+     * Value of input tokens.
      * @type {number}
      * @memberof SolanaDexSwap
      */
     usd_amount_in?: number;
     /**
-     * USD value of output tokens.
+     * Value of output tokens.
      * @type {number}
      * @memberof SolanaDexSwap
      */
@@ -1097,7 +1097,7 @@ export interface SolanaDexSwap {
      */
     block_slot?: number;
     /**
-     * Unix timestamp of the block.
+     * Timestamp of the block.
      * @type {number}
      * @memberof SolanaDexSwap
      */
@@ -1109,7 +1109,7 @@ export interface SolanaDexSwap {
      */
     tx_hash?: string;
     /**
-     * Index of swap within the transaction.
+     * Index of the swap within the transaction.
      * @type {number}
      * @memberof SolanaDexSwap
      */
@@ -1179,31 +1179,31 @@ export interface SolanaDexTokenProfile {
  */
 export interface SolanaDexTokenProfileMarket {
     /**
-     * Fully diluted valuation in USD.
+     * Fully diluted valuation.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     fdv?: number;
     /**
-     * Current market capitalization in USD.
+     * Current market capitalization.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     market_cap?: number;
     /**
-     * Current token price in USD.
+     * Current token price.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     price?: number;
     /**
-     * Available liquidity in USD.
+     * Available liquidity.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     liquidity?: number;
     /**
-     * Number of unique holders.
+     * Number of unique token holders.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
@@ -1221,13 +1221,13 @@ export interface SolanaDexTokenProfileMarket {
      */
     circulating_supply?: number;
     /**
-     * Percentage held by top holders.
+     * Percentage of supply held by top holders.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     top_holdings?: number;
     /**
-     * Percentage held by developers.
+     * Percentage of supply held by developers.
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
@@ -1240,13 +1240,13 @@ export interface SolanaDexTokenProfileMarket {
  */
 export interface SolanaDexTokenProfileMetadata {
     /**
-     * Unix timestamp of last trade.
+     * Timestamp of the last trade.
      * @type {number}
      * @memberof SolanaDexTokenProfileMetadata
      */
     last_trade_at?: number;
     /**
-     * Unix timestamp of token creation.
+     * Timestamp of token creation.
      * @type {number}
      * @memberof SolanaDexTokenProfileMetadata
      */
@@ -1276,7 +1276,7 @@ export interface SolanaDexTokenProfileMetadata {
      */
     verified?: boolean;
     /**
-     * Wallet address of token creator.
+     * Wallet address of the token creator.
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
@@ -1406,31 +1406,31 @@ export enum SolanaDexTokenProfileTimeWindowEnum {
  */
 export interface SolanaDexTokenProfileWalletRoiDistribution {
     /**
-     * Wallets with ROI greater than 500%.
+     * Number of wallets with ROI greater than 500%.
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     gt_500?: number;
     /**
-     * Wallets with ROI between 200% and 500%.
+     * Number of wallets with ROI between 200% and 500%.
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     _200_500?: number;
     /**
-     * Wallets with ROI between 0% and 200%.
+     * Number of wallets with ROI between 0% and 200%.
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     _0_200?: number;
     /**
-     * Wallets with ROI between -50% and 0%.
+     * Number of wallets with ROI between -50% and 0%.
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     neg50_0?: number;
     /**
-     * Wallets with ROI less than -50%.
+     * Number of wallets with ROI less than -50%.
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
@@ -1473,7 +1473,7 @@ export interface SolanaDexTrade {
      */
     quote?: string;
     /**
-     * Position address.
+     * Unique position identifier.
      * @type {string}
      * @memberof SolanaDexTrade
      */
@@ -1503,25 +1503,25 @@ export interface SolanaDexTrade {
      */
     quote_amount?: number;
     /**
-     * Native (SOL) amount.
+     * Native amount.
      * @type {number}
      * @memberof SolanaDexTrade
      */
     native_amount?: number;
     /**
-     * USD value of the trade.
+     * Value of the trade.
      * @type {number}
      * @memberof SolanaDexTrade
      */
     usd_amount?: number;
     /**
-     * Token balance before the trade.
+     * Traded token balance before the trade.
      * @type {number}
      * @memberof SolanaDexTrade
      */
     pre_token_balance?: number;
     /**
-     * Token balance after the trade.
+     * Traded token balance after the trade.
      * @type {number}
      * @memberof SolanaDexTrade
      */
@@ -1539,13 +1539,13 @@ export interface SolanaDexTrade {
      */
     quote_symbol?: string;
     /**
-     * USD price of traded token at trade time.
+     * Price of traded token at trade time.
      * @type {number}
      * @memberof SolanaDexTrade
      */
     token_price?: number;
     /**
-     * USD price of quote token at trade time.
+     * Price of quote token at trade time.
      * @type {number}
      * @memberof SolanaDexTrade
      */
@@ -1557,7 +1557,7 @@ export interface SolanaDexTrade {
      */
     block_slot?: number;
     /**
-     * Unix timestamp of the block.
+     * Timestamp of the block.
      * @type {number}
      * @memberof SolanaDexTrade
      */
@@ -1569,7 +1569,7 @@ export interface SolanaDexTrade {
      */
     tx_hash?: string;
     /**
-     * Index of trade within the transaction.
+     * Index of the trade within the transaction.
      * @type {number}
      * @memberof SolanaDexTrade
      */
@@ -1645,7 +1645,7 @@ export interface SolanaDexWalletProfile {
  */
 export interface SolanaDexWalletProfileMetadata {
     /**
-     * Unix timestamp of the wallet's last trade.
+     * Timestamp of the wallet's last trade.
      * @type {number}
      * @memberof SolanaDexWalletProfileMetadata
      */
@@ -1708,31 +1708,31 @@ export enum SolanaDexWalletProfileTimeWindowEnum {
  */
 export interface SolanaDexWalletProfileTokenRoiDistribution {
     /**
-     * Tokens with ROI greater than 500%.
+     * Number of tokens with ROI greater than 500%.
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     gt_500?: number;
     /**
-     * Tokens with ROI between 200% and 500%.
+     * Number of tokens with ROI between 200% and 500%.
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     _200_500?: number;
     /**
-     * Tokens with ROI between 0% and 200%.
+     * Number of tokens with ROI between 0% and 200%.
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     _0_200?: number;
     /**
-     * Tokens with ROI between -50% and 0%.
+     * Number of tokens with ROI between -50% and 0%.
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     neg50_0?: number;
     /**
-     * Tokens with ROI less than -50%.
+     * Number of tokens with ROI less than -50%.
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
