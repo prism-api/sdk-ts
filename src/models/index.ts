@@ -202,7 +202,7 @@ export interface GetTokenProfilesByCreatorRequest {
      * @type {string}
      * @memberof GetTokenProfilesByCreatorRequest
      */
-    creator?: string;
+    creator: string;
     /**
      * List of time windows to include in the profile metrics.
      * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
@@ -224,10 +224,10 @@ export interface GetTokenProfilesRequest {
     tokens: Array<string>;
     /**
      * 
-     * @type {GetTokenProfilesRequestSort}
+     * @type {SolanaDexProfileSearchPayloadSortField}
      * @memberof GetTokenProfilesRequest
      */
-    sort?: GetTokenProfilesRequestSort;
+    sort?: SolanaDexProfileSearchPayloadSortField;
     /**
      * List of time windows to include in the profile metrics.
      * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
@@ -235,35 +235,6 @@ export interface GetTokenProfilesRequest {
      */
     time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
 }
-/**
- * Sorting rule.
- * @export
- * @interface GetTokenProfilesRequestSort
- */
-export interface GetTokenProfilesRequestSort {
-    /**
-     * 
-     * @type {any}
-     * @memberof GetTokenProfilesRequestSort
-     */
-    field: any | null;
-    /**
-     * Sorting direction.
-     * @type {string}
-     * @memberof GetTokenProfilesRequestSort
-     */
-    direction: GetTokenProfilesRequestSortDirectionEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum GetTokenProfilesRequestSortDirectionEnum {
-    ASC = 'asc',
-    DESC = 'desc'
-}
-
 /**
  * 
  * @export
@@ -1627,6 +1598,12 @@ export interface SolanaDexWalletProfile {
     wallet_address?: string;
     /**
      * 
+     * @type {Array<SolanaDexWalletProfileLabelEnum>}
+     * @memberof SolanaDexWalletProfile
+     */
+    labels?: Array<SolanaDexWalletProfileLabelEnum>;
+    /**
+     * 
      * @type {SolanaDexWalletProfileMetadata}
      * @memberof SolanaDexWalletProfile
      */
@@ -1639,6 +1616,15 @@ export interface SolanaDexWalletProfile {
     metrics?: SolanaDexWalletProfileMetrics;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SolanaDexWalletProfileLabelEnum {
+    KOL = 'kol'
+}
+
+/**
  * Wallet profile metadata.
  * @export
  * @interface SolanaDexWalletProfileMetadata
@@ -1650,6 +1636,24 @@ export interface SolanaDexWalletProfileMetadata {
      * @memberof SolanaDexWalletProfileMetadata
      */
     last_trade_at?: number;
+    /**
+     * Key opinion leader name associated with the wallet.
+     * @type {string}
+     * @memberof SolanaDexWalletProfileMetadata
+     */
+    kol_name?: string;
+    /**
+     * Twitter username of the wallet owner.
+     * @type {string}
+     * @memberof SolanaDexWalletProfileMetadata
+     */
+    twitter_username?: string;
+    /**
+     * Telegram username of the wallet owner.
+     * @type {string}
+     * @memberof SolanaDexWalletProfileMetadata
+     */
+    telegram_username?: string;
 }
 /**
  * Profile metrics grouped by time window.

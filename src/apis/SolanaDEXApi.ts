@@ -303,7 +303,7 @@ export interface SolanaDEXApiInterface {
     getWalletProfiles(requestParameters: GetWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SolanaDexWalletProfile>>;
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
+     * Filter, query, and sort token profiles based on specified metrics and conditions.
      * @summary Search Profiles
      * @param {SearchSolanaDexTokenProfilesRequest} [searchSolanaDexTokenProfilesRequest] 
      * @param {*} [options] Override http request option.
@@ -313,13 +313,13 @@ export interface SolanaDEXApiInterface {
     searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexTokenProfiles200Response>>;
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
+     * Filter, query, and sort token profiles based on specified metrics and conditions.
      * Search Profiles
      */
     searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexTokenProfiles200Response>;
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * @summary Search Profiles
      * @param {SearchSolanaDexWalletProfilesRequest} [searchSolanaDexWalletProfilesRequest] 
      * @param {*} [options] Override http request option.
@@ -329,7 +329,7 @@ export interface SolanaDEXApiInterface {
     searchSolanaDexWalletProfilesRaw(requestParameters: SearchSolanaDexWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexWalletProfiles200Response>>;
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * Search Profiles
      */
     searchSolanaDexWalletProfiles(requestParameters: SearchSolanaDexWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexWalletProfiles200Response>;
@@ -580,6 +580,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
 
         headerParameters['Content-Type'] = 'application/json';
 
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
+
 
         let urlPath = `/v1/solana/dex/profiles/tokens/get-profile`;
 
@@ -613,6 +617,10 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Api-Key"] = await this.configuration.apiKey("X-Api-Key"); // ApiKeyAuth authentication
+        }
 
 
         let urlPath = `/v1/solana/dex/profiles/tokens/get-profiles`;
@@ -790,7 +798,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
     }
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
+     * Filter, query, and sort token profiles based on specified metrics and conditions.
      * Search Profiles
      */
     async searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexTokenProfiles200Response>> {
@@ -819,7 +827,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
     }
 
     /**
-     * Search and filter token profiles based on specified metrics and conditions.
+     * Filter, query, and sort token profiles based on specified metrics and conditions.
      * Search Profiles
      */
     async searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexTokenProfiles200Response> {
@@ -828,7 +836,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
     }
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * Search Profiles
      */
     async searchSolanaDexWalletProfilesRaw(requestParameters: SearchSolanaDexWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexWalletProfiles200Response>> {
@@ -857,7 +865,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
     }
 
     /**
-     * Search and filter wallet profiles based on specified metrics and conditions.
+     * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * Search Profiles
      */
     async searchSolanaDexWalletProfiles(requestParameters: SearchSolanaDexWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexWalletProfiles200Response> {
