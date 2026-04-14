@@ -441,50 +441,50 @@ export interface PayloadPagination {
 /**
  * 
  * @export
- * @interface SearchSolanaDexTokenProfiles200Response
+ * @interface SearchTokenProfiles200Response
  */
-export interface SearchSolanaDexTokenProfiles200Response {
+export interface SearchTokenProfiles200Response {
     /**
      * Total number of matching items
      * @type {number}
-     * @memberof SearchSolanaDexTokenProfiles200Response
+     * @memberof SearchTokenProfiles200Response
      */
     count?: number;
     /**
      * Cursor for pagination
      * @type {string}
-     * @memberof SearchSolanaDexTokenProfiles200Response
+     * @memberof SearchTokenProfiles200Response
      */
     cursor?: string;
     /**
      * 
      * @type {Array<SolanaDexTokenProfile>}
-     * @memberof SearchSolanaDexTokenProfiles200Response
+     * @memberof SearchTokenProfiles200Response
      */
     data?: Array<SolanaDexTokenProfile>;
 }
 /**
  * 
  * @export
- * @interface SearchSolanaDexTokenProfilesRequest
+ * @interface SearchTokenProfilesRequest
  */
-export interface SearchSolanaDexTokenProfilesRequest {
+export interface SearchTokenProfilesRequest {
     /**
      * Maximum number of results to return.
      * @type {number}
-     * @memberof SearchSolanaDexTokenProfilesRequest
+     * @memberof SearchTokenProfilesRequest
      */
     limit?: number;
     /**
      * Cursor to return the next page of results.
      * @type {string}
-     * @memberof SearchSolanaDexTokenProfilesRequest
+     * @memberof SearchTokenProfilesRequest
      */
     cursor?: string;
     /**
      * 
      * @type {SolanaDexTokenProfileSearchPayloadQueryField}
-     * @memberof SearchSolanaDexTokenProfilesRequest
+     * @memberof SearchTokenProfilesRequest
      */
     query?: SolanaDexTokenProfileSearchPayloadQueryField;
     /**
@@ -492,63 +492,63 @@ export interface SearchSolanaDexTokenProfilesRequest {
      * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
      * 
      * @type {object}
-     * @memberof SearchSolanaDexTokenProfilesRequest
+     * @memberof SearchTokenProfilesRequest
      */
     filter?: object;
     /**
      * 
      * @type {SolanaDexProfileSearchPayloadSortField}
-     * @memberof SearchSolanaDexTokenProfilesRequest
+     * @memberof SearchTokenProfilesRequest
      */
     sort?: SolanaDexProfileSearchPayloadSortField;
     /**
      * List of time windows to include in the profile metrics.
      * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
-     * @memberof SearchSolanaDexTokenProfilesRequest
+     * @memberof SearchTokenProfilesRequest
      */
     time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
 }
 /**
  * 
  * @export
- * @interface SearchSolanaDexWalletProfiles200Response
+ * @interface SearchWalletProfiles200Response
  */
-export interface SearchSolanaDexWalletProfiles200Response {
+export interface SearchWalletProfiles200Response {
     /**
      * Total number of matching items
      * @type {number}
-     * @memberof SearchSolanaDexWalletProfiles200Response
+     * @memberof SearchWalletProfiles200Response
      */
     count?: number;
     /**
      * Cursor for pagination
      * @type {string}
-     * @memberof SearchSolanaDexWalletProfiles200Response
+     * @memberof SearchWalletProfiles200Response
      */
     cursor?: string;
     /**
      * 
      * @type {Array<SolanaDexWalletProfile>}
-     * @memberof SearchSolanaDexWalletProfiles200Response
+     * @memberof SearchWalletProfiles200Response
      */
     data?: Array<SolanaDexWalletProfile>;
 }
 /**
  * 
  * @export
- * @interface SearchSolanaDexWalletProfilesRequest
+ * @interface SearchWalletProfilesRequest
  */
-export interface SearchSolanaDexWalletProfilesRequest {
+export interface SearchWalletProfilesRequest {
     /**
      * Maximum number of results to return.
      * @type {number}
-     * @memberof SearchSolanaDexWalletProfilesRequest
+     * @memberof SearchWalletProfilesRequest
      */
     limit?: number;
     /**
      * Cursor to return the next page of results.
      * @type {string}
-     * @memberof SearchSolanaDexWalletProfilesRequest
+     * @memberof SearchWalletProfilesRequest
      */
     cursor?: string;
     /**
@@ -556,19 +556,19 @@ export interface SearchSolanaDexWalletProfilesRequest {
      * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
      * 
      * @type {object}
-     * @memberof SearchSolanaDexWalletProfilesRequest
+     * @memberof SearchWalletProfilesRequest
      */
     filter?: object;
     /**
      * 
      * @type {SolanaDexProfileSearchPayloadSortField}
-     * @memberof SearchSolanaDexWalletProfilesRequest
+     * @memberof SearchWalletProfilesRequest
      */
     sort?: SolanaDexProfileSearchPayloadSortField;
     /**
      * List of time windows to include in the profile metrics.
      * @type {Array<SolanaDexWalletProfileTimeWindowEnum>}
-     * @memberof SearchSolanaDexWalletProfilesRequest
+     * @memberof SearchWalletProfilesRequest
      */
     time_windows?: Array<SolanaDexWalletProfileTimeWindowEnum>;
 }

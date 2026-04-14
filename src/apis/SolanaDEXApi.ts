@@ -34,10 +34,10 @@ import type {
   InlineObject2,
   InlineObject3,
   InlineObject4,
-  SearchSolanaDexTokenProfiles200Response,
-  SearchSolanaDexTokenProfilesRequest,
-  SearchSolanaDexWalletProfiles200Response,
-  SearchSolanaDexWalletProfilesRequest,
+  SearchTokenProfiles200Response,
+  SearchTokenProfilesRequest,
+  SearchWalletProfiles200Response,
+  SearchWalletProfilesRequest,
   SolanaDexPortfolio,
   SolanaDexPrice,
   SolanaDexPriceCandle,
@@ -95,12 +95,12 @@ export interface GetWalletProfilesOperationRequest {
     getWalletProfilesRequest?: GetWalletProfilesRequest;
 }
 
-export interface SearchSolanaDexTokenProfilesOperationRequest {
-    searchSolanaDexTokenProfilesRequest?: SearchSolanaDexTokenProfilesRequest;
+export interface SearchTokenProfilesOperationRequest {
+    searchTokenProfilesRequest?: SearchTokenProfilesRequest;
 }
 
-export interface SearchSolanaDexWalletProfilesOperationRequest {
-    searchSolanaDexWalletProfilesRequest?: SearchSolanaDexWalletProfilesRequest;
+export interface SearchWalletProfilesOperationRequest {
+    searchWalletProfilesRequest?: SearchWalletProfilesRequest;
 }
 
 /**
@@ -305,34 +305,34 @@ export interface SolanaDEXApiInterface {
     /**
      * Filter, query, and sort token profiles based on specified metrics and conditions.
      * @summary Search Profiles
-     * @param {SearchSolanaDexTokenProfilesRequest} [searchSolanaDexTokenProfilesRequest] 
+     * @param {SearchTokenProfilesRequest} [searchTokenProfilesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexTokenProfiles200Response>>;
+    searchTokenProfilesRaw(requestParameters: SearchTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchTokenProfiles200Response>>;
 
     /**
      * Filter, query, and sort token profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexTokenProfiles200Response>;
+    searchTokenProfiles(requestParameters: SearchTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchTokenProfiles200Response>;
 
     /**
      * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * @summary Search Profiles
-     * @param {SearchSolanaDexWalletProfilesRequest} [searchSolanaDexWalletProfilesRequest] 
+     * @param {SearchWalletProfilesRequest} [searchWalletProfilesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SolanaDEXApiInterface
      */
-    searchSolanaDexWalletProfilesRaw(requestParameters: SearchSolanaDexWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexWalletProfiles200Response>>;
+    searchWalletProfilesRaw(requestParameters: SearchWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchWalletProfiles200Response>>;
 
     /**
      * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    searchSolanaDexWalletProfiles(requestParameters: SearchSolanaDexWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexWalletProfiles200Response>;
+    searchWalletProfiles(requestParameters: SearchWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchWalletProfiles200Response>;
 
 }
 
@@ -801,7 +801,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Filter, query, and sort token profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    async searchSolanaDexTokenProfilesRaw(requestParameters: SearchSolanaDexTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexTokenProfiles200Response>> {
+    async searchTokenProfilesRaw(requestParameters: SearchTokenProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchTokenProfiles200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -820,7 +820,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['searchSolanaDexTokenProfilesRequest'],
+            body: requestParameters['searchTokenProfilesRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
@@ -830,8 +830,8 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Filter, query, and sort token profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    async searchSolanaDexTokenProfiles(requestParameters: SearchSolanaDexTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexTokenProfiles200Response> {
-        const response = await this.searchSolanaDexTokenProfilesRaw(requestParameters, initOverrides);
+    async searchTokenProfiles(requestParameters: SearchTokenProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchTokenProfiles200Response> {
+        const response = await this.searchTokenProfilesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -839,7 +839,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    async searchSolanaDexWalletProfilesRaw(requestParameters: SearchSolanaDexWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchSolanaDexWalletProfiles200Response>> {
+    async searchWalletProfilesRaw(requestParameters: SearchWalletProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchWalletProfiles200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -858,7 +858,7 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['searchSolanaDexWalletProfilesRequest'],
+            body: requestParameters['searchWalletProfilesRequest'],
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response);
@@ -868,8 +868,8 @@ export class SolanaDEXApi extends runtime.BaseAPI implements SolanaDEXApiInterfa
      * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      * Search Profiles
      */
-    async searchSolanaDexWalletProfiles(requestParameters: SearchSolanaDexWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchSolanaDexWalletProfiles200Response> {
-        const response = await this.searchSolanaDexWalletProfilesRaw(requestParameters, initOverrides);
+    async searchWalletProfiles(requestParameters: SearchWalletProfilesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SearchWalletProfiles200Response> {
+        const response = await this.searchWalletProfilesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
