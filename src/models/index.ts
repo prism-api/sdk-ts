@@ -1597,7 +1597,7 @@ export interface SolanaDexWalletProfile {
      */
     wallet_address?: string;
     /**
-     * 
+     * Labels assigned to the wallet.
      * @type {Array<SolanaDexWalletProfileLabelEnum>}
      * @memberof SolanaDexWalletProfile
      */
@@ -1621,7 +1621,15 @@ export interface SolanaDexWalletProfile {
  * @enum {string}
  */
 export enum SolanaDexWalletProfileLabelEnum {
-    KOL = 'kol'
+    KOL = 'kol',
+    TRENCHER = 'trencher',
+    CONVICTION = 'conviction',
+    SMART_MONEY = 'smart_money',
+    WHALE = 'whale',
+    DEGEN = 'degen',
+    SNIPER = 'sniper',
+    SWING = 'swing',
+    HOLDER = 'holder'
 }
 
 /**
