@@ -185,55 +185,11 @@ export interface GetTokenProfileRequest {
      */
     token: string;
     /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
+     * 
+     * @type {SolanaDexTokenProfilePayloadOptions}
      * @memberof GetTokenProfileRequest
      */
-    time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
-}
-/**
- * 
- * @export
- * @interface GetTokenProfilesByCreatorRequest
- */
-export interface GetTokenProfilesByCreatorRequest {
-    /**
-     * Creator address to retrieve token profiles for.
-     * @type {string}
-     * @memberof GetTokenProfilesByCreatorRequest
-     */
-    creator: string;
-    /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
-     * @memberof GetTokenProfilesByCreatorRequest
-     */
-    time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
-}
-/**
- * 
- * @export
- * @interface GetTokenProfilesRequest
- */
-export interface GetTokenProfilesRequest {
-    /**
-     * List of token addresses to retrieve profile for.
-     * @type {Array<string>}
-     * @memberof GetTokenProfilesRequest
-     */
-    tokens: Array<string>;
-    /**
-     * 
-     * @type {SolanaDexProfileSearchPayloadSortField}
-     * @memberof GetTokenProfilesRequest
-     */
-    sort?: SolanaDexProfileSearchPayloadSortField;
-    /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
-     * @memberof GetTokenProfilesRequest
-     */
-    time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
+    options?: SolanaDexTokenProfilePayloadOptions;
 }
 /**
  * 
@@ -304,36 +260,11 @@ export interface GetWalletProfileRequest {
      */
     wallet: string;
     /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexWalletProfileTimeWindowEnum>}
+     * 
+     * @type {SolanaDexWalletProfilePayloadOptions}
      * @memberof GetWalletProfileRequest
      */
-    time_windows?: Array<SolanaDexWalletProfileTimeWindowEnum>;
-}
-/**
- * 
- * @export
- * @interface GetWalletProfilesRequest
- */
-export interface GetWalletProfilesRequest {
-    /**
-     * List of wallet addresses to retrieve profile for.
-     * @type {Array<string>}
-     * @memberof GetWalletProfilesRequest
-     */
-    wallets?: Array<string>;
-    /**
-     * 
-     * @type {SolanaDexProfileSearchPayloadSortField}
-     * @memberof GetWalletProfilesRequest
-     */
-    sort?: SolanaDexProfileSearchPayloadSortField;
-    /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexWalletProfileTimeWindowEnum>}
-     * @memberof GetWalletProfilesRequest
-     */
-    time_windows?: Array<SolanaDexWalletProfileTimeWindowEnum>;
+    options?: SolanaDexWalletProfilePayloadOptions;
 }
 /**
  * 
@@ -489,8 +420,6 @@ export interface SearchTokenProfilesRequest {
     query?: SolanaDexTokenProfileSearchPayloadQueryField;
     /**
      * Filter rules to apply.
-     * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
-     * 
      * @type {object}
      * @memberof SearchTokenProfilesRequest
      */
@@ -502,11 +431,11 @@ export interface SearchTokenProfilesRequest {
      */
     sort?: SolanaDexProfileSearchPayloadSortField;
     /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
+     * 
+     * @type {SolanaDexTokenProfilePayloadOptions}
      * @memberof SearchTokenProfilesRequest
      */
-    time_windows?: Array<SolanaDexTokenProfileTimeWindowEnum>;
+    options?: SolanaDexTokenProfilePayloadOptions;
 }
 /**
  * 
@@ -552,9 +481,13 @@ export interface SearchWalletProfilesRequest {
      */
     cursor?: string;
     /**
-     * Filter rules to apply.
-     * An object following a [MongoDB query](https://www.mongodb.com/docs/compass/query/filter/) like syntax.
      * 
+     * @type {SolanaDexWalletProfileSearchPayloadQueryField}
+     * @memberof SearchWalletProfilesRequest
+     */
+    query?: SolanaDexWalletProfileSearchPayloadQueryField;
+    /**
+     * Filter rules to apply.
      * @type {object}
      * @memberof SearchWalletProfilesRequest
      */
@@ -566,26 +499,26 @@ export interface SearchWalletProfilesRequest {
      */
     sort?: SolanaDexProfileSearchPayloadSortField;
     /**
-     * List of time windows to include in the profile metrics.
-     * @type {Array<SolanaDexWalletProfileTimeWindowEnum>}
+     * 
+     * @type {SolanaDexWalletProfilePayloadOptions}
      * @memberof SearchWalletProfilesRequest
      */
-    time_windows?: Array<SolanaDexWalletProfileTimeWindowEnum>;
+    options?: SolanaDexWalletProfilePayloadOptions;
 }
 /**
- * Wallet portfolio with total value and per-token breakdowns.
+ * 
  * @export
  * @interface SolanaDexPortfolio
  */
 export interface SolanaDexPortfolio {
     /**
-     * Total portfolio value.
+     * 
      * @type {number}
      * @memberof SolanaDexPortfolio
      */
     value?: number;
     /**
-     * List of token holdings in the portfolio.
+     * 
      * @type {Array<SolanaDexPortfolioTokensInner>}
      * @memberof SolanaDexPortfolio
      */
@@ -598,306 +531,306 @@ export interface SolanaDexPortfolio {
  */
 export interface SolanaDexPortfolioTokensInner {
     /**
-     * Token mint address.
+     * 
      * @type {string}
      * @memberof SolanaDexPortfolioTokensInner
      */
     token?: string;
     /**
-     * Token balance held by the wallet.
+     * 
      * @type {number}
      * @memberof SolanaDexPortfolioTokensInner
      */
     balance?: number;
     /**
-     * Current token price.
+     * 
      * @type {number}
      * @memberof SolanaDexPortfolioTokensInner
      */
     price?: number;
     /**
-     * Total value of the holding.
+     * 
      * @type {number}
      * @memberof SolanaDexPortfolioTokensInner
      */
     value?: number;
 }
 /**
- * Current token price with block context.
+ * 
  * @export
  * @interface SolanaDexPrice
  */
 export interface SolanaDexPrice {
     /**
-     * Token mint address.
+     * 
      * @type {string}
      * @memberof SolanaDexPrice
      */
     token?: string;
     /**
-     * Current token price.
+     * 
      * @type {number}
      * @memberof SolanaDexPrice
      */
     usd_price?: number;
     /**
-     * Solana block slot number.
+     * 
      * @type {number}
      * @memberof SolanaDexPrice
      */
     block_slot?: number;
     /**
-     * Timestamp of the block.
+     * 
      * @type {number}
      * @memberof SolanaDexPrice
      */
     block_time?: number;
 }
 /**
- * OHLCV candle data for charting and technical analysis.
+ * 
  * @export
  * @interface SolanaDexPriceCandle
  */
 export interface SolanaDexPriceCandle {
     /**
-     * Timestamp of candle start.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     timestamp?: number;
     /**
-     * Opening price.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     open?: number;
     /**
-     * Highest price.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     high?: number;
     /**
-     * Lowest price.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     low?: number;
     /**
-     * Closing price.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     close?: number;
     /**
-     * Trading volume.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     volume?: number;
     /**
-     * Number of trades in the candle.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceCandle
      */
     count?: number;
 }
 /**
- * Time-series price and volume data for a token.
+ * 
  * @export
  * @interface SolanaDexPriceHistory
  */
 export interface SolanaDexPriceHistory {
     /**
-     * Token mint address.
+     * 
      * @type {string}
      * @memberof SolanaDexPriceHistory
      */
     token?: string;
     /**
-     * Array of price snapshots over the requested range.
+     * 
      * @type {Array<SolanaDexPriceSnapshot>}
      * @memberof SolanaDexPriceHistory
      */
     prices?: Array<SolanaDexPriceSnapshot>;
 }
 /**
- * A single price and volume data point at a specific time.
+ * 
  * @export
  * @interface SolanaDexPriceSnapshot
  */
 export interface SolanaDexPriceSnapshot {
     /**
-     * Timestamp of the snapshot.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceSnapshot
      */
     timestamp?: number;
     /**
-     * Token price at snapshot time.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceSnapshot
      */
     usd_price?: number;
     /**
-     * Trading volume at snapshot time.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceSnapshot
      */
     usd_volume?: number;
 }
 /**
- * Token price stats including price changes, volume, and volume changes over multiple time windows.
+ * 
  * @export
  * @interface SolanaDexPriceStats
  */
 export interface SolanaDexPriceStats {
     /**
-     * Token mint address.
+     * 
      * @type {string}
      * @memberof SolanaDexPriceStats
      */
     token?: string;
     /**
-     * Current token price.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price?: number;
     /**
-     * Price change over 5 minutes.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_5m?: number;
     /**
-     * Price change over 1 hour.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_1h?: number;
     /**
-     * Price change over 6 hours.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_6h?: number;
     /**
-     * Price change over 12 hours.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_12h?: number;
     /**
-     * Price change over 1 day.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_1d?: number;
     /**
-     * Price change over 7 days.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_7d?: number;
     /**
-     * Price change over 30 days.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_price_change_30d?: number;
     /**
-     * Trading volume over 5 minutes.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_5m?: number;
     /**
-     * Trading volume over 1 hour.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_1h?: number;
     /**
-     * Trading volume over 6 hours.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_6h?: number;
     /**
-     * Trading volume over 12 hours.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_12h?: number;
     /**
-     * Trading volume over 1 day.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_1d?: number;
     /**
-     * Trading volume over 7 days.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_7d?: number;
     /**
-     * Trading volume over 30 days.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_30d?: number;
     /**
-     * Volume change over 5 minutes.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_5m?: number;
     /**
-     * Volume change over 1 hour.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_1h?: number;
     /**
-     * Volume change over 6 hours.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_6h?: number;
     /**
-     * Volume change over 12 hours.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_12h?: number;
     /**
-     * Volume change over 1 day.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_1d?: number;
     /**
-     * Volume change over 7 days.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_7d?: number;
     /**
-     * Volume change over 30 days.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     usd_volume_change_30d?: number;
     /**
-     * Solana block slot number.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
     block_slot?: number;
     /**
-     * Unix timestamp of the block.
+     * 
      * @type {number}
      * @memberof SolanaDexPriceStats
      */
@@ -916,11 +849,23 @@ export interface SolanaDexProfileSearchPayloadQueryField {
      */
     text: string;
     /**
-     * Whether to use fuzzy search.
+     * Fields to search in.
+     * @type {Array<string>}
+     * @memberof SolanaDexProfileSearchPayloadQueryField
+     */
+    fields: Array<string>;
+    /**
+     * Whether to use fuzzy search to match similar text.
      * @type {boolean}
      * @memberof SolanaDexProfileSearchPayloadQueryField
      */
     fuzzy?: boolean;
+    /**
+     * Whether to use autocomplete to suggest possible matches.
+     * @type {boolean}
+     * @memberof SolanaDexProfileSearchPayloadQueryField
+     */
+    autocomplete?: boolean;
 }
 /**
  * Sorting rule to apply.
@@ -972,115 +917,115 @@ export interface SolanaDexSwap {
      */
     protocol?: string;
     /**
-     * Wallet address that initiated the swap.
+     * 
      * @type {string}
      * @memberof SolanaDexSwap
      */
     wallet?: string;
     /**
-     * Token address being swapped from.
+     * 
      * @type {string}
      * @memberof SolanaDexSwap
      */
     token_in?: string;
     /**
-     * Token address being swapped to.
+     * 
      * @type {string}
      * @memberof SolanaDexSwap
      */
     token_out?: string;
     /**
-     * Symbol of the input token.
+     * 
      * @type {string}
      * @memberof SolanaDexSwap
      */
     token_symbol_in?: string;
     /**
-     * Symbol of the output token.
+     * 
      * @type {string}
      * @memberof SolanaDexSwap
      */
     token_symbol_out?: string;
     /**
-     * Amount of input token swapped.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     token_amount_in?: number;
     /**
-     * Amount of output token received.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     token_amount_out?: number;
     /**
-     * Price of input token at swap time.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     token_price_in?: number;
     /**
-     * Price of output token at swap time.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     token_price_out?: number;
     /**
-     * Wallet's input token balance before the swap.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     pre_token_balance_in?: number;
     /**
-     * Wallet's output token balance before the swap.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     pre_token_balance_out?: number;
     /**
-     * Wallet's input token balance after the swap.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     post_token_balance_in?: number;
     /**
-     * Wallet's output token balance after the swap.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     post_token_balance_out?: number;
     /**
-     * Value of input tokens.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     usd_amount_in?: number;
     /**
-     * Value of output tokens.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     usd_amount_out?: number;
     /**
-     * Solana block slot number.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     block_slot?: number;
     /**
-     * Timestamp of the block.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
     block_time?: number;
     /**
-     * Transaction signature.
+     * 
      * @type {string}
      * @memberof SolanaDexSwap
      */
     tx_hash?: string;
     /**
-     * Index of the swap within the transaction.
+     * 
      * @type {number}
      * @memberof SolanaDexSwap
      */
@@ -1089,7 +1034,7 @@ export interface SolanaDexSwap {
 
 
 /**
- * Type of swap pair based on token roles.
+ * 
  * @export
  * @enum {string}
  */
@@ -1113,13 +1058,13 @@ export enum SolanaDexSwapTypeEnum {
 }
 
 /**
- * Aggregated trading profile for a token.
+ * 
  * @export
  * @interface SolanaDexTokenProfile
  */
 export interface SolanaDexTokenProfile {
     /**
-     * The Solana token mint address.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfile
      */
@@ -1144,141 +1089,141 @@ export interface SolanaDexTokenProfile {
     metrics?: SolanaDexTokenProfileMetrics;
 }
 /**
- * Token market data.
+ * 
  * @export
  * @interface SolanaDexTokenProfileMarket
  */
 export interface SolanaDexTokenProfileMarket {
     /**
-     * Fully diluted valuation.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     fdv?: number;
     /**
-     * Current market capitalization.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     market_cap?: number;
     /**
-     * Current token price.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     price?: number;
     /**
-     * Available liquidity.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     liquidity?: number;
     /**
-     * Number of unique token holders.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     holders?: number;
     /**
-     * Total token supply.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     total_supply?: number;
     /**
-     * Circulating token supply.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     circulating_supply?: number;
     /**
-     * Percentage of supply held by top holders.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     top_holdings?: number;
     /**
-     * Percentage of supply held by developers.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMarket
      */
     dev_holdings?: number;
 }
 /**
- * Token profile metadata including identity and social links.
+ * 
  * @export
  * @interface SolanaDexTokenProfileMetadata
  */
 export interface SolanaDexTokenProfileMetadata {
     /**
-     * Timestamp of the last trade.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMetadata
      */
     last_trade_at?: number;
     /**
-     * Timestamp of token creation.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileMetadata
      */
     created_at?: number;
     /**
-     * Token ticker symbol.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     symbol?: string;
     /**
-     * Token display name.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     name?: string;
     /**
-     * URL to token logo image.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     image?: string;
     /**
-     * Whether the token is verified.
+     * 
      * @type {boolean}
      * @memberof SolanaDexTokenProfileMetadata
      */
     verified?: boolean;
     /**
-     * Wallet address of the token creator.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     creator_address?: string;
     /**
-     * Twitter/X handle or URL.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     twitter?: string;
     /**
-     * Discord invite URL.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     discord?: string;
     /**
-     * Official website URL.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     website?: string;
     /**
-     * Telegram group URL.
+     * 
      * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
     telegram?: string;
 }
 /**
- * Profile metrics grouped by time window.
+ * 
  * @export
  * @interface SolanaDexTokenProfileMetrics
  */
@@ -1323,6 +1268,37 @@ export interface SolanaDexTokenProfileMetrics {
 /**
  * 
  * @export
+ * @interface SolanaDexTokenProfilePayloadOptions
+ */
+export interface SolanaDexTokenProfilePayloadOptions {
+    /**
+     * Whether to include metadata in the response.
+     * @type {boolean}
+     * @memberof SolanaDexTokenProfilePayloadOptions
+     */
+    include_metadata?: boolean;
+    /**
+     * Whether to include market data in the response.
+     * @type {boolean}
+     * @memberof SolanaDexTokenProfilePayloadOptions
+     */
+    include_market?: boolean;
+    /**
+     * Whether to include labels in the response.
+     * @type {boolean}
+     * @memberof SolanaDexTokenProfilePayloadOptions
+     */
+    include_labels?: boolean;
+    /**
+     * List of time windows to include metrics for.
+     * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
+     * @memberof SolanaDexTokenProfilePayloadOptions
+     */
+    include_metrics?: Array<SolanaDexTokenProfileTimeWindowEnum>;
+}
+/**
+ * 
+ * @export
  * @interface SolanaDexTokenProfileSearchPayloadQueryField
  */
 export interface SolanaDexTokenProfileSearchPayloadQueryField {
@@ -1333,17 +1309,23 @@ export interface SolanaDexTokenProfileSearchPayloadQueryField {
      */
     text: string;
     /**
-     * Whether to use fuzzy search.
+     * The fields to search on.
+     * @type {Array<SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum>}
+     * @memberof SolanaDexTokenProfileSearchPayloadQueryField
+     */
+    fields: Array<SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum>;
+    /**
+     * Whether to use fuzzy search to match similar text.
      * @type {boolean}
      * @memberof SolanaDexTokenProfileSearchPayloadQueryField
      */
     fuzzy?: boolean;
     /**
-     * 
-     * @type {Array<SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum>}
+     * Whether to use autocomplete to suggest possible matches.
+     * @type {boolean}
      * @memberof SolanaDexTokenProfileSearchPayloadQueryField
      */
-    targets?: Array<SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum>;
+    autocomplete?: boolean;
 }
 /**
  * 
@@ -1371,37 +1353,37 @@ export enum SolanaDexTokenProfileTimeWindowEnum {
 }
 
 /**
- * Distribution of wallet ROI across percentage buckets.
+ * 
  * @export
  * @interface SolanaDexTokenProfileWalletRoiDistribution
  */
 export interface SolanaDexTokenProfileWalletRoiDistribution {
     /**
-     * Number of wallets with ROI greater than 500%.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     gt_500?: number;
     /**
-     * Number of wallets with ROI between 200% and 500%.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     _200_500?: number;
     /**
-     * Number of wallets with ROI between 0% and 200%.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     _0_200?: number;
     /**
-     * Number of wallets with ROI between -50% and 0%.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
     neg50_0?: number;
     /**
-     * Number of wallets with ROI less than -50%.
+     * 
      * @type {number}
      * @memberof SolanaDexTokenProfileWalletRoiDistribution
      */
@@ -1426,25 +1408,25 @@ export interface SolanaDexTrade {
      */
     swap_type?: SolanaDexSwapTypeEnum;
     /**
-     * Wallet address that executed the trade.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
     wallet?: string;
     /**
-     * Traded token address.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
     token?: string;
     /**
-     * Quote token address.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
     quote?: string;
     /**
-     * Unique position identifier.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
@@ -1462,85 +1444,85 @@ export interface SolanaDexTrade {
      */
     position_state?: SolanaDexTradePositionStateEnum;
     /**
-     * Amount of traded token.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     token_amount?: number;
     /**
-     * Amount of quote tokens.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     quote_amount?: number;
     /**
-     * Native amount.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     native_amount?: number;
     /**
-     * Value of the trade.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     usd_amount?: number;
     /**
-     * Traded token balance before the trade.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     pre_token_balance?: number;
     /**
-     * Traded token balance after the trade.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     post_token_balance?: number;
     /**
-     * Symbol of the traded token.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
     token_symbol?: string;
     /**
-     * Symbol of the quote token.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
     quote_symbol?: string;
     /**
-     * Price of traded token at trade time.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     token_price?: number;
     /**
-     * Price of quote token at trade time.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     quote_price?: number;
     /**
-     * Solana block slot number.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     block_slot?: number;
     /**
-     * Timestamp of the block.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
     block_time?: number;
     /**
-     * Transaction signature.
+     * 
      * @type {string}
      * @memberof SolanaDexTrade
      */
     tx_hash?: string;
     /**
-     * Index of the trade within the transaction.
+     * 
      * @type {number}
      * @memberof SolanaDexTrade
      */
@@ -1549,7 +1531,7 @@ export interface SolanaDexTrade {
 
 
 /**
- * Direction of the trade.
+ * 
  * @export
  * @enum {string}
  */
@@ -1565,7 +1547,7 @@ export enum SolanaDexTradeDirectionEnum {
 }
 
 /**
- * Position state of the trade.
+ * 
  * @export
  * @enum {string}
  */
@@ -1585,19 +1567,19 @@ export enum SolanaDexTradePositionStateEnum {
 }
 
 /**
- * Aggregated trading profile for a wallet.
+ * 
  * @export
  * @interface SolanaDexWalletProfile
  */
 export interface SolanaDexWalletProfile {
     /**
-     * The Solana wallet address.
+     * 
      * @type {string}
      * @memberof SolanaDexWalletProfile
      */
     wallet_address?: string;
     /**
-     * Labels assigned to the wallet.
+     * 
      * @type {Array<SolanaDexWalletProfileLabelEnum>}
      * @memberof SolanaDexWalletProfile
      */
@@ -1633,38 +1615,38 @@ export enum SolanaDexWalletProfileLabelEnum {
 }
 
 /**
- * Wallet profile metadata.
+ * 
  * @export
  * @interface SolanaDexWalletProfileMetadata
  */
 export interface SolanaDexWalletProfileMetadata {
     /**
-     * Timestamp of the wallet's last trade.
+     * 
      * @type {number}
      * @memberof SolanaDexWalletProfileMetadata
      */
     last_trade_at?: number;
     /**
-     * Key opinion leader name associated with the wallet.
+     * 
      * @type {string}
      * @memberof SolanaDexWalletProfileMetadata
      */
     kol_name?: string;
     /**
-     * Twitter username of the wallet owner.
+     * 
      * @type {string}
      * @memberof SolanaDexWalletProfileMetadata
      */
     twitter_username?: string;
     /**
-     * Telegram username of the wallet owner.
+     * 
      * @type {string}
      * @memberof SolanaDexWalletProfileMetadata
      */
     telegram_username?: string;
 }
 /**
- * Profile metrics grouped by time window.
+ * 
  * @export
  * @interface SolanaDexWalletProfileMetrics
  */
@@ -1703,6 +1685,74 @@ export interface SolanaDexWalletProfileMetrics {
 /**
  * 
  * @export
+ * @interface SolanaDexWalletProfilePayloadOptions
+ */
+export interface SolanaDexWalletProfilePayloadOptions {
+    /**
+     * Whether to include metadata in the response.
+     * @type {boolean}
+     * @memberof SolanaDexWalletProfilePayloadOptions
+     */
+    include_metadata?: boolean;
+    /**
+     * Whether to include labels in the response.
+     * @type {boolean}
+     * @memberof SolanaDexWalletProfilePayloadOptions
+     */
+    include_labels?: boolean;
+    /**
+     * List of time windows to include metrics for.
+     * @type {Array<SolanaDexWalletProfileTimeWindowEnum>}
+     * @memberof SolanaDexWalletProfilePayloadOptions
+     */
+    include_metrics?: Array<SolanaDexWalletProfileTimeWindowEnum>;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaDexWalletProfileSearchPayloadQueryField
+ */
+export interface SolanaDexWalletProfileSearchPayloadQueryField {
+    /**
+     * Text to search for.
+     * @type {string}
+     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     */
+    text: string;
+    /**
+     * The fields to search on.
+     * @type {Array<SolanaDexWalletProfileSearchPayloadQueryFieldTargetsEnum>}
+     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     */
+    fields: Array<SolanaDexWalletProfileSearchPayloadQueryFieldTargetsEnum>;
+    /**
+     * Whether to use fuzzy search to match similar text.
+     * @type {boolean}
+     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     */
+    fuzzy?: boolean;
+    /**
+     * Whether to use autocomplete to suggest possible matches.
+     * @type {boolean}
+     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     */
+    autocomplete?: boolean;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SolanaDexWalletProfileSearchPayloadQueryFieldTargetsEnum {
+    WALLET_ADDRESS = 'wallet_address',
+    METADATA_NAME = 'metadata.name',
+    METADATA_TWITTER_USERNAME = 'metadata.twitter_username',
+    METADATA_TELEGRAM_USERNAME = 'metadata.telegram_username'
+}
+
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum SolanaDexWalletProfileTimeWindowEnum {
@@ -1714,37 +1764,37 @@ export enum SolanaDexWalletProfileTimeWindowEnum {
 }
 
 /**
- * Distribution of token ROI across percentage buckets.
+ * 
  * @export
  * @interface SolanaDexWalletProfileTokenRoiDistribution
  */
 export interface SolanaDexWalletProfileTokenRoiDistribution {
     /**
-     * Number of tokens with ROI greater than 500%.
+     * 
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     gt_500?: number;
     /**
-     * Number of tokens with ROI between 200% and 500%.
+     * 
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     _200_500?: number;
     /**
-     * Number of tokens with ROI between 0% and 200%.
+     * 
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     _0_200?: number;
     /**
-     * Number of tokens with ROI between -50% and 0%.
+     * 
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
     neg50_0?: number;
     /**
-     * Number of tokens with ROI less than -50%.
+     * 
      * @type {number}
      * @memberof SolanaDexWalletProfileTokenRoiDistribution
      */
