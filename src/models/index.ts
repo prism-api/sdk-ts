@@ -7,7 +7,7 @@
  */
 export interface GetPortfolioRequest {
     /**
-     * Wallet address to retrieve portfolio for.
+     * Wallet address to retrieve the portfolio for.
      * @type {string}
      * @memberof GetPortfolioRequest
      */
@@ -26,32 +26,31 @@ export interface GetPriceCandlesRequest {
      */
     token: string;
     /**
-     * Start time for the candles range.
-     * Must be used in conjunction with `to`.
+     * Start of the candle range, as a Unix timestamp in seconds.
+     * Must be combined with `to` to define a bounded range.
      * 
      * @type {number}
      * @memberof GetPriceCandlesRequest
      */
     from?: number;
     /**
-     * End time for the candles range.
-     * Must be used in conjunction with `from` or `count`.
-     * Defaults to the current time.
+     * End of the candle range, as a Unix timestamp in seconds. Defaults to the current time.
+     * Must be combined with either `from` (to define a bounded range) or `count` (to return the N most recent candles ending at `to`).
      * 
      * @type {number}
      * @memberof GetPriceCandlesRequest
      */
     to?: number;
     /**
-     * Number of candles to return.
-     * Must be used in conjunction with `to`.
+     * Number of candles to return, ending at `to`.
+     * Must be combined with `to`.
      * 
      * @type {number}
      * @memberof GetPriceCandlesRequest
      */
     count?: number;
     /**
-     * Time interval to aggregate candles by.
+     * Size of each candle, in seconds.
      * @type {number}
      * @memberof GetPriceCandlesRequest
      */
@@ -64,27 +63,25 @@ export interface GetPriceCandlesRequest {
  */
 export interface GetPriceHistoryRequest {
     /**
-     * List of token addresses to retrieve price history for.
+     * Token addresses to retrieve price history for. Accepts between 1 and 100 tokens per request.
      * @type {Array<string>}
      * @memberof GetPriceHistoryRequest
      */
     tokens: Array<string>;
     /**
-     * Start time for the history range.
+     * Start of the history range, as a Unix timestamp in seconds.
      * @type {number}
      * @memberof GetPriceHistoryRequest
      */
     from: number;
     /**
-     * End time for the history range.
-     * Defaults to the current time.
-     * 
+     * End of the history range, as a Unix timestamp in seconds. Defaults to the current time.
      * @type {number}
      * @memberof GetPriceHistoryRequest
      */
     to?: number;
     /**
-     * Time interval to aggregate metrics by.
+     * Sampling interval between data points, in seconds.
      * @type {number}
      * @memberof GetPriceHistoryRequest
      */
@@ -97,7 +94,7 @@ export interface GetPriceHistoryRequest {
  */
 export interface GetPriceRequest {
     /**
-     * List of token addresses to retrieve prices for.
+     * Token addresses to retrieve the latest prices for. Accepts between 1 and 1000 tokens per request.
      * @type {Array<string>}
      * @memberof GetPriceRequest
      */
@@ -110,7 +107,7 @@ export interface GetPriceRequest {
  */
 export interface GetPriceStatsRequest {
     /**
-     * List of token addresses to retrieve price stats for.
+     * Token addresses to retrieve price statistics for. Accepts between 1 and 1000 tokens per request.
      * @type {Array<string>}
      * @memberof GetPriceStatsRequest
      */
@@ -148,25 +145,25 @@ export interface GetSwaps200Response {
  */
 export interface GetSwapsRequest {
     /**
-     * Maximum number of results to return.
+     * Maximum number of results to return in a single page.
      * @type {number}
      * @memberof GetSwapsRequest
      */
     limit?: number;
     /**
-     * Cursor to return the next page of results.
+     * Opaque cursor returned by a previous response. Pass it to fetch the next page of results.
      * @type {string}
      * @memberof GetSwapsRequest
      */
     cursor?: string;
     /**
-     * Wallet address to retrieve swaps for.
+     * Wallet address to filter swaps by. When combined with `token`, returns only swaps for that wallet on that token.
      * @type {string}
      * @memberof GetSwapsRequest
      */
     wallet?: string;
     /**
-     * Token address to retrieve swaps for.
+     * Token address to filter swaps by. When combined with `wallet`, returns only swaps for that wallet on that token.
      * @type {string}
      * @memberof GetSwapsRequest
      */
@@ -179,7 +176,7 @@ export interface GetSwapsRequest {
  */
 export interface GetTokenProfileRequest {
     /**
-     * Token address to retrieve profile for.
+     * Token address to retrieve the profile for.
      * @type {string}
      * @memberof GetTokenProfileRequest
      */
@@ -223,25 +220,25 @@ export interface GetTrades200Response {
  */
 export interface GetTradesRequest {
     /**
-     * Maximum number of results to return.
+     * Maximum number of results to return in a single page.
      * @type {number}
      * @memberof GetTradesRequest
      */
     limit?: number;
     /**
-     * Cursor to return the next page of results.
+     * Opaque cursor returned by a previous response. Pass it to fetch the next page of results.
      * @type {string}
      * @memberof GetTradesRequest
      */
     cursor?: string;
     /**
-     * Wallet address to retrieve trades for.
+     * Wallet address to filter trades by. When combined with `token`, returns only trades for that wallet on that token.
      * @type {string}
      * @memberof GetTradesRequest
      */
     wallet?: string;
     /**
-     * Token address to retrieve trades for.
+     * Token address to filter trades by. When combined with `wallet`, returns only trades for that wallet on that token.
      * @type {string}
      * @memberof GetTradesRequest
      */
@@ -254,7 +251,7 @@ export interface GetTradesRequest {
  */
 export interface GetWalletProfileRequest {
     /**
-     * Wallet address to retrieve profile for.
+     * Wallet address to retrieve the profile for.
      * @type {string}
      * @memberof GetWalletProfileRequest
      */
@@ -357,13 +354,13 @@ export interface PaginatedResponse {
  */
 export interface PayloadPagination {
     /**
-     * Maximum number of results to return.
+     * Maximum number of results to return in a single page.
      * @type {number}
      * @memberof PayloadPagination
      */
     limit?: number;
     /**
-     * Cursor to return the next page of results.
+     * Opaque cursor returned by a previous response. Pass it to fetch the next page of results.
      * @type {string}
      * @memberof PayloadPagination
      */
@@ -401,13 +398,13 @@ export interface SearchTokenProfiles200Response {
  */
 export interface SearchTokenProfilesRequest {
     /**
-     * Maximum number of results to return.
+     * Maximum number of results to return in a single page.
      * @type {number}
      * @memberof SearchTokenProfilesRequest
      */
     limit?: number;
     /**
-     * Cursor to return the next page of results.
+     * Opaque cursor returned by a previous response. Pass it to fetch the next page of results.
      * @type {string}
      * @memberof SearchTokenProfilesRequest
      */
@@ -419,17 +416,25 @@ export interface SearchTokenProfilesRequest {
      */
     query?: SolanaDexTokenProfileSearchPayloadQueryField;
     /**
-     * Filter rules to apply.
-     * @type {object}
+     * 
+     * @type {SolanaDexProfileSearchPayloadFilter}
      * @memberof SearchTokenProfilesRequest
      */
-    filter?: object;
+    filter?: SolanaDexProfileSearchPayloadFilter;
     /**
      * 
-     * @type {SolanaDexProfileSearchPayloadSortField}
+     * @type {SolanaDexProfileSearchPayloadSort}
      * @memberof SearchTokenProfilesRequest
      */
-    sort?: SolanaDexProfileSearchPayloadSortField;
+    sort?: SolanaDexProfileSearchPayloadSort;
+    /**
+     * Map of custom label names to filter rules.
+     * Each returned profile is tagged with a label when its data satisfies the corresponding filter, allowing you to annotate results with ad-hoc categories defined at query time.
+     * 
+     * @type {{ [key: string]: SolanaDexProfileSearchPayloadFilter; }}
+     * @memberof SearchTokenProfilesRequest
+     */
+    dynamic_labels?: { [key: string]: SolanaDexProfileSearchPayloadFilter; };
     /**
      * 
      * @type {SolanaDexTokenProfilePayloadOptions}
@@ -469,35 +474,43 @@ export interface SearchWalletProfiles200Response {
  */
 export interface SearchWalletProfilesRequest {
     /**
-     * Maximum number of results to return.
+     * Maximum number of results to return in a single page.
      * @type {number}
      * @memberof SearchWalletProfilesRequest
      */
     limit?: number;
     /**
-     * Cursor to return the next page of results.
+     * Opaque cursor returned by a previous response. Pass it to fetch the next page of results.
      * @type {string}
      * @memberof SearchWalletProfilesRequest
      */
     cursor?: string;
     /**
      * 
-     * @type {SolanaDexWalletProfileSearchPayloadQueryField}
+     * @type {SolanaDexWalletProfileSearchPayloadQuery}
      * @memberof SearchWalletProfilesRequest
      */
-    query?: SolanaDexWalletProfileSearchPayloadQueryField;
-    /**
-     * Filter rules to apply.
-     * @type {object}
-     * @memberof SearchWalletProfilesRequest
-     */
-    filter?: object;
+    query?: SolanaDexWalletProfileSearchPayloadQuery;
     /**
      * 
-     * @type {SolanaDexProfileSearchPayloadSortField}
+     * @type {SolanaDexProfileSearchPayloadFilter}
      * @memberof SearchWalletProfilesRequest
      */
-    sort?: SolanaDexProfileSearchPayloadSortField;
+    filter?: SolanaDexProfileSearchPayloadFilter;
+    /**
+     * 
+     * @type {SolanaDexProfileSearchPayloadSort}
+     * @memberof SearchWalletProfilesRequest
+     */
+    sort?: SolanaDexProfileSearchPayloadSort;
+    /**
+     * Map of custom label names to filter rules.
+     * Each returned profile is tagged with a label when its data satisfies the corresponding filter, allowing you to annotate results with ad-hoc categories defined at query time.
+     * 
+     * @type {{ [key: string]: SolanaDexProfileSearchPayloadFilter; }}
+     * @memberof SearchWalletProfilesRequest
+     */
+    dynamic_labels?: { [key: string]: SolanaDexProfileSearchPayloadFilter; };
     /**
      * 
      * @type {SolanaDexWalletProfilePayloadOptions}
@@ -837,63 +850,158 @@ export interface SolanaDexPriceStats {
     block_time?: number;
 }
 /**
- * Query rule to apply.
+ * Conditions that a profile must satisfy to be included in the results.
+ * Each key is either a field path paired with comparison operators, or a logical operator (`$and`, `$or`) that combines nested filter objects.
+ * 
  * @export
- * @interface SolanaDexProfileSearchPayloadQueryField
+ * @interface SolanaDexProfileSearchPayloadFilter
  */
-export interface SolanaDexProfileSearchPayloadQueryField {
+export interface SolanaDexProfileSearchPayloadFilter {
+    [key: string]: SolanaDexProfileSearchPayloadFilterOperators | any;
     /**
-     * Text to search for.
+     * Logical AND. A profile must satisfy every nested filter to match.
+     * @type {Array<SolanaDexProfileSearchPayloadFilter>}
+     * @memberof SolanaDexProfileSearchPayloadFilter
+     */
+    $and?: Array<SolanaDexProfileSearchPayloadFilter>;
+    /**
+     * Logical OR. A profile must satisfy at least one nested filter to match.
+     * @type {Array<SolanaDexProfileSearchPayloadFilter>}
+     * @memberof SolanaDexProfileSearchPayloadFilter
+     */
+    $or?: Array<SolanaDexProfileSearchPayloadFilter>;
+}
+/**
+ * Comparison operators applied to a single field. At least one operator must be provided.
+ * @export
+ * @interface SolanaDexProfileSearchPayloadFilterOperators
+ */
+export interface SolanaDexProfileSearchPayloadFilterOperators {
+    /**
+     * 
+     * @type {SolanaDexProfileSearchPayloadFilterOperatorsEq}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $eq?: SolanaDexProfileSearchPayloadFilterOperatorsEq;
+    /**
+     * 
+     * @type {SolanaDexProfileSearchPayloadFilterOperatorsNe}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $ne?: SolanaDexProfileSearchPayloadFilterOperatorsNe;
+    /**
+     * Greater than.
+     * @type {number}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $gt?: number;
+    /**
+     * Less than.
+     * @type {number}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $lt?: number;
+    /**
+     * Greater than or equal to.
+     * @type {number}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $gte?: number;
+    /**
+     * Less than or equal to.
+     * @type {number}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $lte?: number;
+    /**
+     * In the list.
+     * @type {Array<SolanaDexProfileSearchPayloadFilterOperatorsInInner>}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $in?: Array<SolanaDexProfileSearchPayloadFilterOperatorsInInner>;
+    /**
+     * Not in the list.
+     * @type {Array<SolanaDexProfileSearchPayloadFilterOperatorsInInner>}
+     * @memberof SolanaDexProfileSearchPayloadFilterOperators
+     */
+    $nin?: Array<SolanaDexProfileSearchPayloadFilterOperatorsInInner>;
+}
+/**
+ * @type SolanaDexProfileSearchPayloadFilterOperatorsEq
+ * Equal to.
+ * @export
+ */
+export type SolanaDexProfileSearchPayloadFilterOperatorsEq = boolean | number | string;
+/**
+ * @type SolanaDexProfileSearchPayloadFilterOperatorsInInner
+ * 
+ * @export
+ */
+export type SolanaDexProfileSearchPayloadFilterOperatorsInInner = number | string;
+/**
+ * @type SolanaDexProfileSearchPayloadFilterOperatorsNe
+ * Not equal to.
+ * @export
+ */
+export type SolanaDexProfileSearchPayloadFilterOperatorsNe = boolean | number | string;
+/**
+ * Full-text query used to match profiles by a text value against one or more fields.
+ * @export
+ * @interface SolanaDexProfileSearchPayloadQuery
+ */
+export interface SolanaDexProfileSearchPayloadQuery {
+    /**
+     * Text value to match against the selected fields.
      * @type {string}
-     * @memberof SolanaDexProfileSearchPayloadQueryField
+     * @memberof SolanaDexProfileSearchPayloadQuery
      */
     text: string;
     /**
-     * Fields to search in.
+     * Fields that the text value should be matched against.
      * @type {Array<string>}
-     * @memberof SolanaDexProfileSearchPayloadQueryField
+     * @memberof SolanaDexProfileSearchPayloadQuery
      */
     fields: Array<string>;
     /**
-     * Whether to use fuzzy search to match similar text.
+     * When true, matches values that are approximately similar to `text`, allowing for minor typos and variations.
      * @type {boolean}
-     * @memberof SolanaDexProfileSearchPayloadQueryField
+     * @memberof SolanaDexProfileSearchPayloadQuery
      */
     fuzzy?: boolean;
     /**
-     * Whether to use autocomplete to suggest possible matches.
+     * When true, matches values that start with `text`, useful for type-ahead lookups.
      * @type {boolean}
-     * @memberof SolanaDexProfileSearchPayloadQueryField
+     * @memberof SolanaDexProfileSearchPayloadQuery
      */
     autocomplete?: boolean;
 }
 /**
- * Sorting rule to apply.
+ * Rule that determines the order in which matching profiles are returned.
  * @export
- * @interface SolanaDexProfileSearchPayloadSortField
+ * @interface SolanaDexProfileSearchPayloadSort
  */
-export interface SolanaDexProfileSearchPayloadSortField {
+export interface SolanaDexProfileSearchPayloadSort {
     /**
-     * Field to sort by.
+     * Field path to sort results by.
      * @type {string}
-     * @memberof SolanaDexProfileSearchPayloadSortField
+     * @memberof SolanaDexProfileSearchPayloadSort
      */
     field: string;
     /**
      * 
-     * @type {SolanaDexProfileSearchPayloadSortFieldDirectionEnum}
-     * @memberof SolanaDexProfileSearchPayloadSortField
+     * @type {SolanaDexProfileSearchPayloadSortDirectionEnum}
+     * @memberof SolanaDexProfileSearchPayloadSort
      */
-    direction: SolanaDexProfileSearchPayloadSortFieldDirectionEnum;
+    direction: SolanaDexProfileSearchPayloadSortDirectionEnum;
 }
 
 
 /**
- * Sorting direction.
+ * Direction to sort results in.
  * @export
  * @enum {string}
  */
-export enum SolanaDexProfileSearchPayloadSortFieldDirectionEnum {
+export enum SolanaDexProfileSearchPayloadSortDirectionEnum {
     ASC = 'asc',
     DESC = 'desc'
 }
@@ -1071,6 +1179,18 @@ export interface SolanaDexTokenProfile {
     token_address?: string;
     /**
      * 
+     * @type {Array<SolanaDexTokenProfileLabelEnum>}
+     * @memberof SolanaDexTokenProfile
+     */
+    labels?: Array<SolanaDexTokenProfileLabelEnum>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SolanaDexTokenProfile
+     */
+    dynamic_labels?: Array<string>;
+    /**
+     * 
      * @type {SolanaDexTokenProfileMetadata}
      * @memberof SolanaDexTokenProfile
      */
@@ -1088,6 +1208,18 @@ export interface SolanaDexTokenProfile {
      */
     metrics?: SolanaDexTokenProfileMetrics;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SolanaDexTokenProfileLabelEnum {
+    TRENDING = 'trending',
+    HOT = 'hot',
+    NEW = 'new',
+    POPULAR = 'popular'
+}
+
 /**
  * 
  * @export
@@ -1266,31 +1398,31 @@ export interface SolanaDexTokenProfileMetrics {
     _1m?: SolanaDexTokenProfileMetrics;
 }
 /**
- * 
+ * Controls which optional sections are included in each returned token profile.
  * @export
  * @interface SolanaDexTokenProfilePayloadOptions
  */
 export interface SolanaDexTokenProfilePayloadOptions {
     /**
-     * Whether to include metadata in the response.
+     * When true, includes the `metadata` object in each returned profile.
      * @type {boolean}
      * @memberof SolanaDexTokenProfilePayloadOptions
      */
     include_metadata?: boolean;
     /**
-     * Whether to include market data in the response.
+     * When true, includes the `market` object (price, liquidity, supply) in each returned profile.
      * @type {boolean}
      * @memberof SolanaDexTokenProfilePayloadOptions
      */
     include_market?: boolean;
     /**
-     * Whether to include labels in the response.
+     * When true, includes the `labels` array in each returned profile.
      * @type {boolean}
      * @memberof SolanaDexTokenProfilePayloadOptions
      */
     include_labels?: boolean;
     /**
-     * List of time windows to include metrics for.
+     * Time windows for which metrics should be included. Windows not listed are omitted from the response.
      * @type {Array<SolanaDexTokenProfileTimeWindowEnum>}
      * @memberof SolanaDexTokenProfilePayloadOptions
      */
@@ -1303,25 +1435,25 @@ export interface SolanaDexTokenProfilePayloadOptions {
  */
 export interface SolanaDexTokenProfileSearchPayloadQueryField {
     /**
-     * Text to search for.
+     * Text value to match against the selected fields.
      * @type {string}
      * @memberof SolanaDexTokenProfileSearchPayloadQueryField
      */
     text: string;
     /**
-     * The fields to search on.
+     * Token profile fields that the text value should be matched against.
      * @type {Array<SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum>}
      * @memberof SolanaDexTokenProfileSearchPayloadQueryField
      */
     fields: Array<SolanaDexTokenProfileSearchPayloadQueryFieldTargetsEnum>;
     /**
-     * Whether to use fuzzy search to match similar text.
+     * When true, matches values that are approximately similar to `text`, allowing for minor typos and variations.
      * @type {boolean}
      * @memberof SolanaDexTokenProfileSearchPayloadQueryField
      */
     fuzzy?: boolean;
     /**
-     * Whether to use autocomplete to suggest possible matches.
+     * When true, matches values that start with `text`, useful for type-ahead lookups.
      * @type {boolean}
      * @memberof SolanaDexTokenProfileSearchPayloadQueryField
      */
@@ -1586,6 +1718,12 @@ export interface SolanaDexWalletProfile {
     labels?: Array<SolanaDexWalletProfileLabelEnum>;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof SolanaDexWalletProfile
+     */
+    dynamic_labels?: Array<string>;
+    /**
+     * 
      * @type {SolanaDexWalletProfileMetadata}
      * @memberof SolanaDexWalletProfile
      */
@@ -1631,7 +1769,7 @@ export interface SolanaDexWalletProfileMetadata {
      * @type {string}
      * @memberof SolanaDexWalletProfileMetadata
      */
-    kol_name?: string;
+    name?: string;
     /**
      * 
      * @type {string}
@@ -1683,25 +1821,25 @@ export interface SolanaDexWalletProfileMetrics {
     _1d?: SolanaDexWalletProfileMetrics;
 }
 /**
- * 
+ * Controls which optional sections are included in each returned wallet profile.
  * @export
  * @interface SolanaDexWalletProfilePayloadOptions
  */
 export interface SolanaDexWalletProfilePayloadOptions {
     /**
-     * Whether to include metadata in the response.
+     * When true, includes the `metadata` object in each returned profile.
      * @type {boolean}
      * @memberof SolanaDexWalletProfilePayloadOptions
      */
     include_metadata?: boolean;
     /**
-     * Whether to include labels in the response.
+     * When true, includes the `labels` array in each returned profile.
      * @type {boolean}
      * @memberof SolanaDexWalletProfilePayloadOptions
      */
     include_labels?: boolean;
     /**
-     * List of time windows to include metrics for.
+     * Time windows for which metrics should be included. Windows not listed are omitted from the response.
      * @type {Array<SolanaDexWalletProfileTimeWindowEnum>}
      * @memberof SolanaDexWalletProfilePayloadOptions
      */
@@ -1710,31 +1848,31 @@ export interface SolanaDexWalletProfilePayloadOptions {
 /**
  * 
  * @export
- * @interface SolanaDexWalletProfileSearchPayloadQueryField
+ * @interface SolanaDexWalletProfileSearchPayloadQuery
  */
-export interface SolanaDexWalletProfileSearchPayloadQueryField {
+export interface SolanaDexWalletProfileSearchPayloadQuery {
     /**
-     * Text to search for.
+     * Text value to match against the selected fields.
      * @type {string}
-     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     * @memberof SolanaDexWalletProfileSearchPayloadQuery
      */
     text: string;
     /**
-     * The fields to search on.
-     * @type {Array<SolanaDexWalletProfileSearchPayloadQueryFieldTargetsEnum>}
-     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     * Wallet profile fields that the text value should be matched against.
+     * @type {Array<SolanaDexWalletProfileSearchPayloadQueryTargetsEnum>}
+     * @memberof SolanaDexWalletProfileSearchPayloadQuery
      */
-    fields: Array<SolanaDexWalletProfileSearchPayloadQueryFieldTargetsEnum>;
+    fields: Array<SolanaDexWalletProfileSearchPayloadQueryTargetsEnum>;
     /**
-     * Whether to use fuzzy search to match similar text.
+     * When true, matches values that are approximately similar to `text`, allowing for minor typos and variations.
      * @type {boolean}
-     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     * @memberof SolanaDexWalletProfileSearchPayloadQuery
      */
     fuzzy?: boolean;
     /**
-     * Whether to use autocomplete to suggest possible matches.
+     * When true, matches values that start with `text`, useful for type-ahead lookups.
      * @type {boolean}
-     * @memberof SolanaDexWalletProfileSearchPayloadQueryField
+     * @memberof SolanaDexWalletProfileSearchPayloadQuery
      */
     autocomplete?: boolean;
 }
@@ -1743,7 +1881,7 @@ export interface SolanaDexWalletProfileSearchPayloadQueryField {
  * @export
  * @enum {string}
  */
-export enum SolanaDexWalletProfileSearchPayloadQueryFieldTargetsEnum {
+export enum SolanaDexWalletProfileSearchPayloadQueryTargetsEnum {
     WALLET_ADDRESS = 'wallet_address',
     METADATA_NAME = 'metadata.name',
     METADATA_TWITTER_USERNAME = 'metadata.twitter_username',
