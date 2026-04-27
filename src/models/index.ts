@@ -1176,6 +1176,18 @@ export interface SolanaDexTokenProfile {
      * @type {string}
      * @memberof SolanaDexTokenProfile
      */
+    updated_at?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaDexTokenProfile
+     */
+    synced_at?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SolanaDexTokenProfile
+     */
     token_address?: string;
     /**
      * 
@@ -1289,16 +1301,16 @@ export interface SolanaDexTokenProfileMarket {
 export interface SolanaDexTokenProfileMetadata {
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
-    last_trade_at?: number;
+    last_trade_at?: string;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof SolanaDexTokenProfileMetadata
      */
-    created_at?: number;
+    created_at?: string;
     /**
      * 
      * @type {string}
@@ -1705,6 +1717,18 @@ export enum SolanaDexTradePositionStateEnum {
  */
 export interface SolanaDexWalletProfile {
     /**
+     * Timestamp of when the profile's underlying data (metadata, metrics, labels) was last recomputed. Typically precedes `synced_at` by a short interval.
+     * @type {string}
+     * @memberof SolanaDexWalletProfile
+     */
+    updated_at?: string;
+    /**
+     * Timestamp of when the recomputed profile was last persisted to the database and made available through the API.
+     * @type {string}
+     * @memberof SolanaDexWalletProfile
+     */
+    synced_at?: string;
+    /**
      * 
      * @type {string}
      * @memberof SolanaDexWalletProfile
@@ -1760,10 +1784,10 @@ export enum SolanaDexWalletProfileLabelEnum {
 export interface SolanaDexWalletProfileMetadata {
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof SolanaDexWalletProfileMetadata
      */
-    last_trade_at?: number;
+    last_trade_at?: string;
     /**
      * 
      * @type {string}
