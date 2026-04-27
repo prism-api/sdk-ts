@@ -26,21 +26,21 @@ export interface GetPriceCandlesRequest {
      */
     token: string;
     /**
-     * Start of the candle range, as a Unix timestamp in seconds.
+     * Start of the candle range, as a date-time RFC3339 string.
      * Must be combined with `to` to define a bounded range.
      * 
-     * @type {number}
+     * @type {string}
      * @memberof GetPriceCandlesRequest
      */
-    from?: number;
+    from?: string;
     /**
-     * End of the candle range, as a Unix timestamp in seconds. Defaults to the current time.
+     * End of the candle range, as a date-time RFC3339 string. Defaults to the current time.
      * Must be combined with either `from` (to define a bounded range) or `count` (to return the N most recent candles ending at `to`).
      * 
-     * @type {number}
+     * @type {string}
      * @memberof GetPriceCandlesRequest
      */
-    to?: number;
+    to?: string;
     /**
      * Number of candles to return, ending at `to`.
      * Must be combined with `to`.
@@ -50,7 +50,7 @@ export interface GetPriceCandlesRequest {
      */
     count?: number;
     /**
-     * Size of each candle, in seconds.
+     * Sampling interval between data points, in seconds.
      * @type {number}
      * @memberof GetPriceCandlesRequest
      */
@@ -69,17 +69,17 @@ export interface GetPriceHistoryRequest {
      */
     tokens: Array<string>;
     /**
-     * Start of the history range, as a Unix timestamp in seconds.
-     * @type {number}
+     * Start of the history range, as a date-time RFC3339 string.
+     * @type {string}
      * @memberof GetPriceHistoryRequest
      */
-    from: number;
+    from: string;
     /**
-     * End of the history range, as a Unix timestamp in seconds. Defaults to the current time.
-     * @type {number}
+     * End of the history range, as a date-time RFC3339 string. Defaults to the current time.
+     * @type {string}
      * @memberof GetPriceHistoryRequest
      */
-    to?: number;
+    to?: string;
     /**
      * Sampling interval between data points, in seconds.
      * @type {number}
