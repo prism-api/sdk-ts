@@ -1197,6 +1197,12 @@ export interface SolanaDexTokenProfile {
     labels?: Array<SolanaDexTokenProfileLabelEnum>;
     /**
      * 
+     * @type {SolanaDexTokenProfileMatchedLabels}
+     * @memberof SolanaDexTokenProfile
+     */
+    matched_labels?: SolanaDexTokenProfileMatchedLabels;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof SolanaDexTokenProfile
      */
@@ -1292,6 +1298,19 @@ export interface SolanaDexTokenProfileMarket {
      * @memberof SolanaDexTokenProfileMarket
      */
     dev_holdings?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SolanaDexTokenProfileMatchedLabels
+ */
+export interface SolanaDexTokenProfileMatchedLabels {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SolanaDexTokenProfileMatchedLabels
+     */
+    trending?: Array<string>;
 }
 /**
  * 
@@ -1717,13 +1736,13 @@ export enum SolanaDexTradePositionStateEnum {
  */
 export interface SolanaDexWalletProfile {
     /**
-     * Timestamp of when the profile's underlying data (metadata, metrics, labels) was last recomputed. Typically precedes `synced_at` by a short interval.
+     * 
      * @type {string}
      * @memberof SolanaDexWalletProfile
      */
     updated_at?: string;
     /**
-     * Timestamp of when the recomputed profile was last persisted to the database and made available through the API.
+     * 
      * @type {string}
      * @memberof SolanaDexWalletProfile
      */
@@ -1740,6 +1759,12 @@ export interface SolanaDexWalletProfile {
      * @memberof SolanaDexWalletProfile
      */
     labels?: Array<SolanaDexWalletProfileLabelEnum>;
+    /**
+     * 
+     * @type {SolanaDexWalletProfileMatchedLabels}
+     * @memberof SolanaDexWalletProfile
+     */
+    matched_labels?: SolanaDexWalletProfileMatchedLabels;
     /**
      * 
      * @type {Array<string>}
@@ -1768,7 +1793,7 @@ export enum SolanaDexWalletProfileLabelEnum {
     KOL = 'kol',
     TRENCHER = 'trencher',
     CONVICTION = 'conviction',
-    SMART_MONEY = 'smart_money',
+    SMART = 'smart',
     WHALE = 'whale',
     DEGEN = 'degen',
     SNIPER = 'sniper',
@@ -1776,6 +1801,19 @@ export enum SolanaDexWalletProfileLabelEnum {
     HOLDER = 'holder'
 }
 
+/**
+ * 
+ * @export
+ * @interface SolanaDexWalletProfileMatchedLabels
+ */
+export interface SolanaDexWalletProfileMatchedLabels {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SolanaDexWalletProfileMatchedLabels
+     */
+    smart?: Array<string>;
+}
 /**
  * 
  * @export
