@@ -8,6 +8,8 @@ import type * as ApiClient from "../index.js";
 export interface SolanaDexWalletProfilePayloadOptions {
     /** When true, includes the `metadata` object in each returned profile. */
     include_metadata?: boolean | undefined;
+    /** When true, includes the `identity` object in each returned profile. */
+    include_identity?: boolean | undefined;
     /** When true, includes the `labels` array in each returned profile. */
     include_labels?: boolean | undefined;
     /** Time windows for which metrics should be included. Windows not listed are omitted from the response. */

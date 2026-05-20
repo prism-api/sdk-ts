@@ -3,6 +3,7 @@
 import type * as ApiClient from "../index.js";
 
 export interface SolanaDexTrade {
+    id?: number | undefined;
     protocol?: ApiClient.SolanaDexProtocolField | undefined;
     swap_type?: ApiClient.SolanaDexSwapTypeEnum | undefined;
     wallet_address?: string | undefined;
@@ -21,6 +22,6 @@ export interface SolanaDexTrade {
     quote_price?: number | undefined;
     token_mcap?: number | undefined;
     block_slot?: number | undefined;
-    block_time?: number | undefined;
+    block_time?: string | undefined;
     tx_hash?: string | undefined;
 }

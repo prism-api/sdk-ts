@@ -25,5 +25,5 @@ export interface SolanaDexPriceStats {
     usd_volume_change_7d?: number | undefined;
     usd_volume_change_30d?: number | undefined;
     block_slot?: number | undefined;
-    block_time?: number | undefined;
+    block_time?: string | undefined;
 }

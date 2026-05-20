@@ -4,6 +4,7 @@ import { SolanaClient } from "./api/resources/solana/client/Client.js";
 import type { BaseClientOptions, BaseRequestOptions } from "./BaseClient.js";
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "./BaseClient.js";
 import * as core from "./core/index.js";
+import * as environments from "./environments.js";
 
 export declare namespace ApiClientClient {
     export type Options = BaseClientOptions;
@@ -42,7 +43,14 @@ export class ApiClientClient {
             input,
             init,
             {
-                baseUrl: this._options.baseUrl ?? this._options.environment,
+                baseUrl:
+                    this._options.baseUrl ??
+                    (async () => {
+                        const env = await core.Supplier.get(this._options.environment);
+                        return typeof env === "string"
+                            ? env
+                            : ((env as Record<string, string>)?.base ?? environments.ApiClientEnvironment.Default.base);
+                    }),
                 headers: this._options.headers,
                 timeoutInSeconds: this._options.timeoutInSeconds,
                 maxRetries: this._options.maxRetries,

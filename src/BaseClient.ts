@@ -12,7 +12,7 @@ export type AuthOption =
     | HeaderAuthProvider.AuthOptions;
 
 export type BaseClientOptions = {
-    environment?: core.Supplier<environments.ApiClientEnvironment | string>;
+    environment?: core.Supplier<environments.ApiClientEnvironment | environments.ApiClientEnvironmentUrls>;
     /** Specify a custom URL to connect the client to. */
     baseUrl?: core.Supplier<string>;
     /** Additional headers to include in requests. */
@@ -59,8 +59,8 @@ export function normalizeClientOptions<T extends BaseClientOptions = BaseClientO
         {
             "X-Fern-Language": "JavaScript",
             "X-Fern-SDK-Name": "prism-ts-sdk",
-            "X-Fern-SDK-Version": "1.0.5",
-            "User-Agent": "prism-ts-sdk/1.0.5",
+            "X-Fern-SDK-Version": "1.1.0",
+            "User-Agent": "prism-ts-sdk/1.1.0",
             "X-Fern-Runtime": core.RUNTIME.type,
             "X-Fern-Runtime-Version": core.RUNTIME.version,
         },

@@ -7,7 +7,11 @@ import { mockServerPool } from "../../mock-server/MockServerPool";
 describe("DexClient", () => {
     test("getWalletProfile (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {
             wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
             options: { include_metadata: true, include_labels: true, include_metrics: ["7d"] },
@@ -36,7 +40,11 @@ describe("DexClient", () => {
 
     test("getWalletProfile (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
@@ -58,7 +66,11 @@ describe("DexClient", () => {
 
     test("getWalletProfile (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
@@ -80,7 +92,11 @@ describe("DexClient", () => {
 
     test("getWalletProfile (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
@@ -102,7 +118,11 @@ describe("DexClient", () => {
 
     test("getWalletProfile (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
@@ -124,7 +144,11 @@ describe("DexClient", () => {
 
     test("getWalletProfile (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
@@ -146,7 +170,11 @@ describe("DexClient", () => {
 
     test("searchWalletProfiles (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {
             limit: 10,
             query: { text: "cupsey", fields: ["wallet_address"] },
@@ -189,7 +217,11 @@ describe("DexClient", () => {
 
     test("searchWalletProfiles (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -209,7 +241,11 @@ describe("DexClient", () => {
 
     test("searchWalletProfiles (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -229,7 +265,11 @@ describe("DexClient", () => {
 
     test("searchWalletProfiles (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -249,7 +289,11 @@ describe("DexClient", () => {
 
     test("searchWalletProfiles (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -269,7 +313,11 @@ describe("DexClient", () => {
 
     test("searchWalletProfiles (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -289,7 +337,11 @@ describe("DexClient", () => {
 
     test("getTokenProfile (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {
             token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
             options: { include_metadata: true, include_market: true, include_labels: true, include_metrics: ["7d"] },
@@ -319,7 +371,11 @@ describe("DexClient", () => {
 
     test("getTokenProfile (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
@@ -341,7 +397,11 @@ describe("DexClient", () => {
 
     test("getTokenProfile (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
@@ -363,7 +423,11 @@ describe("DexClient", () => {
 
     test("getTokenProfile (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
@@ -385,7 +449,11 @@ describe("DexClient", () => {
 
     test("getTokenProfile (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
@@ -407,7 +475,11 @@ describe("DexClient", () => {
 
     test("getTokenProfile (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
@@ -429,7 +501,11 @@ describe("DexClient", () => {
 
     test("searchTokenProfiles (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {
             limit: 10,
             query: { text: "bonk", fields: ["metadata.name"] },
@@ -473,7 +549,11 @@ describe("DexClient", () => {
 
     test("searchTokenProfiles (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -493,7 +573,11 @@ describe("DexClient", () => {
 
     test("searchTokenProfiles (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -513,7 +597,11 @@ describe("DexClient", () => {
 
     test("searchTokenProfiles (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -533,7 +621,11 @@ describe("DexClient", () => {
 
     test("searchTokenProfiles (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -553,7 +645,11 @@ describe("DexClient", () => {
 
     test("searchTokenProfiles (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -573,7 +669,11 @@ describe("DexClient", () => {
 
     test("getTrades (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { limit: 20, wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK" };
         const rawResponseBody = {};
 
@@ -595,7 +695,11 @@ describe("DexClient", () => {
 
     test("getTrades (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -615,7 +719,11 @@ describe("DexClient", () => {
 
     test("getTrades (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -635,7 +743,11 @@ describe("DexClient", () => {
 
     test("getTrades (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -655,7 +767,11 @@ describe("DexClient", () => {
 
     test("getTrades (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -675,7 +791,11 @@ describe("DexClient", () => {
 
     test("getTrades (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -695,7 +815,11 @@ describe("DexClient", () => {
 
     test("getSwaps (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { limit: 20, wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK" };
         const rawResponseBody = {};
 
@@ -717,7 +841,11 @@ describe("DexClient", () => {
 
     test("getSwaps (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -737,7 +865,11 @@ describe("DexClient", () => {
 
     test("getSwaps (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -757,7 +889,11 @@ describe("DexClient", () => {
 
     test("getSwaps (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -777,7 +913,11 @@ describe("DexClient", () => {
 
     test("getSwaps (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -797,7 +937,11 @@ describe("DexClient", () => {
 
     test("getSwaps (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
@@ -817,7 +961,11 @@ describe("DexClient", () => {
 
     test("getPrice (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"] };
         const rawResponseBody = [{}];
 
@@ -838,7 +986,11 @@ describe("DexClient", () => {
 
     test("getPrice (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -860,7 +1012,11 @@ describe("DexClient", () => {
 
     test("getPrice (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -882,7 +1038,11 @@ describe("DexClient", () => {
 
     test("getPrice (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -904,7 +1064,11 @@ describe("DexClient", () => {
 
     test("getPrice (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -926,7 +1090,11 @@ describe("DexClient", () => {
 
     test("getPrice (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -948,7 +1116,11 @@ describe("DexClient", () => {
 
     test("getPriceStats (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"] };
         const rawResponseBody = [{}];
 
@@ -969,7 +1141,11 @@ describe("DexClient", () => {
 
     test("getPriceStats (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -991,7 +1167,11 @@ describe("DexClient", () => {
 
     test("getPriceStats (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -1013,7 +1193,11 @@ describe("DexClient", () => {
 
     test("getPriceStats (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -1035,7 +1219,11 @@ describe("DexClient", () => {
 
     test("getPriceStats (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -1057,7 +1245,11 @@ describe("DexClient", () => {
 
     test("getPriceStats (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"] };
         const rawResponseBody = { key: "value" };
 
@@ -1079,7 +1271,11 @@ describe("DexClient", () => {
 
     test("getPriceCandles (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {
             token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
             from: "2026-04-27T00:00:00Z",
@@ -1108,7 +1304,11 @@ describe("DexClient", () => {
 
     test("getPriceCandles (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1131,7 +1331,11 @@ describe("DexClient", () => {
 
     test("getPriceCandles (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1154,7 +1358,11 @@ describe("DexClient", () => {
 
     test("getPriceCandles (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1177,7 +1385,11 @@ describe("DexClient", () => {
 
     test("getPriceCandles (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1200,7 +1412,11 @@ describe("DexClient", () => {
 
     test("getPriceCandles (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { token: "token", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1223,7 +1439,11 @@ describe("DexClient", () => {
 
     test("getPriceHistory (1)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = {
             tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"],
             from: "2026-04-27T00:00:00Z",
@@ -1252,7 +1472,11 @@ describe("DexClient", () => {
 
     test("getPriceHistory (2)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1276,7 +1500,11 @@ describe("DexClient", () => {
 
     test("getPriceHistory (3)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1300,7 +1528,11 @@ describe("DexClient", () => {
 
     test("getPriceHistory (4)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1324,7 +1556,11 @@ describe("DexClient", () => {
 
     test("getPriceHistory (5)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
@@ -1348,7 +1584,11 @@ describe("DexClient", () => {
 
     test("getPriceHistory (6)", async () => {
         const server = mockServerPool.createServer();
-        const client = new ApiClientClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const client = new ApiClientClient({
+            maxRetries: 0,
+            apiKey: "test",
+            environment: { base: server.baseUrl, production: server.baseUrl, development: server.baseUrl },
+        });
         const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 

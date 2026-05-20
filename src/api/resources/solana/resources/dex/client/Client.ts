@@ -64,8 +64,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/profiles/wallets/get-profile",
             ),
             method: "POST",
@@ -166,8 +166,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/profiles/wallets/search-profiles",
             ),
             method: "POST",
@@ -261,8 +261,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/profiles/tokens/get-profile",
             ),
             method: "POST",
@@ -364,8 +364,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/profiles/tokens/search-profiles",
             ),
             method: "POST",
@@ -454,8 +454,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/trades/get-trades",
             ),
             method: "POST",
@@ -544,8 +544,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/swaps/get-swaps",
             ),
             method: "POST",
@@ -630,8 +630,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/prices/get-price",
             ),
             method: "POST",
@@ -716,8 +716,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/prices/get-price-stats",
             ),
             method: "POST",
@@ -805,8 +805,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/prices/get-price-candles",
             ),
             method: "POST",
@@ -894,8 +894,8 @@ export class DexClient {
         const _response = await core.fetcher({
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.ApiClientEnvironment.Default,
+                    ((await core.Supplier.get(this._options.environment)) ?? environments.ApiClientEnvironment.Default)
+                        .base,
                 "v1/solana/dex/prices/get-price-history",
             ),
             method: "POST",
