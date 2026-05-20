@@ -3,7 +3,7 @@
 import type * as core from "../../core/index.js";
 import * as errors from "../../errors/index.js";
 
-export class TooManyRequestsError extends errors.PrismApiError {
+export class TooManyRequestsError extends errors.ApiClientError {
     constructor(body?: unknown, rawResponse?: core.RawResponse) {
         super({
             message: "TooManyRequestsError",

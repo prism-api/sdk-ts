@@ -1,2 +1,2 @@
-export { PrismApiError } from "./PrismApiError.js";
-export { PrismApiTimeoutError } from "./PrismApiTimeoutError.js";
+export { ApiClientError } from "./ApiClientError.js";
+export { ApiClientTimeoutError } from "./ApiClientTimeoutError.js";

@@ -41,9 +41,9 @@ A full reference for this library is available [here](https://github.com/prism-a
 Instantiate and use the client with the following:
 
 ```typescript
-import { PrismApiClient } from "prism-ts-sdk";
+import { ApiClientClient } from "prism-ts-sdk";
 
-const client = new PrismApiClient({ apiKey: "YOUR_API_KEY" });
+const client = new ApiClientClient({ apiKey: "YOUR_API_KEY" });
 await client.solana.dex.getWalletProfile({
     wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
     options: {
@@ -59,10 +59,10 @@ await client.solana.dex.getWalletProfile({
 This SDK allows you to configure different environments for API requests.
 
 ```typescript
-import { PrismApiClient, PrismApiEnvironment } from "prism-ts-sdk";
+import { ApiClientClient, ApiClientEnvironment } from "prism-ts-sdk";
 
-const client = new PrismApiClient({
-    environment: PrismApiEnvironment.Default,
+const client = new ApiClientClient({
+    environment: ApiClientEnvironment.Default,
 });
 ```
 
@@ -72,9 +72,9 @@ The SDK exports all request and response types as TypeScript interfaces. Simply 
 following namespace:
 
 ```typescript
-import { PrismApi } from "prism-ts-sdk";
+import { ApiClient } from "prism-ts-sdk";
 
-const request: PrismApi.GetWalletProfileDexRequest = {
+const request: ApiClient.GetWalletProfileDexRequest = {
     ...
 };
 ```
@@ -85,12 +85,12 @@ When the API returns a non-success status code (4xx or 5xx response), a subclass
 will be thrown.
 
 ```typescript
-import { PrismApiError } from "prism-ts-sdk";
+import { ApiClientError } from "prism-ts-sdk";
 
 try {
     await client.solana.dex.getWalletProfile(...);
 } catch (err) {
-    if (err instanceof PrismApiError) {
+    if (err instanceof ApiClientError) {
         console.log(err.statusCode);
         console.log(err.message);
         console.log(err.body);
@@ -116,9 +116,9 @@ const client = new SolanaClient({...});
 If you would like to send additional headers as part of the request, use the `headers` request option.
 
 ```typescript
-import { PrismApiClient } from "prism-ts-sdk";
+import { ApiClientClient } from "prism-ts-sdk";
 
-const client = new PrismApiClient({
+const client = new ApiClientClient({
     ...
     headers: {
         'X-Custom-Header': 'custom value'
@@ -211,9 +211,9 @@ console.log(rawResponse.headers['X-My-Header']);
 The SDK supports logging. You can configure the logger by passing in a `logging` object to the client options.
 
 ```typescript
-import { PrismApiClient, logging } from "prism-ts-sdk";
+import { ApiClientClient, logging } from "prism-ts-sdk";
 
-const client = new PrismApiClient({
+const client = new ApiClientClient({
     ...
     logging: {
         level: logging.LogLevel.Debug, // defaults to logging.LogLevel.Info

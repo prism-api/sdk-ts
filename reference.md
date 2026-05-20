@@ -1,6 +1,6 @@
 # Reference
 ## Solana Dex
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getWalletProfile</a>({ ...params }) -> PrismApi.SolanaDexWalletProfile</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getWalletProfile</a>({ ...params }) -> ApiClient.SolanaDexWalletProfile</code></summary>
 <dl>
 <dd>
 
@@ -50,7 +50,7 @@ await client.solana.dex.getWalletProfile({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetWalletProfileDexRequest` 
+**request:** `ApiClient.solana.GetWalletProfileDexRequest` 
     
 </dd>
 </dl>
@@ -70,7 +70,7 @@ await client.solana.dex.getWalletProfile({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">searchWalletProfiles</a>({ ...params }) -> PrismApi.SearchWalletProfilesDexResponse</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">searchWalletProfiles</a>({ ...params }) -> ApiClient.SearchWalletProfilesDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -131,7 +131,7 @@ await client.solana.dex.searchWalletProfiles({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.SearchWalletProfilesDexRequest` 
+**request:** `ApiClient.solana.SearchWalletProfilesDexRequest` 
     
 </dd>
 </dl>
@@ -151,7 +151,7 @@ await client.solana.dex.searchWalletProfiles({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getTokenProfile</a>({ ...params }) -> PrismApi.SolanaDexTokenProfile</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getTokenProfile</a>({ ...params }) -> ApiClient.SolanaDexTokenProfile</code></summary>
 <dl>
 <dd>
 
@@ -202,7 +202,7 @@ await client.solana.dex.getTokenProfile({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetTokenProfileDexRequest` 
+**request:** `ApiClient.solana.GetTokenProfileDexRequest` 
     
 </dd>
 </dl>
@@ -222,7 +222,7 @@ await client.solana.dex.getTokenProfile({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">searchTokenProfiles</a>({ ...params }) -> PrismApi.SearchTokenProfilesDexResponse</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">searchTokenProfiles</a>({ ...params }) -> ApiClient.SearchTokenProfilesDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -284,7 +284,7 @@ await client.solana.dex.searchTokenProfiles({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.SearchTokenProfilesDexRequest` 
+**request:** `ApiClient.solana.SearchTokenProfilesDexRequest` 
     
 </dd>
 </dl>
@@ -304,7 +304,7 @@ await client.solana.dex.searchTokenProfiles({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getTrades</a>({ ...params }) -> PrismApi.GetTradesDexResponse</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getTrades</a>({ ...params }) -> ApiClient.GetTradesDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -350,7 +350,7 @@ await client.solana.dex.getTrades({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetTradesDexRequest` 
+**request:** `ApiClient.solana.GetTradesDexRequest` 
     
 </dd>
 </dl>
@@ -370,7 +370,7 @@ await client.solana.dex.getTrades({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getSwaps</a>({ ...params }) -> PrismApi.GetSwapsDexResponse</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getSwaps</a>({ ...params }) -> ApiClient.GetSwapsDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -416,7 +416,7 @@ await client.solana.dex.getSwaps({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetSwapsDexRequest` 
+**request:** `ApiClient.solana.GetSwapsDexRequest` 
     
 </dd>
 </dl>
@@ -436,7 +436,7 @@ await client.solana.dex.getSwaps({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPrice</a>({ ...params }) -> PrismApi.SolanaDexPrice[]</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPrice</a>({ ...params }) -> ApiClient.SolanaDexPrice[]</code></summary>
 <dl>
 <dd>
 
@@ -481,7 +481,7 @@ await client.solana.dex.getPrice({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetPriceDexRequest` 
+**request:** `ApiClient.solana.GetPriceDexRequest` 
     
 </dd>
 </dl>
@@ -501,7 +501,7 @@ await client.solana.dex.getPrice({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceStats</a>({ ...params }) -> PrismApi.SolanaDexPriceStats[]</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceStats</a>({ ...params }) -> ApiClient.SolanaDexPriceStats[]</code></summary>
 <dl>
 <dd>
 
@@ -546,7 +546,7 @@ await client.solana.dex.getPriceStats({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetPriceStatsDexRequest` 
+**request:** `ApiClient.solana.GetPriceStatsDexRequest` 
     
 </dd>
 </dl>
@@ -566,7 +566,7 @@ await client.solana.dex.getPriceStats({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceCandles</a>({ ...params }) -> PrismApi.SolanaDexPriceCandle[]</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceCandles</a>({ ...params }) -> ApiClient.SolanaDexPriceCandle[]</code></summary>
 <dl>
 <dd>
 
@@ -614,7 +614,7 @@ await client.solana.dex.getPriceCandles({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetPriceCandlesDexRequest` 
+**request:** `ApiClient.solana.GetPriceCandlesDexRequest` 
     
 </dd>
 </dl>
@@ -634,7 +634,7 @@ await client.solana.dex.getPriceCandles({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceHistory</a>({ ...params }) -> PrismApi.SolanaDexPriceHistory[]</code></summary>
+<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceHistory</a>({ ...params }) -> ApiClient.SolanaDexPriceHistory[]</code></summary>
 <dl>
 <dd>
 
@@ -682,7 +682,7 @@ await client.solana.dex.getPriceHistory({
 <dl>
 <dd>
 
-**request:** `PrismApi.solana.GetPriceHistoryDexRequest` 
+**request:** `ApiClient.solana.GetPriceHistoryDexRequest` 
     
 </dd>
 </dl>

@@ -24,7 +24,7 @@ export class HeaderAuthProvider implements core.AuthProvider {
     } = {}): Promise<core.AuthRequest> {
         const headerValue = await core.Supplier.get(this.options[PARAM_KEY]);
         if (headerValue == null) {
-            throw new errors.PrismApiError({
+            throw new errors.ApiClientError({
                 message: HeaderAuthProvider.AUTH_CONFIG_ERROR_MESSAGE,
             });
         }

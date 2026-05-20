@@ -7,7 +7,7 @@ import * as core from "../../../../../../core/index.js";
 import * as environments from "../../../../../../environments.js";
 import { handleNonStatusCodeError } from "../../../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../../../errors/index.js";
-import * as PrismApi from "../../../../../index.js";
+import * as ApiClient from "../../../../../index.js";
 
 export declare namespace DexClient {
     export type Options = BaseClientOptions;
@@ -25,14 +25,14 @@ export class DexClient {
     /**
      * Returns a wallet profile for a specific wallet.
      *
-     * @param {PrismApi.solana.GetWalletProfileDexRequest} request
+     * @param {ApiClient.solana.GetWalletProfileDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getWalletProfile({
@@ -45,16 +45,16 @@ export class DexClient {
      *     })
      */
     public getWalletProfile(
-        request: PrismApi.solana.GetWalletProfileDexRequest,
+        request: ApiClient.solana.GetWalletProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.SolanaDexWalletProfile> {
+    ): core.HttpResponsePromise<ApiClient.SolanaDexWalletProfile> {
         return core.HttpResponsePromise.fromPromise(this.__getWalletProfile(request, requestOptions));
     }
 
     private async __getWalletProfile(
-        request: PrismApi.solana.GetWalletProfileDexRequest,
+        request: ApiClient.solana.GetWalletProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.SolanaDexWalletProfile>> {
+    ): Promise<core.WithRawResponse<ApiClient.SolanaDexWalletProfile>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -65,7 +65,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/profiles/wallets/get-profile",
             ),
             method: "POST",
@@ -81,23 +81,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.SolanaDexWalletProfile, rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.SolanaDexWalletProfile, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -116,14 +116,14 @@ export class DexClient {
     /**
      * Filter, query, and sort wallet profiles based on specified metrics and conditions.
      *
-     * @param {PrismApi.solana.SearchWalletProfilesDexRequest} request
+     * @param {ApiClient.solana.SearchWalletProfilesDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.searchWalletProfiles({
@@ -147,16 +147,16 @@ export class DexClient {
      *     })
      */
     public searchWalletProfiles(
-        request: PrismApi.solana.SearchWalletProfilesDexRequest = {},
+        request: ApiClient.solana.SearchWalletProfilesDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.solana.SearchWalletProfilesDexResponse> {
+    ): core.HttpResponsePromise<ApiClient.solana.SearchWalletProfilesDexResponse> {
         return core.HttpResponsePromise.fromPromise(this.__searchWalletProfiles(request, requestOptions));
     }
 
     private async __searchWalletProfiles(
-        request: PrismApi.solana.SearchWalletProfilesDexRequest = {},
+        request: ApiClient.solana.SearchWalletProfilesDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.solana.SearchWalletProfilesDexResponse>> {
+    ): Promise<core.WithRawResponse<ApiClient.solana.SearchWalletProfilesDexResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -167,7 +167,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/profiles/wallets/search-profiles",
             ),
             method: "POST",
@@ -184,7 +184,7 @@ export class DexClient {
         });
         if (_response.ok) {
             return {
-                data: _response.body as PrismApi.solana.SearchWalletProfilesDexResponse,
+                data: _response.body as ApiClient.solana.SearchWalletProfilesDexResponse,
                 rawResponse: _response.rawResponse,
             };
         }
@@ -192,17 +192,17 @@ export class DexClient {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -221,14 +221,14 @@ export class DexClient {
     /**
      * Returns the profile for a specific token.
      *
-     * @param {PrismApi.solana.GetTokenProfileDexRequest} request
+     * @param {ApiClient.solana.GetTokenProfileDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getTokenProfile({
@@ -242,16 +242,16 @@ export class DexClient {
      *     })
      */
     public getTokenProfile(
-        request: PrismApi.solana.GetTokenProfileDexRequest,
+        request: ApiClient.solana.GetTokenProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.SolanaDexTokenProfile> {
+    ): core.HttpResponsePromise<ApiClient.SolanaDexTokenProfile> {
         return core.HttpResponsePromise.fromPromise(this.__getTokenProfile(request, requestOptions));
     }
 
     private async __getTokenProfile(
-        request: PrismApi.solana.GetTokenProfileDexRequest,
+        request: ApiClient.solana.GetTokenProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.SolanaDexTokenProfile>> {
+    ): Promise<core.WithRawResponse<ApiClient.SolanaDexTokenProfile>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -262,7 +262,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/profiles/tokens/get-profile",
             ),
             method: "POST",
@@ -278,23 +278,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.SolanaDexTokenProfile, rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.SolanaDexTokenProfile, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -313,14 +313,14 @@ export class DexClient {
     /**
      * Filter, query, and sort token profiles based on specified metrics and conditions.
      *
-     * @param {PrismApi.solana.SearchTokenProfilesDexRequest} request
+     * @param {ApiClient.solana.SearchTokenProfilesDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.searchTokenProfiles({
@@ -345,16 +345,16 @@ export class DexClient {
      *     })
      */
     public searchTokenProfiles(
-        request: PrismApi.solana.SearchTokenProfilesDexRequest = {},
+        request: ApiClient.solana.SearchTokenProfilesDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.solana.SearchTokenProfilesDexResponse> {
+    ): core.HttpResponsePromise<ApiClient.solana.SearchTokenProfilesDexResponse> {
         return core.HttpResponsePromise.fromPromise(this.__searchTokenProfiles(request, requestOptions));
     }
 
     private async __searchTokenProfiles(
-        request: PrismApi.solana.SearchTokenProfilesDexRequest = {},
+        request: ApiClient.solana.SearchTokenProfilesDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.solana.SearchTokenProfilesDexResponse>> {
+    ): Promise<core.WithRawResponse<ApiClient.solana.SearchTokenProfilesDexResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -365,7 +365,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/profiles/tokens/search-profiles",
             ),
             method: "POST",
@@ -382,7 +382,7 @@ export class DexClient {
         });
         if (_response.ok) {
             return {
-                data: _response.body as PrismApi.solana.SearchTokenProfilesDexResponse,
+                data: _response.body as ApiClient.solana.SearchTokenProfilesDexResponse,
                 rawResponse: _response.rawResponse,
             };
         }
@@ -390,17 +390,17 @@ export class DexClient {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -419,14 +419,14 @@ export class DexClient {
     /**
      * Returns trades for a wallet, token or both.
      *
-     * @param {PrismApi.solana.GetTradesDexRequest} request
+     * @param {ApiClient.solana.GetTradesDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getTrades({
@@ -435,16 +435,16 @@ export class DexClient {
      *     })
      */
     public getTrades(
-        request: PrismApi.solana.GetTradesDexRequest = {},
+        request: ApiClient.solana.GetTradesDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.solana.GetTradesDexResponse> {
+    ): core.HttpResponsePromise<ApiClient.solana.GetTradesDexResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getTrades(request, requestOptions));
     }
 
     private async __getTrades(
-        request: PrismApi.solana.GetTradesDexRequest = {},
+        request: ApiClient.solana.GetTradesDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.solana.GetTradesDexResponse>> {
+    ): Promise<core.WithRawResponse<ApiClient.solana.GetTradesDexResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -455,7 +455,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/trades/get-trades",
             ),
             method: "POST",
@@ -471,23 +471,26 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.solana.GetTradesDexResponse, rawResponse: _response.rawResponse };
+            return {
+                data: _response.body as ApiClient.solana.GetTradesDexResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -506,14 +509,14 @@ export class DexClient {
     /**
      * Returns swaps for a wallet, token or both.
      *
-     * @param {PrismApi.solana.GetSwapsDexRequest} request
+     * @param {ApiClient.solana.GetSwapsDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getSwaps({
@@ -522,16 +525,16 @@ export class DexClient {
      *     })
      */
     public getSwaps(
-        request: PrismApi.solana.GetSwapsDexRequest = {},
+        request: ApiClient.solana.GetSwapsDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.solana.GetSwapsDexResponse> {
+    ): core.HttpResponsePromise<ApiClient.solana.GetSwapsDexResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getSwaps(request, requestOptions));
     }
 
     private async __getSwaps(
-        request: PrismApi.solana.GetSwapsDexRequest = {},
+        request: ApiClient.solana.GetSwapsDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.solana.GetSwapsDexResponse>> {
+    ): Promise<core.WithRawResponse<ApiClient.solana.GetSwapsDexResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -542,7 +545,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/swaps/get-swaps",
             ),
             method: "POST",
@@ -558,23 +561,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.solana.GetSwapsDexResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.solana.GetSwapsDexResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -593,14 +596,14 @@ export class DexClient {
     /**
      * Returns prices for one or more tokens.
      *
-     * @param {PrismApi.solana.GetPriceDexRequest} request
+     * @param {ApiClient.solana.GetPriceDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getPrice({
@@ -608,16 +611,16 @@ export class DexClient {
      *     })
      */
     public getPrice(
-        request: PrismApi.solana.GetPriceDexRequest,
+        request: ApiClient.solana.GetPriceDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.SolanaDexPrice[]> {
+    ): core.HttpResponsePromise<ApiClient.SolanaDexPrice[]> {
         return core.HttpResponsePromise.fromPromise(this.__getPrice(request, requestOptions));
     }
 
     private async __getPrice(
-        request: PrismApi.solana.GetPriceDexRequest,
+        request: ApiClient.solana.GetPriceDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.SolanaDexPrice[]>> {
+    ): Promise<core.WithRawResponse<ApiClient.SolanaDexPrice[]>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -628,7 +631,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/prices/get-price",
             ),
             method: "POST",
@@ -644,23 +647,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.SolanaDexPrice[], rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.SolanaDexPrice[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -679,14 +682,14 @@ export class DexClient {
     /**
      * Returns price stats for one or more tokens.
      *
-     * @param {PrismApi.solana.GetPriceStatsDexRequest} request
+     * @param {ApiClient.solana.GetPriceStatsDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getPriceStats({
@@ -694,16 +697,16 @@ export class DexClient {
      *     })
      */
     public getPriceStats(
-        request: PrismApi.solana.GetPriceStatsDexRequest,
+        request: ApiClient.solana.GetPriceStatsDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.SolanaDexPriceStats[]> {
+    ): core.HttpResponsePromise<ApiClient.SolanaDexPriceStats[]> {
         return core.HttpResponsePromise.fromPromise(this.__getPriceStats(request, requestOptions));
     }
 
     private async __getPriceStats(
-        request: PrismApi.solana.GetPriceStatsDexRequest,
+        request: ApiClient.solana.GetPriceStatsDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.SolanaDexPriceStats[]>> {
+    ): Promise<core.WithRawResponse<ApiClient.SolanaDexPriceStats[]>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -714,7 +717,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/prices/get-price-stats",
             ),
             method: "POST",
@@ -730,23 +733,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.SolanaDexPriceStats[], rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.SolanaDexPriceStats[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -765,14 +768,14 @@ export class DexClient {
     /**
      * Returns price candles for a specific token.
      *
-     * @param {PrismApi.solana.GetPriceCandlesDexRequest} request
+     * @param {ApiClient.solana.GetPriceCandlesDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getPriceCandles({
@@ -783,16 +786,16 @@ export class DexClient {
      *     })
      */
     public getPriceCandles(
-        request: PrismApi.solana.GetPriceCandlesDexRequest,
+        request: ApiClient.solana.GetPriceCandlesDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.SolanaDexPriceCandle[]> {
+    ): core.HttpResponsePromise<ApiClient.SolanaDexPriceCandle[]> {
         return core.HttpResponsePromise.fromPromise(this.__getPriceCandles(request, requestOptions));
     }
 
     private async __getPriceCandles(
-        request: PrismApi.solana.GetPriceCandlesDexRequest,
+        request: ApiClient.solana.GetPriceCandlesDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.SolanaDexPriceCandle[]>> {
+    ): Promise<core.WithRawResponse<ApiClient.SolanaDexPriceCandle[]>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -803,7 +806,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/prices/get-price-candles",
             ),
             method: "POST",
@@ -819,23 +822,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.SolanaDexPriceCandle[], rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.SolanaDexPriceCandle[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,
@@ -854,14 +857,14 @@ export class DexClient {
     /**
      * Returns price history for one or more tokens.
      *
-     * @param {PrismApi.solana.GetPriceHistoryDexRequest} request
+     * @param {ApiClient.solana.GetPriceHistoryDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
      *
-     * @throws {@link PrismApi.BadRequestError}
-     * @throws {@link PrismApi.UnauthorizedError}
-     * @throws {@link PrismApi.ForbiddenError}
-     * @throws {@link PrismApi.TooManyRequestsError}
-     * @throws {@link PrismApi.InternalServerError}
+     * @throws {@link ApiClient.BadRequestError}
+     * @throws {@link ApiClient.UnauthorizedError}
+     * @throws {@link ApiClient.ForbiddenError}
+     * @throws {@link ApiClient.TooManyRequestsError}
+     * @throws {@link ApiClient.InternalServerError}
      *
      * @example
      *     await client.solana.dex.getPriceHistory({
@@ -872,16 +875,16 @@ export class DexClient {
      *     })
      */
     public getPriceHistory(
-        request: PrismApi.solana.GetPriceHistoryDexRequest,
+        request: ApiClient.solana.GetPriceHistoryDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): core.HttpResponsePromise<PrismApi.SolanaDexPriceHistory[]> {
+    ): core.HttpResponsePromise<ApiClient.SolanaDexPriceHistory[]> {
         return core.HttpResponsePromise.fromPromise(this.__getPriceHistory(request, requestOptions));
     }
 
     private async __getPriceHistory(
-        request: PrismApi.solana.GetPriceHistoryDexRequest,
+        request: ApiClient.solana.GetPriceHistoryDexRequest,
         requestOptions?: DexClient.RequestOptions,
-    ): Promise<core.WithRawResponse<PrismApi.SolanaDexPriceHistory[]>> {
+    ): Promise<core.WithRawResponse<ApiClient.SolanaDexPriceHistory[]>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -892,7 +895,7 @@ export class DexClient {
             url: core.url.join(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.PrismApiEnvironment.Default,
+                    environments.ApiClientEnvironment.Default,
                 "v1/solana/dex/prices/get-price-history",
             ),
             method: "POST",
@@ -908,23 +911,23 @@ export class DexClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as PrismApi.SolanaDexPriceHistory[], rawResponse: _response.rawResponse };
+            return { data: _response.body as ApiClient.SolanaDexPriceHistory[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new PrismApi.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.BadRequestError(_response.error.body as unknown, _response.rawResponse);
                 case 401:
-                    throw new PrismApi.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
-                    throw new PrismApi.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
                 case 429:
-                    throw new PrismApi.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
-                    throw new PrismApi.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                    throw new ApiClient.InternalServerError(_response.error.body as unknown, _response.rawResponse);
                 default:
-                    throw new errors.PrismApiError({
+                    throw new errors.ApiClientError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
                         rawResponse: _response.rawResponse,

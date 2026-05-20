@@ -1,6 +1,6 @@
-export * as PrismApi from "./api/index.js";
+export * as ApiClient from "./api/index.js";
 export type { BaseClientOptions, BaseRequestOptions } from "./BaseClient.js";
-export { PrismApiClient } from "./Client.js";
-export { PrismApiEnvironment } from "./environments.js";
-export { PrismApiError, PrismApiTimeoutError } from "./errors/index.js";
+export { ApiClientClient } from "./Client.js";
+export { ApiClientEnvironment } from "./environments.js";
+export { ApiClientError, ApiClientTimeoutError } from "./errors/index.js";
 export * from "./exports.js";
