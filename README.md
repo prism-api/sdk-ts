@@ -3,10 +3,11 @@
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fprism-api%2Fsdk-ts)
 [![npm shield](https://img.shields.io/npm/v/prism-ts-sdk)](https://www.npmjs.com/package/prism-ts-sdk)
 
-The Prism TypeScript library provides convenient access to the Prism APIs from TypeScript.
+The Prism API SDK provides convenient access to the Prism APIs from your favorite programming language.
 
 ## Table of Contents
 
+- [Documentation](#documentation)
 - [Installation](#installation)
 - [Reference](#reference)
 - [Usage](#usage)
@@ -25,6 +26,10 @@ The Prism TypeScript library provides convenient access to the Prism APIs from T
   - [Custom Fetch](#custom-fetch)
   - [Runtime Compatibility](#runtime-compatibility)
 - [Contributing](#contributing)
+
+## Documentation
+
+API reference documentation is available [here](https://docs.prismapi.io/api-reference).
 
 ## Installation
 
