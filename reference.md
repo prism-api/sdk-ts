@@ -1,6 +1,6 @@
 # Reference
-## Solana Dex
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getWalletProfile</a>({ ...params }) -> ApiClient.SolanaDexWalletProfile</code></summary>
+## Api Solana Dex
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getWalletProfile</a>({ ...params }) -> Prism.SolanaDexWalletProfile</code></summary>
 <dl>
 <dd>
 
@@ -27,7 +27,7 @@ Returns a wallet profile for a specific wallet.
 <dd>
 
 ```typescript
-await client.solana.dex.getWalletProfile({
+await client.api.solana.dex.getWalletProfile({
     wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
     options: {
         include_metadata: true,
@@ -50,7 +50,7 @@ await client.solana.dex.getWalletProfile({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetWalletProfileDexRequest` 
+**request:** `Prism.api.solana.GetWalletProfileDexRequest` 
     
 </dd>
 </dl>
@@ -70,7 +70,7 @@ await client.solana.dex.getWalletProfile({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">searchWalletProfiles</a>({ ...params }) -> ApiClient.SearchWalletProfilesDexResponse</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">searchWalletProfiles</a>({ ...params }) -> Prism.SearchWalletProfilesDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -97,11 +97,11 @@ Filter, query, and sort wallet profiles based on specified metrics and condition
 <dd>
 
 ```typescript
-await client.solana.dex.searchWalletProfiles({
+await client.api.solana.dex.searchWalletProfiles({
     limit: 10,
     query: {
         text: "cupsey",
-        fields: ["wallet_address"]
+        fields: ["identity.name"]
     },
     sort: {
         field: "metrics.7d.cumulative_pnl",
@@ -131,7 +131,7 @@ await client.solana.dex.searchWalletProfiles({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.SearchWalletProfilesDexRequest` 
+**request:** `Prism.api.solana.SearchWalletProfilesDexRequest` 
     
 </dd>
 </dl>
@@ -151,7 +151,7 @@ await client.solana.dex.searchWalletProfiles({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getTokenProfile</a>({ ...params }) -> ApiClient.SolanaDexTokenProfile</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getTokenProfile</a>({ ...params }) -> Prism.SolanaDexTokenProfile</code></summary>
 <dl>
 <dd>
 
@@ -178,7 +178,7 @@ Returns the profile for a specific token.
 <dd>
 
 ```typescript
-await client.solana.dex.getTokenProfile({
+await client.api.solana.dex.getTokenProfile({
     token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
     options: {
         include_metadata: true,
@@ -202,7 +202,7 @@ await client.solana.dex.getTokenProfile({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetTokenProfileDexRequest` 
+**request:** `Prism.api.solana.GetTokenProfileDexRequest` 
     
 </dd>
 </dl>
@@ -222,7 +222,7 @@ await client.solana.dex.getTokenProfile({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">searchTokenProfiles</a>({ ...params }) -> ApiClient.SearchTokenProfilesDexResponse</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">searchTokenProfiles</a>({ ...params }) -> Prism.SearchTokenProfilesDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -249,7 +249,7 @@ Filter, query, and sort token profiles based on specified metrics and conditions
 <dd>
 
 ```typescript
-await client.solana.dex.searchTokenProfiles({
+await client.api.solana.dex.searchTokenProfiles({
     limit: 10,
     query: {
         text: "bonk",
@@ -284,7 +284,7 @@ await client.solana.dex.searchTokenProfiles({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.SearchTokenProfilesDexRequest` 
+**request:** `Prism.api.solana.SearchTokenProfilesDexRequest` 
     
 </dd>
 </dl>
@@ -304,7 +304,7 @@ await client.solana.dex.searchTokenProfiles({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getTrades</a>({ ...params }) -> ApiClient.GetTradesDexResponse</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getTrades</a>({ ...params }) -> Prism.GetTradesDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -331,7 +331,7 @@ Returns trades for a wallet, token or both.
 <dd>
 
 ```typescript
-await client.solana.dex.getTrades({
+await client.api.solana.dex.getTrades({
     limit: 20,
     wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
 });
@@ -350,7 +350,7 @@ await client.solana.dex.getTrades({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetTradesDexRequest` 
+**request:** `Prism.api.solana.GetTradesDexRequest` 
     
 </dd>
 </dl>
@@ -370,7 +370,7 @@ await client.solana.dex.getTrades({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getSwaps</a>({ ...params }) -> ApiClient.GetSwapsDexResponse</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getSwaps</a>({ ...params }) -> Prism.GetSwapsDexResponse</code></summary>
 <dl>
 <dd>
 
@@ -397,7 +397,7 @@ Returns swaps for a wallet, token or both.
 <dd>
 
 ```typescript
-await client.solana.dex.getSwaps({
+await client.api.solana.dex.getSwaps({
     limit: 20,
     wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
 });
@@ -416,7 +416,7 @@ await client.solana.dex.getSwaps({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetSwapsDexRequest` 
+**request:** `Prism.api.solana.GetSwapsDexRequest` 
     
 </dd>
 </dl>
@@ -436,7 +436,7 @@ await client.solana.dex.getSwaps({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPrice</a>({ ...params }) -> ApiClient.SolanaDexPrice[]</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getPrice</a>({ ...params }) -> Prism.SolanaDexPrice[]</code></summary>
 <dl>
 <dd>
 
@@ -463,7 +463,7 @@ Returns prices for one or more tokens.
 <dd>
 
 ```typescript
-await client.solana.dex.getPrice({
+await client.api.solana.dex.getPrice({
     tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"]
 });
 
@@ -481,7 +481,7 @@ await client.solana.dex.getPrice({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetPriceDexRequest` 
+**request:** `Prism.api.solana.GetPriceDexRequest` 
     
 </dd>
 </dl>
@@ -501,7 +501,7 @@ await client.solana.dex.getPrice({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceStats</a>({ ...params }) -> ApiClient.SolanaDexPriceStats[]</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getPriceStats</a>({ ...params }) -> Prism.SolanaDexPriceStats[]</code></summary>
 <dl>
 <dd>
 
@@ -528,7 +528,7 @@ Returns price stats for one or more tokens.
 <dd>
 
 ```typescript
-await client.solana.dex.getPriceStats({
+await client.api.solana.dex.getPriceStats({
     tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"]
 });
 
@@ -546,7 +546,7 @@ await client.solana.dex.getPriceStats({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetPriceStatsDexRequest` 
+**request:** `Prism.api.solana.GetPriceStatsDexRequest` 
     
 </dd>
 </dl>
@@ -566,7 +566,7 @@ await client.solana.dex.getPriceStats({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceCandles</a>({ ...params }) -> ApiClient.SolanaDexPriceCandle[]</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getPriceCandles</a>({ ...params }) -> Prism.SolanaDexPriceCandle[]</code></summary>
 <dl>
 <dd>
 
@@ -593,7 +593,7 @@ Returns price candles for a specific token.
 <dd>
 
 ```typescript
-await client.solana.dex.getPriceCandles({
+await client.api.solana.dex.getPriceCandles({
     token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
     from: "2026-04-27T00:00:00Z",
     to: "2026-04-27T01:00:00Z",
@@ -614,7 +614,7 @@ await client.solana.dex.getPriceCandles({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetPriceCandlesDexRequest` 
+**request:** `Prism.api.solana.GetPriceCandlesDexRequest` 
     
 </dd>
 </dl>
@@ -634,7 +634,7 @@ await client.solana.dex.getPriceCandles({
 </dl>
 </details>
 
-<details><summary><code>client.solana.dex.<a href="/src/api/resources/solana/resources/dex/client/Client.ts">getPriceHistory</a>({ ...params }) -> ApiClient.SolanaDexPriceHistory[]</code></summary>
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getPriceHistory</a>({ ...params }) -> Prism.SolanaDexPriceHistory[]</code></summary>
 <dl>
 <dd>
 
@@ -661,7 +661,7 @@ Returns price history for one or more tokens.
 <dd>
 
 ```typescript
-await client.solana.dex.getPriceHistory({
+await client.api.solana.dex.getPriceHistory({
     tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"],
     from: "2026-04-27T00:00:00Z",
     to: "2026-04-27T01:00:00Z",
@@ -682,7 +682,7 @@ await client.solana.dex.getPriceHistory({
 <dl>
 <dd>
 
-**request:** `ApiClient.solana.GetPriceHistoryDexRequest` 
+**request:** `Prism.api.solana.GetPriceHistoryDexRequest` 
     
 </dd>
 </dl>

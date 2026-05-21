@@ -1,6 +1,6 @@
 {
     "name": "prism-ts-sdk",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "private": false,
     "repository": {
         "type": "git",
@@ -22,27 +22,60 @@
             },
             "default": "./dist/cjs/index.js"
         },
-        "./solana": {
+        "./api": {
             "import": {
-                "types": "./dist/esm/api/resources/solana/exports.d.mts",
-                "default": "./dist/esm/api/resources/solana/exports.mjs"
+                "types": "./dist/esm/api/resources/api/exports.d.mts",
+                "default": "./dist/esm/api/resources/api/exports.mjs"
             },
             "require": {
-                "types": "./dist/cjs/api/resources/solana/exports.d.ts",
-                "default": "./dist/cjs/api/resources/solana/exports.js"
+                "types": "./dist/cjs/api/resources/api/exports.d.ts",
+                "default": "./dist/cjs/api/resources/api/exports.js"
             },
-            "default": "./dist/cjs/api/resources/solana/exports.js"
+            "default": "./dist/cjs/api/resources/api/exports.js"
         },
-        "./solana/dex": {
+        "./api/solana": {
             "import": {
-                "types": "./dist/esm/api/resources/solana/resources/dex/exports.d.mts",
-                "default": "./dist/esm/api/resources/solana/resources/dex/exports.mjs"
+                "types": "./dist/esm/api/resources/api/resources/solana/exports.d.mts",
+                "default": "./dist/esm/api/resources/api/resources/solana/exports.mjs"
             },
             "require": {
-                "types": "./dist/cjs/api/resources/solana/resources/dex/exports.d.ts",
-                "default": "./dist/cjs/api/resources/solana/resources/dex/exports.js"
+                "types": "./dist/cjs/api/resources/api/resources/solana/exports.d.ts",
+                "default": "./dist/cjs/api/resources/api/resources/solana/exports.js"
             },
-            "default": "./dist/cjs/api/resources/solana/resources/dex/exports.js"
+            "default": "./dist/cjs/api/resources/api/resources/solana/exports.js"
+        },
+        "./api/solana/dex": {
+            "import": {
+                "types": "./dist/esm/api/resources/api/resources/solana/resources/dex/exports.d.mts",
+                "default": "./dist/esm/api/resources/api/resources/solana/resources/dex/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/api/resources/solana/resources/dex/exports.d.ts",
+                "default": "./dist/cjs/api/resources/api/resources/solana/resources/dex/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/api/resources/solana/resources/dex/exports.js"
+        },
+        "./websocket": {
+            "import": {
+                "types": "./dist/esm/api/resources/websocket/exports.d.mts",
+                "default": "./dist/esm/api/resources/websocket/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/websocket/exports.d.ts",
+                "default": "./dist/cjs/api/resources/websocket/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/websocket/exports.js"
+        },
+        "./websocket/subscription": {
+            "import": {
+                "types": "./dist/esm/api/resources/websocket/resources/subscription/exports.d.mts",
+                "default": "./dist/esm/api/resources/websocket/resources/subscription/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/websocket/resources/subscription/exports.d.ts",
+                "default": "./dist/cjs/api/resources/websocket/resources/subscription/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/websocket/resources/subscription/exports.js"
         },
         "./package.json": "./package.json"
     },
@@ -66,10 +99,13 @@
         "test:unit": "vitest --project unit",
         "test:wire": "vitest --project wire"
     },
-    "dependencies": {},
+    "dependencies": {
+        "ws": "^8.20.0"
+    },
     "devDependencies": {
         "webpack": "^5.105.4",
         "ts-loader": "^9.5.4",
+        "@types/ws": "^8.18.1",
         "vitest": "^4.1.1",
         "msw": "2.11.2",
         "@types/node": "^20.0.0",

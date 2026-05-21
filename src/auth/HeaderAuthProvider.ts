@@ -24,7 +24,7 @@ export class HeaderAuthProvider implements core.AuthProvider {
     } = {}): Promise<core.AuthRequest> {
         const headerValue = await core.Supplier.get(this.options[PARAM_KEY]);
         if (headerValue == null) {
-            throw new errors.ApiClientError({
+            throw new errors.PrismError({
                 message: HeaderAuthProvider.AUTH_CONFIG_ERROR_MESSAGE,
             });
         }
@@ -36,7 +36,7 @@ export class HeaderAuthProvider implements core.AuthProvider {
 }
 
 export namespace HeaderAuthProvider {
-    export const AUTH_SCHEME = "ApiKeyAuth" as const;
+    export const AUTH_SCHEME = "HttpApiKeyAuth" as const;
     export const AUTH_CONFIG_ERROR_MESSAGE: string =
         `Please provide '${PARAM_KEY}' when initializing the client` as const;
     export type Options = AuthOptions;

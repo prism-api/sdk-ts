@@ -11,28 +11,28 @@ export function handleNonStatusCodeError(
 ): never {
     switch (error.reason) {
         case "non-json":
-            throw new errors.ApiClientError({
+            throw new errors.PrismError({
                 statusCode: error.statusCode,
                 body: error.rawBody,
                 rawResponse: rawResponse,
             });
         case "body-is-null":
-            throw new errors.ApiClientError({
+            throw new errors.PrismError({
                 statusCode: error.statusCode,
                 rawResponse: rawResponse,
             });
         case "timeout":
-            throw new errors.ApiClientTimeoutError(`Timeout exceeded when calling ${method} ${path}.`, {
+            throw new errors.PrismTimeoutError(`Timeout exceeded when calling ${method} ${path}.`, {
                 cause: error.cause,
             });
         case "unknown":
-            throw new errors.ApiClientError({
+            throw new errors.PrismError({
                 message: error.errorMessage,
                 rawResponse: rawResponse,
                 cause: error.cause,
             });
         default:
-            throw new errors.ApiClientError({
+            throw new errors.PrismError({
                 message: "Unknown error",
                 rawResponse: rawResponse,
             });
