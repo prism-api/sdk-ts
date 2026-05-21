@@ -1,7 +1,7 @@
 # Prism TypeScript Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fprism-api%2Fsdk-ts)
-[![npm shield](https://img.shields.io/npm/v/prism-sdk)](https://www.npmjs.com/package/prism-sdk)
+[![npm shield](https://img.shields.io/npm/v/prism-ts-sdk)](https://www.npmjs.com/package/prism-ts-sdk)
 
 The Prism TypeScript library provides convenient access to the Prism APIs from TypeScript.
 
@@ -29,7 +29,7 @@ The Prism TypeScript library provides convenient access to the Prism APIs from T
 ## Installation
 
 ```sh
-npm i -s prism-sdk
+npm i -s prism-ts-sdk
 ```
 
 ## Reference
@@ -41,7 +41,7 @@ A full reference for this library is available [here](https://github.com/prism-a
 Instantiate and use the client with the following:
 
 ```typescript
-import { PrismClient } from "prism-sdk";
+import { PrismClient } from "prism-ts-sdk";
 
 const client = new PrismClient({ apiKey: "YOUR_API_KEY" });
 await client.api.solana.dex.getWalletProfile({
@@ -59,7 +59,7 @@ await client.api.solana.dex.getWalletProfile({
 This SDK allows you to configure different environments for API requests.
 
 ```typescript
-import { PrismClient, PrismEnvironment } from "prism-sdk";
+import { PrismClient, PrismEnvironment } from "prism-ts-sdk";
 
 const client = new PrismClient({
     environment: PrismEnvironment.Production,
@@ -72,7 +72,7 @@ The SDK exports all request and response types as TypeScript interfaces. Simply 
 following namespace:
 
 ```typescript
-import { Prism } from "prism-sdk";
+import { Prism } from "prism-ts-sdk";
 
 const request: Prism.GetWalletProfileDexRequest = {
     ...
@@ -85,7 +85,7 @@ When the API returns a non-success status code (4xx or 5xx response), a subclass
 will be thrown.
 
 ```typescript
-import { PrismError } from "prism-sdk";
+import { PrismError } from "prism-ts-sdk";
 
 try {
     await client.api.solana.dex.getWalletProfile(...);
@@ -106,7 +106,7 @@ try {
 This SDK supports direct imports of subpackage clients, which allows JavaScript bundlers to tree-shake and include only the imported subpackage code. This results in much smaller bundle sizes.
 
 ```typescript
-import { ApiClient } from 'prism-sdk/api';
+import { ApiClient } from 'prism-ts-sdk/api';
 
 const client = new ApiClient({...});
 ```
@@ -116,7 +116,7 @@ const client = new ApiClient({...});
 If you would like to send additional headers as part of the request, use the `headers` request option.
 
 ```typescript
-import { PrismClient } from "prism-sdk";
+import { PrismClient } from "prism-ts-sdk";
 
 const client = new PrismClient({
     ...
@@ -211,7 +211,7 @@ console.log(rawResponse.headers['X-My-Header']);
 The SDK supports logging. You can configure the logger by passing in a `logging` object to the client options.
 
 ```typescript
-import { PrismClient, logging } from "prism-sdk";
+import { PrismClient, logging } from "prism-ts-sdk";
 
 const client = new PrismClient({
     ...
