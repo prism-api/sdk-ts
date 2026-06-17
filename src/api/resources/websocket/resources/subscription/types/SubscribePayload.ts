@@ -15,21 +15,25 @@ export namespace SubscribePayload {
     } as const;
     export type Method = (typeof Method)[keyof typeof Method];
     export const Topic = {
-        SolanaDexPrice: "solana.dex.price",
-        SolanaDexSwapWallet: "solana.dex.swap.wallet",
-        SolanaDexSwapToken: "solana.dex.swap.token",
-        SolanaDexTradeWallet: "solana.dex.trade.wallet",
-        SolanaDexTradeToken: "solana.dex.trade.token",
-        SolanaDexProfileWallet: "solana.dex.profile.wallet",
-        SolanaDexProfileToken: "solana.dex.profile.token",
-        SolanaDexProfilePosition: "solana.dex.profile.position",
+        SolanaDexPrices: "solana.dex.prices",
+        SolanaDexSwaps: "solana.dex.swaps",
+        SolanaDexTrades: "solana.dex.trades",
+        SolanaDexPools: "solana.dex.pools",
+        SolanaDexProfilesWallet: "solana.dex.profiles.wallet",
+        SolanaDexProfilesToken: "solana.dex.profiles.token",
+        SolanaDexProfilesPosition: "solana.dex.profiles.position",
+        SolanaAssetsTransfers: "solana.assets.transfers",
+        SolanaAssetsBalanceChanges: "solana.assets.balance-changes",
     } as const;
     export type Topic = (typeof Topic)[keyof typeof Topic];
     export type Params =
         | Prism.websocket.SubscribeSolanaDexPricesParams
         | Prism.websocket.SubscribeSolanaDexSwapsParams
         | Prism.websocket.SubscribeSolanaDexTradesParams
+        | Prism.websocket.SubscribeSolanaDexPoolsParams
         | Prism.websocket.SubscribeSolanaDexWalletProfilesParams
         | Prism.websocket.SubscribeSolanaDexTokenProfilesParams
-        | Prism.websocket.SubscribeSolanaDexPositionProfilesParams;
+        | Prism.websocket.SubscribeSolanaDexPositionProfilesParams
+        | Prism.websocket.SubscribeSolanaAssetsTransfersParams
+        | Prism.websocket.SubscribeSolanaAssetsBalanceChangesParams;
 }

@@ -7,14 +7,15 @@ export interface SubscriptionMessage {
 
 export namespace SubscriptionMessage {
     export const Topic = {
-        SolanaDexPrice: "solana.dex.price",
-        SolanaDexSwapWallet: "solana.dex.swap.wallet",
-        SolanaDexSwapToken: "solana.dex.swap.token",
-        SolanaDexTradeWallet: "solana.dex.trade.wallet",
-        SolanaDexTradeToken: "solana.dex.trade.token",
-        SolanaDexProfileWallet: "solana.dex.profile.wallet",
-        SolanaDexProfileToken: "solana.dex.profile.token",
-        SolanaDexProfilePosition: "solana.dex.profile.position",
+        SolanaDexPrices: "solana.dex.prices",
+        SolanaDexSwaps: "solana.dex.swaps",
+        SolanaDexTrades: "solana.dex.trades",
+        SolanaDexPools: "solana.dex.pools",
+        SolanaDexProfilesWallet: "solana.dex.profiles.wallet",
+        SolanaDexProfilesToken: "solana.dex.profiles.token",
+        SolanaDexProfilesPosition: "solana.dex.profiles.position",
+        SolanaAssetsTransfers: "solana.assets.transfers",
+        SolanaAssetsBalanceChanges: "solana.assets.balance-changes",
     } as const;
     export type Topic = (typeof Topic)[keyof typeof Topic];
     export type Data =
@@ -64,6 +65,22 @@ export namespace SubscriptionMessage {
               token_price?: number | undefined;
               quote_price?: number | undefined;
               token_mcap?: number | undefined;
+              block_slot?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
+          }
+        | {
+              protocol?: string | undefined;
+              event_type?: ("create" | "swap" | "add_liquidity" | "remove_liquidity") | undefined;
+              program_address?: string | undefined;
+              pool_address?: string | undefined;
+              vaults?:
+                  | {
+                        vault_address?: string | undefined;
+                        token_address?: string | undefined;
+                        amount?: number | undefined;
+                    }[]
+                  | undefined;
               block_slot?: number | undefined;
               block_time?: string | undefined;
               tx_hash?: string | undefined;
@@ -241,5 +258,30 @@ export namespace SubscriptionMessage {
                         }
                     >
                   | undefined;
+          }
+        | {
+              id?: number | undefined;
+              transfer_type?: ("spl_token_transfer" | "native_transfer") | undefined;
+              stack_height?: number | undefined;
+              token_address?: string | undefined;
+              from_address?: string | undefined;
+              to_address?: string | undefined;
+              amount?: number | undefined;
+              usd_amount?: number | undefined;
+              block_slot?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
+          }
+        | {
+              id?: number | undefined;
+              balance_type?: ("spl_token_balance" | "native_balance") | undefined;
+              stack_height?: number | undefined;
+              token_address?: string | undefined;
+              owner_address?: string | undefined;
+              pre_balance?: number | undefined;
+              post_balance?: number | undefined;
+              block_slot?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
           };
 }

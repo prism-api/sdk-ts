@@ -3,7 +3,6 @@
 /**
  * @example
  *     {
- *         token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
  *         from: "2026-04-27T00:00:00Z",
  *         to: "2026-04-27T01:00:00Z",
  *         interval: 60
@@ -11,7 +10,7 @@
  */
 export interface GetPriceCandlesDexRequest {
     /** Token address to retrieve price candles for. */
-    token: string;
+    token_address?: string;
     /**
      * Start of the candle range, as a date-time RFC3339 string.
      * Must be combined with `to` to define a bounded range.

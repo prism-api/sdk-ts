@@ -5,7 +5,6 @@ import type * as Prism from "../../../../../../../../index.js";
 /**
  * @example
  *     {
- *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
  *         options: {
  *             include_metadata: true,
  *             include_labels: true,
@@ -15,6 +14,6 @@ import type * as Prism from "../../../../../../../../index.js";
  */
 export interface GetWalletProfileDexRequest {
     /** Wallet address to retrieve the profile for. */
-    wallet: string;
+    wallet_address?: string;
     options?: Prism.api.SolanaDexWalletProfilePayloadOptions;
 }

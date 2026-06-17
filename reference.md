@@ -28,7 +28,6 @@ Returns a wallet profile for a specific wallet.
 
 ```typescript
 await client.api.solana.dex.getWalletProfile({
-    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
     options: {
         include_metadata: true,
         include_labels: true,
@@ -179,7 +178,6 @@ Returns the profile for a specific token.
 
 ```typescript
 await client.api.solana.dex.getTokenProfile({
-    token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
     options: {
         include_metadata: true,
         include_market: true,
@@ -332,8 +330,7 @@ Returns trades for a wallet, token or both.
 
 ```typescript
 await client.api.solana.dex.getTrades({
-    limit: 20,
-    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
+    limit: 20
 });
 
 ```
@@ -398,8 +395,7 @@ Returns swaps for a wallet, token or both.
 
 ```typescript
 await client.api.solana.dex.getSwaps({
-    limit: 20,
-    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
+    limit: 20
 });
 
 ```
@@ -594,7 +590,6 @@ Returns price candles for a specific token.
 
 ```typescript
 await client.api.solana.dex.getPriceCandles({
-    token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
     from: "2026-04-27T00:00:00Z",
     to: "2026-04-27T01:00:00Z",
     interval: 60

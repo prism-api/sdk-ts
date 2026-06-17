@@ -11,7 +11,7 @@ export declare namespace SubscriptionClient {
     export type Options = BaseClientOptions;
 
     export interface ConnectArgs {
-        "X-Api-Key"?: string;
+        "x-api-key"?: string;
         /** WebSocket subprotocols to use for the connection. */
         protocols?: string | string[];
         /** Additional query parameters to send with the websocket connect request. */
@@ -38,7 +38,7 @@ export class SubscriptionClient {
 
     public async connect(args: SubscriptionClient.ConnectArgs = {}): Promise<SubscriptionSocket> {
         const {
-            "X-Api-Key": xApiKey,
+            "x-api-key": xApiKey,
             protocols,
             queryParams,
             headers,
@@ -48,7 +48,7 @@ export class SubscriptionClient {
             abortSignal,
         } = args;
         const _queryParams: Record<string, unknown> = {
-            "X-Api-Key": xApiKey,
+            "x-api-key": xApiKey,
         };
         const _headers: Record<string, unknown> = mergeHeaders(this._options?.headers, headers);
         const socket = new core.ReconnectingWebSocket({

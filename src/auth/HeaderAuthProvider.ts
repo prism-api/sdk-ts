@@ -4,7 +4,7 @@ import * as core from "../core/index.js";
 import * as errors from "../errors/index.js";
 
 const PARAM_KEY = "apiKey" as const;
-const HEADER_NAME = "X-Api-Key" as const;
+const HEADER_NAME = "x-api-key" as const;
 
 export class HeaderAuthProvider implements core.AuthProvider {
     private readonly options: HeaderAuthProvider.Options;
