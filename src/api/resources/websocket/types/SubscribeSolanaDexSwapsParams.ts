@@ -5,4 +5,6 @@ export interface SubscribeSolanaDexSwapsParams {
     wallet_addresses?: string[] | undefined;
     /** The token addresses to filter by. Leave empty to subscribe to all tokens. */
     token_addresses?: string[] | undefined;
+    /** The pool addresses to filter by. Leave empty to subscribe to all pools. */
+    pool_addresses?: string[] | undefined;
 }

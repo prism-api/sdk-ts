@@ -21,6 +21,7 @@ export namespace SubscriptionMessage {
     export type Data =
         | {
               token_address?: string | undefined;
+              pool_address?: string | undefined;
               usd_price?: number | undefined;
               block_slot?: number | undefined;
               block_time?: string | undefined;
@@ -30,6 +31,7 @@ export namespace SubscriptionMessage {
               swap_type?: ("quote_token" | "token_quote" | "token_token" | "quote_quote") | undefined;
               protocol?: string | undefined;
               wallet_address?: string | undefined;
+              pool_address?: string | undefined;
               token_address_in?: string | undefined;
               token_address_out?: string | undefined;
               token_amount_in?: number | undefined;

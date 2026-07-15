@@ -50,6 +50,7 @@ import { PrismClient } from "prism-ts-sdk";
 
 const client = new PrismClient({ apiKey: "YOUR_API_KEY" });
 await client.api.solana.dex.getWalletProfile({
+    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
     options: {
         include_metadata: true,
         include_labels: true,

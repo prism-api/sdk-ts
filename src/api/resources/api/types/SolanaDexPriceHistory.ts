@@ -4,5 +4,6 @@ import type * as Prism from "../../../index.js";
 
 export interface SolanaDexPriceHistory {
     token_address?: string | undefined;
+    pool_address?: string | undefined;
     prices?: Prism.api.SolanaDexPriceSnapshot[] | undefined;
 }

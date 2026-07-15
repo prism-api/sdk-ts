@@ -10,11 +10,16 @@
  *     }
  */
 export interface GetPriceHistoryDexRequest {
-    /** Token addresses to retrieve price history for. Accepts between 1 and 100 tokens per request. */
-    tokens: string[];
+    /** Token addresses to retrieve price history for. */
+    tokens?: string[];
+    /** Pool addresses to retrieve price history for. */
+    pools?: string[];
     /** Start of the history range, as a date-time RFC3339 string. */
     from: string;
-    /** End of the history range, as a date-time RFC3339 string. Defaults to the current time. */
+    /**
+     * End of the history range, as a date-time RFC3339 string.
+     * Defaults to the current time.
+     */
     to?: string;
     /** Sampling interval between data points, in seconds. */
     interval: number;

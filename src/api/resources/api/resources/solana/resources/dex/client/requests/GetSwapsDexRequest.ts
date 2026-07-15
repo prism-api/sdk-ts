@@ -5,12 +5,15 @@ import type * as Prism from "../../../../../../../../index.js";
 /**
  * @example
  *     {
- *         limit: 20
+ *         limit: 20,
+ *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
  *     }
  */
 export interface GetSwapsDexRequest extends Prism.api.PayloadPagination {
-    /** Wallet address to filter swaps by. When combined with `token`, returns only swaps for that wallet on that token. */
-    wallet_address?: string;
-    /** Token address to filter swaps by. When combined with `wallet`, returns only swaps for that wallet on that token. */
-    token_address?: string;
+    /** Wallet address to filter swaps by. */
+    wallet?: string;
+    /** Token address to filter swaps by. */
+    token?: string;
+    /** Pool address to filter swaps by. */
+    pool?: string;
 }

@@ -39,6 +39,7 @@ export class DexClient {
      *
      * @example
      *     await client.api.solana.dex.getWalletProfile({
+     *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
      *         options: {
      *             include_metadata: true,
      *             include_labels: true,
@@ -47,14 +48,14 @@ export class DexClient {
      *     })
      */
     public getWalletProfile(
-        request: Prism.api.solana.GetWalletProfileDexRequest = {},
+        request: Prism.api.solana.GetWalletProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
     ): core.HttpResponsePromise<Prism.api.SolanaDexWalletProfile> {
         return core.HttpResponsePromise.fromPromise(this.__getWalletProfile(request, requestOptions));
     }
 
     private async __getWalletProfile(
-        request: Prism.api.solana.GetWalletProfileDexRequest = {},
+        request: Prism.api.solana.GetWalletProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
     ): Promise<core.WithRawResponse<Prism.api.SolanaDexWalletProfile>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -234,6 +235,7 @@ export class DexClient {
      *
      * @example
      *     await client.api.solana.dex.getTokenProfile({
+     *         token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
      *         options: {
      *             include_metadata: true,
      *             include_market: true,
@@ -243,14 +245,14 @@ export class DexClient {
      *     })
      */
     public getTokenProfile(
-        request: Prism.api.solana.GetTokenProfileDexRequest = {},
+        request: Prism.api.solana.GetTokenProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
     ): core.HttpResponsePromise<Prism.api.SolanaDexTokenProfile> {
         return core.HttpResponsePromise.fromPromise(this.__getTokenProfile(request, requestOptions));
     }
 
     private async __getTokenProfile(
-        request: Prism.api.solana.GetTokenProfileDexRequest = {},
+        request: Prism.api.solana.GetTokenProfileDexRequest,
         requestOptions?: DexClient.RequestOptions,
     ): Promise<core.WithRawResponse<Prism.api.SolanaDexTokenProfile>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -418,7 +420,7 @@ export class DexClient {
     }
 
     /**
-     * Returns trades for a wallet, token or both.
+     * Returns trades for a combination of wallet, token and/or pool.
      *
      * @param {Prism.api.solana.GetTradesDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -431,7 +433,8 @@ export class DexClient {
      *
      * @example
      *     await client.api.solana.dex.getTrades({
-     *         limit: 20
+     *         limit: 20,
+     *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
      *     })
      */
     public getTrades(
@@ -507,7 +510,7 @@ export class DexClient {
     }
 
     /**
-     * Returns swaps for a wallet, token or both.
+     * Returns swaps for a combination of wallet, token and/or pool.
      *
      * @param {Prism.api.solana.GetSwapsDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -520,7 +523,8 @@ export class DexClient {
      *
      * @example
      *     await client.api.solana.dex.getSwaps({
-     *         limit: 20
+     *         limit: 20,
+     *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
      *     })
      */
     public getSwaps(
@@ -593,7 +597,7 @@ export class DexClient {
     }
 
     /**
-     * Returns prices for one or more tokens.
+     * Returns prices for one or more tokens or pools.
      *
      * @param {Prism.api.solana.GetPriceDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -610,14 +614,14 @@ export class DexClient {
      *     })
      */
     public getPrice(
-        request: Prism.api.solana.GetPriceDexRequest,
+        request: Prism.api.solana.GetPriceDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
     ): core.HttpResponsePromise<Prism.api.SolanaDexPrice[]> {
         return core.HttpResponsePromise.fromPromise(this.__getPrice(request, requestOptions));
     }
 
     private async __getPrice(
-        request: Prism.api.solana.GetPriceDexRequest,
+        request: Prism.api.solana.GetPriceDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
     ): Promise<core.WithRawResponse<Prism.api.SolanaDexPrice[]>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -679,7 +683,7 @@ export class DexClient {
     }
 
     /**
-     * Returns price stats for one or more tokens.
+     * Returns price stats for one or more tokens or pools.
      *
      * @param {Prism.api.solana.GetPriceStatsDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -696,14 +700,14 @@ export class DexClient {
      *     })
      */
     public getPriceStats(
-        request: Prism.api.solana.GetPriceStatsDexRequest,
+        request: Prism.api.solana.GetPriceStatsDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
     ): core.HttpResponsePromise<Prism.api.SolanaDexPriceStats[]> {
         return core.HttpResponsePromise.fromPromise(this.__getPriceStats(request, requestOptions));
     }
 
     private async __getPriceStats(
-        request: Prism.api.solana.GetPriceStatsDexRequest,
+        request: Prism.api.solana.GetPriceStatsDexRequest = {},
         requestOptions?: DexClient.RequestOptions,
     ): Promise<core.WithRawResponse<Prism.api.SolanaDexPriceStats[]>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -765,7 +769,7 @@ export class DexClient {
     }
 
     /**
-     * Returns price candles for a specific token.
+     * Returns price candles for a specific token and/or pool.
      *
      * @param {Prism.api.solana.GetPriceCandlesDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -778,6 +782,7 @@ export class DexClient {
      *
      * @example
      *     await client.api.solana.dex.getPriceCandles({
+     *         token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
      *         from: "2026-04-27T00:00:00Z",
      *         to: "2026-04-27T01:00:00Z",
      *         interval: 60
@@ -853,7 +858,7 @@ export class DexClient {
     }
 
     /**
-     * Returns price history for one or more tokens.
+     * Returns price history for one or more tokens or pools.
      *
      * @param {Prism.api.solana.GetPriceHistoryDexRequest} request
      * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.

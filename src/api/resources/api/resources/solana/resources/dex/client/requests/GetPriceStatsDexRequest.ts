@@ -7,6 +7,8 @@
  *     }
  */
 export interface GetPriceStatsDexRequest {
-    /** Token addresses to retrieve price statistics for. Accepts between 1 and 1000 tokens per request. */
-    tokens: string[];
+    /** Token addresses to retrieve price statistics for. */
+    tokens?: string[];
+    /** Pool addresses to retrieve price statistics for. */
+    pools?: string[];
 }

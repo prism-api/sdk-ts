@@ -2,6 +2,7 @@
 
 export interface SolanaDexPriceStats {
     token_address?: string | undefined;
+    pool_address?: string | undefined;
     usd_price?: number | undefined;
     usd_price_change_5m?: number | undefined;
     usd_price_change_1h?: number | undefined;

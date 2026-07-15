@@ -7,6 +7,7 @@ export interface SolanaDexSwap {
     swap_type?: Prism.api.SolanaDexSwapTypeEnum | undefined;
     protocol?: Prism.api.SolanaDexProtocolField | undefined;
     wallet_address?: string | undefined;
+    pool_address?: string | undefined;
     token_address_in?: string | undefined;
     token_address_out?: string | undefined;
     token_amount_in?: number | undefined;

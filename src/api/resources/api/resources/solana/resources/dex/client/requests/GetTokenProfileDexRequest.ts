@@ -5,6 +5,7 @@ import type * as Prism from "../../../../../../../../index.js";
 /**
  * @example
  *     {
+ *         token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
  *         options: {
  *             include_metadata: true,
  *             include_market: true,
@@ -15,6 +16,6 @@ import type * as Prism from "../../../../../../../../index.js";
  */
 export interface GetTokenProfileDexRequest {
     /** Token address to retrieve the profile for. */
-    token_address?: string;
+    token: string;
     options?: Prism.api.SolanaDexTokenProfilePayloadOptions;
 }

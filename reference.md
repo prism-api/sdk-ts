@@ -28,6 +28,7 @@ Returns a wallet profile for a specific wallet.
 
 ```typescript
 await client.api.solana.dex.getWalletProfile({
+    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
     options: {
         include_metadata: true,
         include_labels: true,
@@ -178,6 +179,7 @@ Returns the profile for a specific token.
 
 ```typescript
 await client.api.solana.dex.getTokenProfile({
+    token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
     options: {
         include_metadata: true,
         include_market: true,
@@ -314,7 +316,7 @@ await client.api.solana.dex.searchTokenProfiles({
 <dl>
 <dd>
 
-Returns trades for a wallet, token or both.
+Returns trades for a combination of wallet, token and/or pool.
 </dd>
 </dl>
 </dd>
@@ -330,7 +332,8 @@ Returns trades for a wallet, token or both.
 
 ```typescript
 await client.api.solana.dex.getTrades({
-    limit: 20
+    limit: 20,
+    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
 });
 
 ```
@@ -379,7 +382,7 @@ await client.api.solana.dex.getTrades({
 <dl>
 <dd>
 
-Returns swaps for a wallet, token or both.
+Returns swaps for a combination of wallet, token and/or pool.
 </dd>
 </dl>
 </dd>
@@ -395,7 +398,8 @@ Returns swaps for a wallet, token or both.
 
 ```typescript
 await client.api.solana.dex.getSwaps({
-    limit: 20
+    limit: 20,
+    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
 });
 
 ```
@@ -444,7 +448,7 @@ await client.api.solana.dex.getSwaps({
 <dl>
 <dd>
 
-Returns prices for one or more tokens.
+Returns prices for one or more tokens or pools.
 </dd>
 </dl>
 </dd>
@@ -509,7 +513,7 @@ await client.api.solana.dex.getPrice({
 <dl>
 <dd>
 
-Returns price stats for one or more tokens.
+Returns price stats for one or more tokens or pools.
 </dd>
 </dl>
 </dd>
@@ -574,7 +578,7 @@ await client.api.solana.dex.getPriceStats({
 <dl>
 <dd>
 
-Returns price candles for a specific token.
+Returns price candles for a specific token and/or pool.
 </dd>
 </dl>
 </dd>
@@ -590,6 +594,7 @@ Returns price candles for a specific token.
 
 ```typescript
 await client.api.solana.dex.getPriceCandles({
+    token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
     from: "2026-04-27T00:00:00Z",
     to: "2026-04-27T01:00:00Z",
     interval: 60
@@ -641,7 +646,7 @@ await client.api.solana.dex.getPriceCandles({
 <dl>
 <dd>
 
-Returns price history for one or more tokens.
+Returns price history for one or more tokens or pools.
 </dd>
 </dl>
 </dd>

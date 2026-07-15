@@ -5,12 +5,13 @@ import type * as Prism from "../../../../../../../../index.js";
 /**
  * @example
  *     {
- *         limit: 20
+ *         limit: 20,
+ *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK"
  *     }
  */
 export interface GetTradesDexRequest extends Prism.api.PayloadPagination {
-    /** Wallet address to filter trades by. When combined with `token`, returns only trades for that wallet on that token. */
-    wallet_address?: string;
-    /** Token address to filter trades by. When combined with `wallet`, returns only trades for that wallet on that token. */
-    token_address?: string;
+    /** Wallet address to filter trades by. */
+    wallet?: string;
+    /** Token address to filter trades by. */
+    token?: string;
 }

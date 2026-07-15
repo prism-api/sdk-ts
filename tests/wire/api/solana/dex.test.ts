@@ -8,7 +8,10 @@ describe("DexClient", () => {
     test("getWalletProfile (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { options: { include_metadata: true, include_labels: true, include_metrics: ["7d"] } };
+        const rawRequestBody = {
+            wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
+            options: { include_metadata: true, include_labels: true, include_metrics: ["7d"] },
+        };
         const rawResponseBody = {
             updated_at: "2024-01-15T09:30:00Z",
             synced_at: "2024-01-15T09:30:00Z",
@@ -90,6 +93,7 @@ describe("DexClient", () => {
             .build();
 
         const response = await client.api.solana.dex.getWalletProfile({
+            wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
             options: {
                 include_metadata: true,
                 include_labels: true,
@@ -102,7 +106,7 @@ describe("DexClient", () => {
     test("getWalletProfile (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -115,14 +119,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getWalletProfile();
+            return await client.api.solana.dex.getWalletProfile({
+                wallet: "wallet",
+            });
         }).rejects.toThrow(Prism.api.BadRequestError);
     });
 
     test("getWalletProfile (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -135,14 +141,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getWalletProfile();
+            return await client.api.solana.dex.getWalletProfile({
+                wallet: "wallet",
+            });
         }).rejects.toThrow(Prism.api.UnauthorizedError);
     });
 
     test("getWalletProfile (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -155,14 +163,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getWalletProfile();
+            return await client.api.solana.dex.getWalletProfile({
+                wallet: "wallet",
+            });
         }).rejects.toThrow(Prism.api.ForbiddenError);
     });
 
     test("getWalletProfile (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -175,14 +185,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getWalletProfile();
+            return await client.api.solana.dex.getWalletProfile({
+                wallet: "wallet",
+            });
         }).rejects.toThrow(Prism.api.TooManyRequestsError);
     });
 
     test("getWalletProfile (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { wallet: "wallet" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -195,7 +207,9 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getWalletProfile();
+            return await client.api.solana.dex.getWalletProfile({
+                wallet: "wallet",
+            });
         }).rejects.toThrow(Prism.api.InternalServerError);
     });
 
@@ -360,6 +374,7 @@ describe("DexClient", () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = {
+            token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
             options: { include_metadata: true, include_market: true, include_labels: true, include_metrics: ["7d"] },
         };
         const rawResponseBody = {
@@ -455,6 +470,7 @@ describe("DexClient", () => {
             .build();
 
         const response = await client.api.solana.dex.getTokenProfile({
+            token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
             options: {
                 include_metadata: true,
                 include_market: true,
@@ -468,7 +484,7 @@ describe("DexClient", () => {
     test("getTokenProfile (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -481,14 +497,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getTokenProfile();
+            return await client.api.solana.dex.getTokenProfile({
+                token: "token",
+            });
         }).rejects.toThrow(Prism.api.BadRequestError);
     });
 
     test("getTokenProfile (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -501,14 +519,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getTokenProfile();
+            return await client.api.solana.dex.getTokenProfile({
+                token: "token",
+            });
         }).rejects.toThrow(Prism.api.UnauthorizedError);
     });
 
     test("getTokenProfile (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -521,14 +541,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getTokenProfile();
+            return await client.api.solana.dex.getTokenProfile({
+                token: "token",
+            });
         }).rejects.toThrow(Prism.api.ForbiddenError);
     });
 
     test("getTokenProfile (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -541,14 +563,16 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getTokenProfile();
+            return await client.api.solana.dex.getTokenProfile({
+                token: "token",
+            });
         }).rejects.toThrow(Prism.api.TooManyRequestsError);
     });
 
     test("getTokenProfile (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = {};
+        const rawRequestBody = { token: "token" };
         const rawResponseBody = { key: "value" };
 
         server
@@ -561,7 +585,9 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getTokenProfile();
+            return await client.api.solana.dex.getTokenProfile({
+                token: "token",
+            });
         }).rejects.toThrow(Prism.api.InternalServerError);
     });
 
@@ -726,7 +752,7 @@ describe("DexClient", () => {
     test("getTrades (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { limit: 20 };
+        const rawRequestBody = { limit: 20, wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK" };
         const rawResponseBody = {
             count: 1,
             cursor: "cursor",
@@ -768,6 +794,7 @@ describe("DexClient", () => {
 
         const response = await client.api.solana.dex.getTrades({
             limit: 20,
+            wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
         });
         expect(response).toEqual(rawResponseBody);
     });
@@ -875,7 +902,7 @@ describe("DexClient", () => {
     test("getSwaps (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { limit: 20 };
+        const rawRequestBody = { limit: 20, wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK" };
         const rawResponseBody = {
             count: 1,
             cursor: "cursor",
@@ -885,6 +912,7 @@ describe("DexClient", () => {
                     swap_type: "quote_token",
                     protocol: "protocol",
                     wallet_address: "wallet_address",
+                    pool_address: "pool_address",
                     token_address_in: "token_address_in",
                     token_address_out: "token_address_out",
                     token_amount_in: 1.1,
@@ -915,6 +943,7 @@ describe("DexClient", () => {
 
         const response = await client.api.solana.dex.getSwaps({
             limit: 20,
+            wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
         });
         expect(response).toEqual(rawResponseBody);
     });
@@ -1024,7 +1053,13 @@ describe("DexClient", () => {
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { tokens: ["Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk"] };
         const rawResponseBody = [
-            { token_address: "token_address", usd_price: 1.1, block_slot: 1, block_time: "2024-01-15T09:30:00Z" },
+            {
+                token_address: "token_address",
+                pool_address: "pool_address",
+                usd_price: 1.1,
+                block_slot: 1,
+                block_time: "2024-01-15T09:30:00Z",
+            },
         ];
 
         server
@@ -1045,7 +1080,7 @@ describe("DexClient", () => {
     test("getPrice (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1058,16 +1093,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPrice({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPrice();
         }).rejects.toThrow(Prism.api.BadRequestError);
     });
 
     test("getPrice (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1080,16 +1113,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPrice({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPrice();
         }).rejects.toThrow(Prism.api.UnauthorizedError);
     });
 
     test("getPrice (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1102,16 +1133,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPrice({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPrice();
         }).rejects.toThrow(Prism.api.ForbiddenError);
     });
 
     test("getPrice (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1124,16 +1153,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPrice({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPrice();
         }).rejects.toThrow(Prism.api.TooManyRequestsError);
     });
 
     test("getPrice (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1146,9 +1173,7 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPrice({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPrice();
         }).rejects.toThrow(Prism.api.InternalServerError);
     });
 
@@ -1159,6 +1184,7 @@ describe("DexClient", () => {
         const rawResponseBody = [
             {
                 token_address: "token_address",
+                pool_address: "pool_address",
                 usd_price: 1.1,
                 usd_price_change_5m: 1.1,
                 usd_price_change_1h: 1.1,
@@ -1204,7 +1230,7 @@ describe("DexClient", () => {
     test("getPriceStats (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1217,16 +1243,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPriceStats({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPriceStats();
         }).rejects.toThrow(Prism.api.BadRequestError);
     });
 
     test("getPriceStats (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1239,16 +1263,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPriceStats({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPriceStats();
         }).rejects.toThrow(Prism.api.UnauthorizedError);
     });
 
     test("getPriceStats (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1261,16 +1283,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPriceStats({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPriceStats();
         }).rejects.toThrow(Prism.api.ForbiddenError);
     });
 
     test("getPriceStats (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1283,16 +1303,14 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPriceStats({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPriceStats();
         }).rejects.toThrow(Prism.api.TooManyRequestsError);
     });
 
     test("getPriceStats (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"] };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
 
         server
@@ -1305,16 +1323,19 @@ describe("DexClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.api.solana.dex.getPriceStats({
-                tokens: ["tokens", "tokens"],
-            });
+            return await client.api.solana.dex.getPriceStats();
         }).rejects.toThrow(Prism.api.InternalServerError);
     });
 
     test("getPriceCandles (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { from: "2026-04-27T00:00:00Z", to: "2026-04-27T01:00:00Z", interval: 60 };
+        const rawRequestBody = {
+            token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
+            from: "2026-04-27T00:00:00Z",
+            to: "2026-04-27T01:00:00Z",
+            interval: 60,
+        };
         const rawResponseBody = [
             { timestamp: "2024-01-15T09:30:00Z", open: 1.1, high: 1.1, low: 1.1, close: 1.1, volume: 1.1, count: 1 },
         ];
@@ -1329,6 +1350,7 @@ describe("DexClient", () => {
             .build();
 
         const response = await client.api.solana.dex.getPriceCandles({
+            token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
             from: "2026-04-27T00:00:00Z",
             to: "2026-04-27T01:00:00Z",
             interval: 60,
@@ -1455,7 +1477,7 @@ describe("DexClient", () => {
             to: "2026-04-27T01:00:00Z",
             interval: 3600,
         };
-        const rawResponseBody = [{ token_address: "token_address", prices: [{}] }];
+        const rawResponseBody = [{ token_address: "token_address", pool_address: "pool_address", prices: [{}] }];
 
         server
             .mockEndpoint()
@@ -1478,7 +1500,7 @@ describe("DexClient", () => {
     test("getPriceHistory (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
+        const rawRequestBody = { from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
         server
@@ -1492,7 +1514,6 @@ describe("DexClient", () => {
 
         await expect(async () => {
             return await client.api.solana.dex.getPriceHistory({
-                tokens: ["tokens", "tokens"],
                 from: "2024-01-15T09:30:00Z",
                 interval: 1,
             });
@@ -1502,7 +1523,7 @@ describe("DexClient", () => {
     test("getPriceHistory (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
+        const rawRequestBody = { from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
         server
@@ -1516,7 +1537,6 @@ describe("DexClient", () => {
 
         await expect(async () => {
             return await client.api.solana.dex.getPriceHistory({
-                tokens: ["tokens", "tokens"],
                 from: "2024-01-15T09:30:00Z",
                 interval: 1,
             });
@@ -1526,7 +1546,7 @@ describe("DexClient", () => {
     test("getPriceHistory (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
+        const rawRequestBody = { from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
         server
@@ -1540,7 +1560,6 @@ describe("DexClient", () => {
 
         await expect(async () => {
             return await client.api.solana.dex.getPriceHistory({
-                tokens: ["tokens", "tokens"],
                 from: "2024-01-15T09:30:00Z",
                 interval: 1,
             });
@@ -1550,7 +1569,7 @@ describe("DexClient", () => {
     test("getPriceHistory (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
+        const rawRequestBody = { from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
         server
@@ -1564,7 +1583,6 @@ describe("DexClient", () => {
 
         await expect(async () => {
             return await client.api.solana.dex.getPriceHistory({
-                tokens: ["tokens", "tokens"],
                 from: "2024-01-15T09:30:00Z",
                 interval: 1,
             });
@@ -1574,7 +1592,7 @@ describe("DexClient", () => {
     test("getPriceHistory (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
-        const rawRequestBody = { tokens: ["tokens", "tokens"], from: "2024-01-15T09:30:00Z", interval: 1 };
+        const rawRequestBody = { from: "2024-01-15T09:30:00Z", interval: 1 };
         const rawResponseBody = { key: "value" };
 
         server
@@ -1588,7 +1606,6 @@ describe("DexClient", () => {
 
         await expect(async () => {
             return await client.api.solana.dex.getPriceHistory({
-                tokens: ["tokens", "tokens"],
                 from: "2024-01-15T09:30:00Z",
                 interval: 1,
             });

@@ -3,27 +3,30 @@
 /**
  * @example
  *     {
+ *         token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
  *         from: "2026-04-27T00:00:00Z",
  *         to: "2026-04-27T01:00:00Z",
  *         interval: 60
  *     }
  */
 export interface GetPriceCandlesDexRequest {
-    /** Token address to retrieve price candles for. */
-    token_address?: string;
+    /** Token address to filter by. */
+    token?: string;
+    /** Pool address to filter by. */
+    pool?: string;
     /**
      * Start of the candle range, as a date-time RFC3339 string.
-     * Must be combined with `to` to define a bounded range.
+     * Can be combined with `to` to define a bounded range.
      */
     from?: string;
     /**
-     * End of the candle range, as a date-time RFC3339 string. Defaults to the current time.
-     * Must be combined with either `from` (to define a bounded range) or `count` (to return the N most recent candles ending at `to`).
+     * End of the candle range, as a date-time RFC3339 string.
+     * Defaults to the current time.
      */
     to?: string;
     /**
-     * Number of candles to return, ending at `to`.
-     * Must be combined with `to`.
+     * Number of candles to return.
+     * Must be combined with `from` or `to`.
      */
     count?: number;
     /** Sampling interval between data points, in seconds. */

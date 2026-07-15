@@ -7,6 +7,8 @@
  *     }
  */
 export interface GetPriceDexRequest {
-    /** Token addresses to retrieve the latest prices for. Accepts between 1 and 1000 tokens per request. */
-    tokens: string[];
+    /** Token addresses to retrieve the latest prices for. */
+    tokens?: string[];
+    /** Pool addresses to retrieve the latest prices for. */
+    pools?: string[];
 }
