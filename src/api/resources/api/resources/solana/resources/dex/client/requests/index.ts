@@ -1,3 +1,4 @@
+export type { GetPositionProfileDexRequest } from "./GetPositionProfileDexRequest.js";
 export type { GetPriceCandlesDexRequest } from "./GetPriceCandlesDexRequest.js";
 export type { GetPriceDexRequest } from "./GetPriceDexRequest.js";
 export type { GetPriceHistoryDexRequest } from "./GetPriceHistoryDexRequest.js";
@@ -6,5 +7,6 @@ export type { GetSwapsDexRequest } from "./GetSwapsDexRequest.js";
 export type { GetTokenProfileDexRequest } from "./GetTokenProfileDexRequest.js";
 export type { GetTradesDexRequest } from "./GetTradesDexRequest.js";
 export type { GetWalletProfileDexRequest } from "./GetWalletProfileDexRequest.js";
+export type { SearchPositionProfilesDexRequest } from "./SearchPositionProfilesDexRequest.js";
 export type { SearchTokenProfilesDexRequest } from "./SearchTokenProfilesDexRequest.js";
 export type { SearchWalletProfilesDexRequest } from "./SearchWalletProfilesDexRequest.js";

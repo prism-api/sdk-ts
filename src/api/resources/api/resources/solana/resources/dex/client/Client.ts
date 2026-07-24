@@ -420,6 +420,199 @@ export class DexClient {
     }
 
     /**
+     * Returns a position profile for a specific wallet-token pair.
+     *
+     * @param {Prism.api.solana.GetPositionProfileDexRequest} request
+     * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Prism.api.BadRequestError}
+     * @throws {@link Prism.api.UnauthorizedError}
+     * @throws {@link Prism.api.ForbiddenError}
+     * @throws {@link Prism.api.TooManyRequestsError}
+     * @throws {@link Prism.api.InternalServerError}
+     *
+     * @example
+     *     await client.api.solana.dex.getPositionProfile({
+     *         wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
+     *         token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
+     *         options: {
+     *             include_metadata: true,
+     *             include_labels: true,
+     *             include_metrics: ["7d"]
+     *         }
+     *     })
+     */
+    public getPositionProfile(
+        request: Prism.api.solana.GetPositionProfileDexRequest,
+        requestOptions?: DexClient.RequestOptions,
+    ): core.HttpResponsePromise<Prism.api.SolanaDexPositionProfile> {
+        return core.HttpResponsePromise.fromPromise(this.__getPositionProfile(request, requestOptions));
+    }
+
+    private async __getPositionProfile(
+        request: Prism.api.solana.GetPositionProfileDexRequest,
+        requestOptions?: DexClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Prism.api.SolanaDexPositionProfile>> {
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.PrismEnvironment.Production,
+                "v1/solana/dex/profiles/positions/get-profile",
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: request,
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return { data: _response.body as Prism.api.SolanaDexPositionProfile, rawResponse: _response.rawResponse };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 400:
+                    throw new Prism.api.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                case 401:
+                    throw new Prism.api.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new Prism.api.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                case 429:
+                    throw new Prism.api.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                case 500:
+                    throw new Prism.api.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                default:
+                    throw new errors.PrismError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v1/solana/dex/profiles/positions/get-profile",
+        );
+    }
+
+    /**
+     * Filter, query, and sort position profiles based on specified metrics and conditions.
+     *
+     * @param {Prism.api.solana.SearchPositionProfilesDexRequest} request
+     * @param {DexClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Prism.api.BadRequestError}
+     * @throws {@link Prism.api.UnauthorizedError}
+     * @throws {@link Prism.api.ForbiddenError}
+     * @throws {@link Prism.api.TooManyRequestsError}
+     * @throws {@link Prism.api.InternalServerError}
+     *
+     * @example
+     *     await client.api.solana.dex.searchPositionProfiles({
+     *         limit: 10,
+     *         sort: {
+     *             field: "metrics.7d.pnl",
+     *             direction: "desc"
+     *         },
+     *         dynamic_labels: {
+     *             "winner": {}
+     *         },
+     *         options: {
+     *             include_metadata: true,
+     *             include_labels: true,
+     *             include_metrics: ["7d"]
+     *         }
+     *     })
+     */
+    public searchPositionProfiles(
+        request: Prism.api.solana.SearchPositionProfilesDexRequest = {},
+        requestOptions?: DexClient.RequestOptions,
+    ): core.HttpResponsePromise<Prism.api.solana.SearchPositionProfilesDexResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__searchPositionProfiles(request, requestOptions));
+    }
+
+    private async __searchPositionProfiles(
+        request: Prism.api.solana.SearchPositionProfilesDexRequest = {},
+        requestOptions?: DexClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Prism.api.solana.SearchPositionProfilesDexResponse>> {
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.PrismEnvironment.Production,
+                "v1/solana/dex/profiles/positions/search-profiles",
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: request,
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: _response.body as Prism.api.solana.SearchPositionProfilesDexResponse,
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 400:
+                    throw new Prism.api.BadRequestError(_response.error.body as unknown, _response.rawResponse);
+                case 401:
+                    throw new Prism.api.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new Prism.api.ForbiddenError(_response.error.body as unknown, _response.rawResponse);
+                case 429:
+                    throw new Prism.api.TooManyRequestsError(_response.error.body as unknown, _response.rawResponse);
+                case 500:
+                    throw new Prism.api.InternalServerError(_response.error.body as unknown, _response.rawResponse);
+                default:
+                    throw new errors.PrismError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v1/solana/dex/profiles/positions/search-profiles",
+        );
+    }
+
+    /**
      * Returns trades for a combination of wallet, token and/or pool.
      *
      * @param {Prism.api.solana.GetTradesDexRequest} request

@@ -749,6 +749,367 @@ describe("DexClient", () => {
         }).rejects.toThrow(Prism.api.InternalServerError);
     });
 
+    test("getPositionProfile (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {
+            wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
+            token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
+            options: { include_metadata: true, include_labels: true, include_metrics: ["7d"] },
+        };
+        const rawResponseBody = {
+            updated_at: "2024-01-15T09:30:00Z",
+            synced_at: "2024-01-15T09:30:00Z",
+            position_address: "position_address",
+            wallet_address: "wallet_address",
+            token_address: "token_address",
+            labels: ["labels"],
+            dynamic_labels: ["dynamic_labels"],
+            metadata: { last_trade_at: "2024-01-15T09:30:00Z" },
+            metrics: {
+                key: {
+                    risk_score: 1.1,
+                    consistency_score: 1.1,
+                    largest_win: 1.1,
+                    largest_loss: 1.1,
+                    max_consecutive_wins: 1,
+                    max_consecutive_losses: 1,
+                    avg_buy_size: 1.1,
+                    avg_sell_size: 1.1,
+                    avg_buy_mcap: 1.1,
+                    avg_sell_mcap: 1.1,
+                    avg_daily_trade_count: 1,
+                    avg_daily_volume: 1.1,
+                    avg_daily_pnl: 1.1,
+                    avg_daily_roi: 1.1,
+                    avg_holding_duration: 1,
+                    avg_trade_delta: 1,
+                    avg_pnl: 1.1,
+                    avg_roi: 1.1,
+                    trade_count: 1,
+                    buy_count: 1,
+                    sell_count: 1,
+                    win_count: 1,
+                    loss_count: 1,
+                    pnl: 1.1,
+                    win_pnl: 1.1,
+                    loss_pnl: 1.1,
+                    volume: 1.1,
+                    buy_volume: 1.1,
+                    sell_volume: 1.1,
+                    winrate: 1.1,
+                    volume_weighted_winrate: 1.1,
+                    roi: 1.1,
+                    volume_weighted_roi: 1.1,
+                    pnl_volume_ratio: 1.1,
+                    win_loss_size_ratio: 1.1,
+                    profit_factor: 1.1,
+                    profit_expectancy: 1.1,
+                    recovery_factor: 1.1,
+                    winrate_stability: 1.1,
+                    winrate_volatility: 1.1,
+                    roi_stability: 1.1,
+                    roi_volatility: 1.1,
+                    pnl_stability: 1.1,
+                    pnl_volatility: 1.1,
+                    sharpe_ratio: 1.1,
+                    sortino_ratio: 1.1,
+                    max_drawdown: 1.1,
+                    risk_of_ruin: 1.1,
+                    turnover: 1.1,
+                },
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/get-profile")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.api.solana.dex.getPositionProfile({
+            wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
+            token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
+            options: {
+                include_metadata: true,
+                include_labels: true,
+                include_metrics: ["7d"],
+            },
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("getPositionProfile (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { wallet: "wallet", token: "token" };
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/get-profile")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(400)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.getPositionProfile({
+                wallet: "wallet",
+                token: "token",
+            });
+        }).rejects.toThrow(Prism.api.BadRequestError);
+    });
+
+    test("getPositionProfile (3)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { wallet: "wallet", token: "token" };
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/get-profile")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(401)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.getPositionProfile({
+                wallet: "wallet",
+                token: "token",
+            });
+        }).rejects.toThrow(Prism.api.UnauthorizedError);
+    });
+
+    test("getPositionProfile (4)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { wallet: "wallet", token: "token" };
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/get-profile")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(403)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.getPositionProfile({
+                wallet: "wallet",
+                token: "token",
+            });
+        }).rejects.toThrow(Prism.api.ForbiddenError);
+    });
+
+    test("getPositionProfile (5)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { wallet: "wallet", token: "token" };
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/get-profile")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(429)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.getPositionProfile({
+                wallet: "wallet",
+                token: "token",
+            });
+        }).rejects.toThrow(Prism.api.TooManyRequestsError);
+    });
+
+    test("getPositionProfile (6)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { wallet: "wallet", token: "token" };
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/get-profile")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(500)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.getPositionProfile({
+                wallet: "wallet",
+                token: "token",
+            });
+        }).rejects.toThrow(Prism.api.InternalServerError);
+    });
+
+    test("searchPositionProfiles (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {
+            limit: 10,
+            sort: { field: "metrics.7d.pnl", direction: "desc" },
+            dynamic_labels: { winner: {} },
+            options: { include_metadata: true, include_labels: true, include_metrics: ["7d"] },
+        };
+        const rawResponseBody = {
+            count: 1,
+            cursor: "cursor",
+            data: [
+                {
+                    updated_at: "2024-01-15T09:30:00Z",
+                    synced_at: "2024-01-15T09:30:00Z",
+                    position_address: "position_address",
+                    wallet_address: "wallet_address",
+                    token_address: "token_address",
+                    labels: ["labels"],
+                    dynamic_labels: ["dynamic_labels"],
+                    metrics: { key: {} },
+                },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/search-profiles")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.api.solana.dex.searchPositionProfiles({
+            limit: 10,
+            sort: {
+                field: "metrics.7d.pnl",
+                direction: "desc",
+            },
+            dynamic_labels: {
+                winner: {},
+            },
+            options: {
+                include_metadata: true,
+                include_labels: true,
+                include_metrics: ["7d"],
+            },
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("searchPositionProfiles (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/search-profiles")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(400)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.searchPositionProfiles();
+        }).rejects.toThrow(Prism.api.BadRequestError);
+    });
+
+    test("searchPositionProfiles (3)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/search-profiles")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(401)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.searchPositionProfiles();
+        }).rejects.toThrow(Prism.api.UnauthorizedError);
+    });
+
+    test("searchPositionProfiles (4)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/search-profiles")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(403)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.searchPositionProfiles();
+        }).rejects.toThrow(Prism.api.ForbiddenError);
+    });
+
+    test("searchPositionProfiles (5)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/search-profiles")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(429)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.searchPositionProfiles();
+        }).rejects.toThrow(Prism.api.TooManyRequestsError);
+    });
+
+    test("searchPositionProfiles (6)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = { key: "value" };
+
+        server
+            .mockEndpoint()
+            .post("/v1/solana/dex/profiles/positions/search-profiles")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(500)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.api.solana.dex.searchPositionProfiles();
+        }).rejects.toThrow(Prism.api.InternalServerError);
+    });
+
     test("getTrades (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new PrismClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });

@@ -304,6 +304,154 @@ await client.api.solana.dex.searchTokenProfiles({
 </dl>
 </details>
 
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getPositionProfile</a>({ ...params }) -> Prism.SolanaDexPositionProfile</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a position profile for a specific wallet-token pair.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.api.solana.dex.getPositionProfile({
+    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
+    token: "Z4d9YXR4pSkdKcu9UBcwxHp7i32buzdDtAR1b1Gbonk",
+    options: {
+        include_metadata: true,
+        include_labels: true,
+        include_metrics: ["7d"]
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Prism.api.solana.GetPositionProfileDexRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `DexClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">searchPositionProfiles</a>({ ...params }) -> Prism.SearchPositionProfilesDexResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Filter, query, and sort position profiles based on specified metrics and conditions.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.api.solana.dex.searchPositionProfiles({
+    limit: 10,
+    sort: {
+        field: "metrics.7d.pnl",
+        direction: "desc"
+    },
+    dynamic_labels: {
+        "winner": {}
+    },
+    options: {
+        include_metadata: true,
+        include_labels: true,
+        include_metrics: ["7d"]
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Prism.api.solana.SearchPositionProfilesDexRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `DexClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.api.solana.dex.<a href="/src/api/resources/api/resources/solana/resources/dex/client/Client.ts">getTrades</a>({ ...params }) -> Prism.GetTradesDexResponse</code></summary>
 <dl>
 <dd>

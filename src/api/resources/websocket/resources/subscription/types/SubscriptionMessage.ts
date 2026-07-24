@@ -262,6 +262,76 @@ export namespace SubscriptionMessage {
                   | undefined;
           }
         | {
+              updated_at?: string | undefined;
+              synced_at?: string | undefined;
+              position_address?: string | undefined;
+              wallet_address?: string | undefined;
+              token_address?: string | undefined;
+              labels?: string[] | undefined;
+              dynamic_labels?: string[] | undefined;
+              metadata?:
+                  | {
+                        last_trade_at?: string | undefined;
+                    }
+                  | undefined;
+              metrics?:
+                  | Record<
+                        string,
+                        {
+                            risk_score?: number | undefined;
+                            consistency_score?: number | undefined;
+                            largest_win?: number | undefined;
+                            largest_loss?: number | undefined;
+                            max_consecutive_wins?: number | undefined;
+                            max_consecutive_losses?: number | undefined;
+                            avg_buy_size?: number | undefined;
+                            avg_sell_size?: number | undefined;
+                            avg_buy_mcap?: number | undefined;
+                            avg_sell_mcap?: number | undefined;
+                            avg_daily_trade_count?: number | undefined;
+                            avg_daily_volume?: number | undefined;
+                            avg_daily_pnl?: number | undefined;
+                            avg_daily_roi?: number | undefined;
+                            avg_holding_duration?: number | undefined;
+                            avg_trade_delta?: number | undefined;
+                            avg_pnl?: number | undefined;
+                            avg_roi?: number | undefined;
+                            trade_count?: number | undefined;
+                            buy_count?: number | undefined;
+                            sell_count?: number | undefined;
+                            win_count?: number | undefined;
+                            loss_count?: number | undefined;
+                            pnl?: number | undefined;
+                            win_pnl?: number | undefined;
+                            loss_pnl?: number | undefined;
+                            volume?: number | undefined;
+                            buy_volume?: number | undefined;
+                            sell_volume?: number | undefined;
+                            winrate?: number | undefined;
+                            volume_weighted_winrate?: number | undefined;
+                            roi?: number | undefined;
+                            volume_weighted_roi?: number | undefined;
+                            pnl_volume_ratio?: number | undefined;
+                            win_loss_size_ratio?: number | undefined;
+                            profit_factor?: number | undefined;
+                            profit_expectancy?: number | undefined;
+                            recovery_factor?: number | undefined;
+                            winrate_stability?: number | undefined;
+                            winrate_volatility?: number | undefined;
+                            roi_stability?: number | undefined;
+                            roi_volatility?: number | undefined;
+                            pnl_stability?: number | undefined;
+                            pnl_volatility?: number | undefined;
+                            sharpe_ratio?: number | undefined;
+                            sortino_ratio?: number | undefined;
+                            max_drawdown?: number | undefined;
+                            risk_of_ruin?: number | undefined;
+                            turnover?: number | undefined;
+                        }
+                    >
+                  | undefined;
+          }
+        | {
               id?: number | undefined;
               transfer_type?: ("spl_token_transfer" | "native_transfer") | undefined;
               stack_height?: number | undefined;
