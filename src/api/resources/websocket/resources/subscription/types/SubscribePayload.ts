@@ -24,6 +24,13 @@ export namespace SubscribePayload {
         SolanaDexProfilesPosition: "solana.dex.profiles.position",
         SolanaAssetsTransfers: "solana.assets.transfers",
         SolanaAssetsBalanceChanges: "solana.assets.balance-changes",
+        EvmDexPrices: "evm.dex.prices",
+        EvmDexSwaps: "evm.dex.swaps",
+        EvmDexTrades: "evm.dex.trades",
+        EvmDexPools: "evm.dex.pools",
+        EvmDexProfilesWallet: "evm.dex.profiles.wallet",
+        EvmDexProfilesToken: "evm.dex.profiles.token",
+        EvmAssetsTransfers: "evm.assets.transfers",
     } as const;
     export type Topic = (typeof Topic)[keyof typeof Topic];
     export type Params =
@@ -35,5 +42,12 @@ export namespace SubscribePayload {
         | Prism.websocket.SubscribeSolanaDexTokenProfilesParams
         | Prism.websocket.SubscribeSolanaDexPositionProfilesParams
         | Prism.websocket.SubscribeSolanaAssetsTransfersParams
-        | Prism.websocket.SubscribeSolanaAssetsBalanceChangesParams;
+        | Prism.websocket.SubscribeSolanaAssetsBalanceChangesParams
+        | Prism.websocket.SubscribeEvmDexPricesParams
+        | Prism.websocket.SubscribeEvmDexSwapsParams
+        | Prism.websocket.SubscribeEvmDexTradesParams
+        | Prism.websocket.SubscribeEvmDexPoolsParams
+        | Prism.websocket.SubscribeEvmDexWalletProfilesParams
+        | Prism.websocket.SubscribeEvmDexTokenProfilesParams
+        | Prism.websocket.SubscribeEvmAssetsTransfersParams;
 }

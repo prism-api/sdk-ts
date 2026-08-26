@@ -25,6 +25,13 @@ export namespace UnsubscribePayload {
             SolanaDexProfilesPosition: "solana.dex.profiles.position",
             SolanaAssetsTransfers: "solana.assets.transfers",
             SolanaAssetsBalanceChanges: "solana.assets.balance-changes",
+            EvmDexPrices: "evm.dex.prices",
+            EvmDexSwaps: "evm.dex.swaps",
+            EvmDexTrades: "evm.dex.trades",
+            EvmDexPools: "evm.dex.pools",
+            EvmDexProfilesWallet: "evm.dex.profiles.wallet",
+            EvmDexProfilesToken: "evm.dex.profiles.token",
+            EvmAssetsTransfers: "evm.assets.transfers",
         } as const;
         export type Item = (typeof Item)[keyof typeof Item];
     }

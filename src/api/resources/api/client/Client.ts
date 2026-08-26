@@ -2,6 +2,7 @@
 
 import type { BaseClientOptions } from "../../../../BaseClient.js";
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "../../../../BaseClient.js";
+import { EvmClient } from "../resources/evm/client/Client.js";
 import { SolanaClient } from "../resources/solana/client/Client.js";
 
 export declare namespace ApiClient {
@@ -10,10 +11,15 @@ export declare namespace ApiClient {
 
 export class ApiClient {
     protected readonly _options: NormalizedClientOptionsWithAuth<ApiClient.Options>;
+    protected _evm: EvmClient | undefined;
     protected _solana: SolanaClient | undefined;
 
     constructor(options: ApiClient.Options) {
         this._options = normalizeClientOptionsWithAuth(options);
+    }
+
+    public get evm(): EvmClient {
+        return (this._evm ??= new EvmClient(this._options));
     }
 
     public get solana(): SolanaClient {
