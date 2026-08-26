@@ -49,11 +49,11 @@ Instantiate and use the client with the following:
 import { PrismClient } from "prism-ts-sdk";
 
 const client = new PrismClient({ apiKey: "YOUR_API_KEY" });
-await client.api.solana.dex.getWalletProfile({
-    wallet: "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
+await client.api.evm.dex.getWalletProfile({
+    chain_id: 1,
+    wallet: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
     options: {
         include_metadata: true,
-        include_labels: true,
         include_metrics: ["7d"]
     }
 });
@@ -93,7 +93,7 @@ will be thrown.
 import { PrismError } from "prism-ts-sdk";
 
 try {
-    await client.api.solana.dex.getWalletProfile(...);
+    await client.api.evm.dex.getWalletProfile(...);
 } catch (err) {
     if (err instanceof PrismError) {
         console.log(err.statusCode);
@@ -130,7 +130,7 @@ const client = new PrismClient({
     }
 });
 
-const response = await client.api.solana.dex.getWalletProfile(..., {
+const response = await client.api.evm.dex.getWalletProfile(..., {
     headers: {
         'X-Custom-Header': 'custom value'
     }
@@ -142,7 +142,7 @@ const response = await client.api.solana.dex.getWalletProfile(..., {
 If you would like to send additional query string parameters as part of the request, use the `queryParams` request option.
 
 ```typescript
-const response = await client.api.solana.dex.getWalletProfile(..., {
+const response = await client.api.evm.dex.getWalletProfile(..., {
     queryParams: {
         'customQueryParamKey': 'custom query param value'
     }
@@ -172,7 +172,7 @@ Which status codes are retried depends on the `retryStatusCodes` generator confi
 Use the `maxRetries` request option to configure this behavior.
 
 ```typescript
-const response = await client.api.solana.dex.getWalletProfile(..., {
+const response = await client.api.evm.dex.getWalletProfile(..., {
     maxRetries: 0 // override maxRetries at the request level
 });
 ```
@@ -182,7 +182,7 @@ const response = await client.api.solana.dex.getWalletProfile(..., {
 The SDK defaults to a 60 second timeout. Use the `timeoutInSeconds` option to configure this behavior.
 
 ```typescript
-const response = await client.api.solana.dex.getWalletProfile(..., {
+const response = await client.api.evm.dex.getWalletProfile(..., {
     timeoutInSeconds: 30 // override timeout to 30s
 });
 ```
@@ -193,7 +193,7 @@ The SDK allows users to abort requests at any point by passing in an abort signa
 
 ```typescript
 const controller = new AbortController();
-const response = await client.api.solana.dex.getWalletProfile(..., {
+const response = await client.api.evm.dex.getWalletProfile(..., {
     abortSignal: controller.signal
 });
 controller.abort(); // aborts the request
@@ -205,7 +205,7 @@ The SDK provides access to raw response data, including headers, through the `.w
 The `.withRawResponse()` method returns a promise that results to an object with a `data` and a `rawResponse` property.
 
 ```typescript
-const { data, rawResponse } = await client.api.solana.dex.getWalletProfile(...).withRawResponse();
+const { data, rawResponse } = await client.api.evm.dex.getWalletProfile(...).withRawResponse();
 
 console.log(data);
 console.log(rawResponse.headers['X-My-Header']);

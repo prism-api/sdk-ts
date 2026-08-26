@@ -16,6 +16,13 @@ export namespace SubscriptionMessage {
         SolanaDexProfilesPosition: "solana.dex.profiles.position",
         SolanaAssetsTransfers: "solana.assets.transfers",
         SolanaAssetsBalanceChanges: "solana.assets.balance-changes",
+        EvmDexPrices: "evm.dex.prices",
+        EvmDexSwaps: "evm.dex.swaps",
+        EvmDexTrades: "evm.dex.trades",
+        EvmDexPools: "evm.dex.pools",
+        EvmDexProfilesWallet: "evm.dex.profiles.wallet",
+        EvmDexProfilesToken: "evm.dex.profiles.token",
+        EvmAssetsTransfers: "evm.assets.transfers",
     } as const;
     export type Topic = (typeof Topic)[keyof typeof Topic];
     export type Data =
@@ -353,6 +360,239 @@ export namespace SubscriptionMessage {
               pre_balance?: number | undefined;
               post_balance?: number | undefined;
               block_slot?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
+          }
+        | {
+              chain_id?: number | undefined;
+              token_address?: string | undefined;
+              pool_address?: string | undefined;
+              usd_price?: number | undefined;
+              block_number?: number | undefined;
+              block_time?: string | undefined;
+          }
+        | {
+              id?: number | undefined;
+              chain_id?: number | undefined;
+              swap_type?: ("quote_token" | "token_quote" | "token_token" | "quote_quote") | undefined;
+              protocol?: string | undefined;
+              wallet_address?: string | undefined;
+              pool_address?: string | undefined;
+              token_address_in?: string | undefined;
+              token_address_out?: string | undefined;
+              token_amount_in?: number | undefined;
+              token_amount_out?: number | undefined;
+              token_price_in?: number | undefined;
+              token_price_out?: number | undefined;
+              pre_token_balance_in?: number | undefined;
+              pre_token_balance_out?: number | undefined;
+              post_token_balance_in?: number | undefined;
+              post_token_balance_out?: number | undefined;
+              usd_amount_in?: number | undefined;
+              usd_amount_out?: number | undefined;
+              block_number?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
+          }
+        | {
+              id?: number | undefined;
+              chain_id?: number | undefined;
+              protocol?: string | undefined;
+              swap_type?: ("quote_token" | "token_quote" | "token_token" | "quote_quote") | undefined;
+              wallet_address?: string | undefined;
+              token_address?: string | undefined;
+              quote_address?: string | undefined;
+              position_address?: string | undefined;
+              direction?: ("buy" | "sell") | undefined;
+              position_state?: ("open" | "close" | "trade" | "unknown") | undefined;
+              token_amount?: number | undefined;
+              quote_amount?: number | undefined;
+              native_amount?: number | undefined;
+              usd_amount?: number | undefined;
+              pre_token_balance?: number | undefined;
+              post_token_balance?: number | undefined;
+              token_price?: number | undefined;
+              quote_price?: number | undefined;
+              token_mcap?: number | undefined;
+              block_number?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
+          }
+        | {
+              chain_id?: number | undefined;
+              protocol?: string | undefined;
+              event_type?: ("create" | "swap" | "add_liquidity" | "remove_liquidity") | undefined;
+              pool_address?: string | undefined;
+              vaults?:
+                  | {
+                        vault_address?: string | undefined;
+                        token_address?: string | undefined;
+                        amount?: number | undefined;
+                        usd_amount?: number | undefined;
+                    }[]
+                  | undefined;
+              block_number?: number | undefined;
+              block_time?: string | undefined;
+              tx_hash?: string | undefined;
+          }
+        | {
+              updated_at?: string | undefined;
+              synced_at?: string | undefined;
+              chain_id?: number | undefined;
+              wallet_address?: string | undefined;
+              metadata?:
+                  | {
+                        last_trade_at?: string | undefined;
+                    }
+                  | undefined;
+              metrics?:
+                  | Record<
+                        string,
+                        {
+                            risk_score?: number | undefined;
+                            consistency_score?: number | undefined;
+                            largest_win?: number | undefined;
+                            largest_loss?: number | undefined;
+                            max_consecutive_wins?: number | undefined;
+                            max_consecutive_losses?: number | undefined;
+                            avg_buy_size?: number | undefined;
+                            avg_sell_size?: number | undefined;
+                            avg_buy_mcap?: number | undefined;
+                            avg_sell_mcap?: number | undefined;
+                            avg_daily_pnl?: number | undefined;
+                            avg_daily_roi?: number | undefined;
+                            avg_daily_trade_count?: number | undefined;
+                            avg_daily_traded_tokens?: number | undefined;
+                            avg_daily_volume?: number | undefined;
+                            avg_holding_duration?: number | undefined;
+                            avg_trade_delta?: number | undefined;
+                            avg_pnl?: number | undefined;
+                            avg_roi?: number | undefined;
+                            avg_token_pnl?: number | undefined;
+                            avg_token_roi?: number | undefined;
+                            token_roi_distribution?: Record<string, number> | undefined;
+                            trade_count?: number | undefined;
+                            buy_count?: number | undefined;
+                            sell_count?: number | undefined;
+                            position_count?: number | undefined;
+                            win_count?: number | undefined;
+                            loss_count?: number | undefined;
+                            pnl?: number | undefined;
+                            win_pnl?: number | undefined;
+                            loss_pnl?: number | undefined;
+                            volume?: number | undefined;
+                            buy_volume?: number | undefined;
+                            sell_volume?: number | undefined;
+                            winrate?: number | undefined;
+                            volume_weighted_winrate?: number | undefined;
+                            roi?: number | undefined;
+                            volume_weighted_roi?: number | undefined;
+                            time_weighted_roi?: number | undefined;
+                            pnl_volume_ratio?: number | undefined;
+                            token_hit_ratio?: number | undefined;
+                            win_loss_size_ratio?: number | undefined;
+                            profit_factor?: number | undefined;
+                            profit_expectancy?: number | undefined;
+                            recovery_factor?: number | undefined;
+                            winrate_stability?: number | undefined;
+                            winrate_volatility?: number | undefined;
+                            pnl_stability?: number | undefined;
+                            pnl_volatility?: number | undefined;
+                            roi_stability?: number | undefined;
+                            roi_volatility?: number | undefined;
+                            sharpe_ratio?: number | undefined;
+                            sortino_ratio?: number | undefined;
+                            max_drawdown?: number | undefined;
+                            risk_of_ruin?: number | undefined;
+                            turnover?: number | undefined;
+                        }
+                    >
+                  | undefined;
+          }
+        | {
+              updated_at?: string | undefined;
+              synced_at?: string | undefined;
+              chain_id?: number | undefined;
+              token_address?: string | undefined;
+              metadata?:
+                  | {
+                        last_trade_at?: string | undefined;
+                        created_at?: string | undefined;
+                        symbol?: string | undefined;
+                        name?: string | undefined;
+                        image?: string | undefined;
+                        verified?: boolean | undefined;
+                        creator_address?: string | undefined;
+                        twitter?: string | undefined;
+                        discord?: string | undefined;
+                        website?: string | undefined;
+                        telegram?: string | undefined;
+                    }
+                  | undefined;
+              metrics?:
+                  | Record<
+                        string,
+                        {
+                            largest_trade_win?: number | undefined;
+                            largest_trade_loss?: number | undefined;
+                            avg_buy_size?: number | undefined;
+                            avg_sell_size?: number | undefined;
+                            avg_price?: number | undefined;
+                            avg_buy_price?: number | undefined;
+                            avg_sell_price?: number | undefined;
+                            avg_buy_mcap?: number | undefined;
+                            avg_sell_mcap?: number | undefined;
+                            avg_holding_duration?: number | undefined;
+                            avg_trade_pnl?: number | undefined;
+                            avg_trade_roi?: number | undefined;
+                            avg_wallet_winrate?: number | undefined;
+                            avg_wallet_pnl?: number | undefined;
+                            avg_wallet_roi?: number | undefined;
+                            wallet_roi_distribution?: Record<string, number> | undefined;
+                            makers_count?: number | undefined;
+                            buyers_count?: number | undefined;
+                            sellers_count?: number | undefined;
+                            buy_count?: number | undefined;
+                            sell_count?: number | undefined;
+                            win_position_count?: number | undefined;
+                            loss_position_count?: number | undefined;
+                            win_pnl?: number | undefined;
+                            loss_pnl?: number | undefined;
+                            buy_volume?: number | undefined;
+                            sell_volume?: number | undefined;
+                            pnl?: number | undefined;
+                            trade_count?: number | undefined;
+                            volume?: number | undefined;
+                            position_count?: number | undefined;
+                            volume_weighted_winrate?: number | undefined;
+                            volume_weighted_roi?: number | undefined;
+                            wallet_hit_ratio?: number | undefined;
+                            profit_factor?: number | undefined;
+                            win_loss_size_ratio?: number | undefined;
+                            pnl_volume_ratio?: number | undefined;
+                            price_stability?: number | undefined;
+                            price_volatility?: number | undefined;
+                            roi_stability?: number | undefined;
+                            roi_volatility?: number | undefined;
+                            pnl_volatility?: number | undefined;
+                            pnl_stability?: number | undefined;
+                            sharpe_ratio?: number | undefined;
+                            sortino_ratio?: number | undefined;
+                            max_drawdown?: number | undefined;
+                        }
+                    >
+                  | undefined;
+          }
+        | {
+              id?: number | undefined;
+              chain_id?: number | undefined;
+              transfer_type?: ("erc20_transfer" | "erc20_mint" | "erc20_burn") | undefined;
+              token_address?: string | undefined;
+              from_address?: string | undefined;
+              to_address?: string | undefined;
+              amount?: number | undefined;
+              usd_amount?: number | undefined;
+              block_number?: number | undefined;
               block_time?: string | undefined;
               tx_hash?: string | undefined;
           };
